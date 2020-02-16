@@ -1,6 +1,6 @@
 ### Stage: Alpha 🤖 
 
-### In this repository you will find our code for the Yad1 project.
+### In this repository you will find our code for the 6tacles project.
 
 
 ## Our Goal
@@ -21,7 +21,9 @@ This project explores concepts regarding JavaScript (ES6+), Data Managment(Mongo
 
 ## Team
 
-
+### [Solobearus](https://github.com/solobearus "Ivan Solobear")
+### [naorpeled](https://github.com/naorpeled "Naor Peled")
+### [gguurr](https://github.com/gguurr "gguurr")
 
 # Features
 TBD
