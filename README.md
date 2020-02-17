@@ -4,7 +4,7 @@
 
 Stage: Alpha 🤖
 
-## 🎯 Our Goal 🎯
+## Our Goal
 Exploring cutting edge technologies and implementing our prior knowledge into one big project.
 
 # 🎧 Technologies 🎧
