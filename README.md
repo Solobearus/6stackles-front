@@ -30,11 +30,11 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 
 ## ⚔ All the project parts
 #### Gateway:
-- [API-Gateway](https://github.com/Solobearus/6stackles-gateway-api "API Gateway")
+🚪 [API-Gateway](https://github.com/Solobearus/6stackles-gateway-api "API Gateway")
 
 #### Controllers:
-- [Auth](https://github.com/Solobearus/6stackles-auth-controller "Auth controller")
+🔐 [Auth](https://github.com/Solobearus/6stackles-auth-controller "Auth controller")
 
 #### Modals:
-- [Users](https://github.com/Solobearus/6stackles-users "Users Microservice")
-- [Products](https://github.com/Solobearus/6stackles-products "Users Microservice")
+👥 [Users](https://github.com/Solobearus/6stackles-users "Users Microservice")
+📦 [Products](https://github.com/Solobearus/6stackles-products "Users Microservice")
