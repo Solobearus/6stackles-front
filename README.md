@@ -27,12 +27,13 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 - [naorpeled](https://github.com/naorpeled "Naor Peled")
 - [gguurr](https://github.com/gguurr "gguurr")
 
-# ⚔ Links
+# ⚔ All the project parts
+### Gateway:
 - [API-Gateway](https://github.com/Solobearus/6stackles-gateway-api "API Gateway")
 
 ### Controllers:
 - [Auth](https://github.com/Solobearus/6stackles-auth-controller "Auth controller")
 
-### Microservices:
+### Modal:
 - [Users](https://github.com/Solobearus/6stackles-users "Users Microservice")
 - [Products](https://github.com/Solobearus/6stackles-products "Users Microservice")
