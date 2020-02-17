@@ -14,9 +14,9 @@ This project explores concepts regarding JavaScript (ES6+), Data Managment(Mongo
 
 ## Team
 
-### [Solobearus](https://github.com/solobearus "Ivan Solobear")
-### [naorpeled](https://github.com/naorpeled "Naor Peled")
-### [gguurr](https://github.com/gguurr "gguurr")
+- [Solobearus](https://github.com/solobearus "Ivan Solobear")
+- [naorpeled](https://github.com/naorpeled "Naor Peled")
+- [gguurr](https://github.com/gguurr "gguurr")
 
 # Features
 TBD
@@ -26,11 +26,11 @@ TBD
 TBD
 
 # Links
-### [API-Gateway](https://github.com/Solobearus/yad1-gateway-api "API Gateway")
+- [API-Gateway](https://github.com/Solobearus/yad1-gateway-api "API Gateway")
 
 ### Controllers:
-### [Auth](https://github.com/Solobearus/yad1-auth-controller "Auth controller")
+- [Auth](https://github.com/Solobearus/yad1-auth-controller "Auth controller")
 
 ### Microservices:
-### [Users](https://github.com/Solobearus/yad1-users "Users Microservice")
-### [Products](https://github.com/Solobearus/yad1-products "Users Microservice")
+- [Users](https://github.com/Solobearus/yad1-users "Users Microservice")
+- [Products](https://github.com/Solobearus/yad1-products "Users Microservice")
