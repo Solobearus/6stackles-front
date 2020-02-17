@@ -35,6 +35,6 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 #### Controllers:
 - [Auth](https://github.com/Solobearus/6stackles-auth-controller "Auth controller")
 
-#### Modal:
+#### Modals:
 - [Users](https://github.com/Solobearus/6stackles-users "Users Microservice")
 - [Products](https://github.com/Solobearus/6stackles-products "Users Microservice")
