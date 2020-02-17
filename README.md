@@ -2,7 +2,6 @@
 
 ### In this repository you will find our code for the 6tacles project.
 
-
 ## Our Goal
 Exploring cutting edge technologies and implementing our prior knowledge into one big project.
 
