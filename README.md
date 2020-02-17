@@ -1,15 +1,28 @@
-### Stage: Alpha 🤖 
-## What is 6stackles?
+ 
+# What is 6stackles?
 6stackles is an eCommerce solution for selling and giving away second hand items.
 6stackles aims to give people additional functionality compared to other eCommerce solutions that exist in the market. For instance, real time chat between customers and sellers.
+
+Stage: Alpha 🤖
 
 ## Our Goal
 Exploring cutting edge technologies and implementing our prior knowledge into one big project.
 
-## Technologies
-This project explores concepts regarding JavaScript (ES6+), Data Managment(MongoDB), Micro-services and Micro-frontends.
+# Technologies
+### frontend
+- React hooks
+- Redux hooks + toolkit
 
-## Team
+### backend
+- Nodejs
+- Express
+- MongoDB
+
+### architecture
+- Micro-services
+- Micro-frontends(not implemented yet)
+
+# Team
 
 - [Solobearus](https://github.com/solobearus "Ivan Solobear")
 - [naorpeled](https://github.com/naorpeled "Naor Peled")
