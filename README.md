@@ -18,8 +18,9 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 - MongoDB
 
 #### architecture
+- Restful API
 - Micro-services
-- Micro-frontends(not implemented yet)
+- Micro-frontends (not implemented yet)
 
 ## 🐱‍💻 Team
 
