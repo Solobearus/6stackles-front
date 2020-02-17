@@ -2,8 +2,7 @@
 6stackles is an eCommerce solution for selling and giving away second hand items.
 6stackles aims to give people additional functionality compared to other eCommerce solutions that exist in the market. For instance, real time chat between customers and sellers.
 
-###### Stage: 
-Alpha 🤖
+##### Stage: Alpha 🤖
 
 ### Our Goal
 Exploring cutting edge technologies and implementing our prior knowledge into one big project.
