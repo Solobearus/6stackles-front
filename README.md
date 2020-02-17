@@ -29,11 +29,11 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 - [gguurr](https://github.com/gguurr "gguurr")
 
 # Links
-- [API-Gateway](https://github.com/Solobearus/yad1-gateway-api "API Gateway")
+- [API-Gateway](https://github.com/Solobearus/6stackles-gateway-api "API Gateway")
 
 ### Controllers:
-- [Auth](https://github.com/Solobearus/yad1-auth-controller "Auth controller")
+- [Auth](https://github.com/Solobearus/6stackles-auth-controller "Auth controller")
 
 ### Microservices:
-- [Users](https://github.com/Solobearus/yad1-users "Users Microservice")
-- [Products](https://github.com/Solobearus/yad1-products "Users Microservice")
+- [Users](https://github.com/Solobearus/6stackles-users "Users Microservice")
+- [Products](https://github.com/Solobearus/6stackles-products "Users Microservice")
