@@ -1,0 +1,10 @@
+{
+    "general": {
+        "email": "email",
+        "password": "password"
+    },
+    "sign_in": {
+        "submit": "Sign In",
+        "welcome": "Hey , welcome back !"
+    }
+}

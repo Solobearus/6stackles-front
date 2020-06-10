@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+    height: var(--header-height);
+    background-color: var(--main-dark-color);
+}
+
+.header>*{
+    height: 40px;
+    width: 40px;
+}
+
+.header_ham{
+    color: white;
+}
+
+.header_userLogo{
+    border-radius: 50%;
+}

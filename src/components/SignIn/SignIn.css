@@ -1,0 +1,30 @@
+.signIn {
+    /* height: calc(100% - 70px); */
+    flex:1;
+    background-color: var(--main-dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signIn_input {
+    color: var(--main-dark-color);
+    font-size: var(--main-font-paragraph-size);
+    border-radius: var(--general-border-radius);
+    padding: var(--general-padding);
+    width: var(--general-input-width);
+}
+
+.signIn_input:focus {
+    outline: none;
+}
+
+.signIn button {
+    width: var(--general-input-width);
+}
+
+.signIn_welcome{
+    text-align: center;
+    color: var(--typography-color);
+}
