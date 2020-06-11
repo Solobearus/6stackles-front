@@ -1,8 +1,8 @@
 .products {
-    flex: 1;
-    background-color: var(--main-dark-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  flex: 1;
+  background-color: var(--main-dark-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
