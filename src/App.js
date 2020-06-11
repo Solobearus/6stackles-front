@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import Products from './pages/Products/Products'
+import Product from './pages/Product/Product'
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -39,6 +40,7 @@ const App = () => {
             <SignUp />
           </Route>
           <PrivateRoute path="/products" component={Products} />
+          <PrivateRoute path="/product/:id" component={Product} />
         </Switch>
       </Router>
     </div>
