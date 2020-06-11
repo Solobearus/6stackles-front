@@ -1,3 +1,34 @@
-.signUp{
-    
+p {
+  margin: 0;
+  padding: 0;
+}
+.signUp {
+  /* height: calc(100% - 70px); */
+  flex: 1;
+  background-color: var(--main-dark-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signUp_input {
+  color: var(--main-dark-color);
+  font-size: var(--main-font-paragraph-size);
+  border-radius: var(--general-border-radius);
+  padding: var(--general-padding);
+  width: var(--general-input-width);
+}
+
+.signUp_input:focus {
+  outline: none;
+}
+
+.signUp button {
+  width: var(--general-input-width);
+}
+
+.signUp_welcome {
+  text-align: center;
+  color: var(--typography-color);
 }
