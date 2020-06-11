@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignUp.css";
-import Button from "../_shared/Button/Button";
+import Button from "../../components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 // import { register } from "../../store/async";
 

@@ -27,6 +27,59 @@ const userDetailsSlice = createSlice({
   }
 });
 
+const productsSlice = createSlice({
+  name: "products",
+  initialState: {
+    products: [
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+      {
+        name: 'xyz',
+        desc: 'xyz',
+        imgUrl: 'xyz',
+        price: 'xyz',
+      },
+    ]
+  },
+  reducers: {
+    setName: (state, action) => {
+      const newstate = [...state];
+      newstate[2].name = action.payload;
+      state = newstate;
+    },
+    setEmail: (state, action) => { state.email = action.payload },
+  }
+});
+
 const languagesSlice = createSlice({
   name: "languages",
   initialState: {
