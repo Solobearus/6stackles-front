@@ -1,27 +1,38 @@
-import React, { useState } from 'react'
-import './SignIn.css'
-import Button from '../../components/Button/Button'
+import React, { useState, useEffect } from "react";
+import "./SignIn.css";
+import Button from "../../components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../api";
+import { login, verify } from "../../api";
 import { userAuthSlice, userDetailsSlice } from "../../store/slices";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Input from "../../components/Input/Input";
 
-const SignIn = ({ location = {} }) => {
-    const { from } = location.state || { from: { pathname: '/' } }
+const SignIn = ({ from = "/" }) => {
     const { text } = useSelector(state => state.language);
     const [redirectToRefferel, setRedirectToRefferel] = useState(false);
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
+    let history = useHistory()
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        console.log(token)
+        
+        token && verify(token)
+            .then(res => history.push(from))
+            .catch(err => console.log(err))
+    }, [])
 
     const handleSubmit = async () => {
-        const result = await login('wrong', password);
-        console.log(result)
+        // const result = await login(email, password);
+        const result = await login(); //for testing porpuses
 
+        console.log(result)
         if (!result.error) {
             dispatch(userAuthSlice.actions.setToken(result.token))
+            history.push(from)
         } else {
             setError(result.error)
         }
@@ -29,30 +40,26 @@ const SignIn = ({ location = {} }) => {
 
     return (
         < div className="signIn" data-testid="signIn">
-            {redirectToRefferel && <Redirect to={from} />}
             {error != '' && <div className="error">error</div>}
             <div className="signIn_welcome">
                 {text.sign_in.welcome}
             </div>
-            <input
+            <Input
                 type="text"
-                className="signIn_input"
                 placeholder={text.general.email}
                 value={email}
-                onChange={e => setEmail(e.target.value)} />
-            <input
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
                 type="password"
-                className="signIn_input"
                 placeholder={text.general.password}
                 value={password}
-                onChange={e => setPassword(e.target.value)} />
-
-            <Button
-                value={text.sign_in.submit}
-                onClick={() => handleSubmit()}
+                onChange={(e) => setPassword(e.target.value)}
             />
-        </div >
-    )
-}
 
-export default SignIn
+            <Button value={text.sign_in.submit} onClick={() => handleSubmit()} />
+        </div>
+    );
+};
+
+export default SignIn;
