@@ -2,15 +2,17 @@
   "general": {
     "email": "email",
     "password": "password",
+    "repeat_password": "repeat password",
     "first_name": "first name",
-    "last_name": "last name"
+    "last_name": "last name",
+    "phone": "phone number"
   },
   "sign_in": {
     "submit": "Sign In",
     "welcome": "Hey , welcome back !"
   },
   "sign_up": {
-    "submit": "Register",
+    "submit": "Sign Up",
     "welcome": ["Hey, Lets meet!"]
   }
 }
