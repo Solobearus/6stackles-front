@@ -4,6 +4,7 @@ import Button from "../../components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import Input from "../../components/Input/Input";
 import { register } from "../../store/async";
+import { userAuthSlice } from "../../store/slices";
 
 const SignUp = () => {
   const { text } = useSelector((state) => state.language);
@@ -34,15 +35,16 @@ const SignUp = () => {
         }}
       />
       <Input
-        type="password"
+        type="text"
         placeholder={text.general.repeat_password}
         onChange={(e) => {
           checkPassword(e.target.value);
         }}
       />
       <Input
-        type="number"
-        placeholder={text.general.phone}
+        type="tel"
+        pattern="[0-9]{3} [0-9]{2}-[0-9]{3}-[0-9]{4}"
+        placeholder={text.general.phone_format}
         onChange={(e) => {
           setPhone(e.target.value);
         }}

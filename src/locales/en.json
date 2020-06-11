@@ -5,7 +5,8 @@
     "repeat_password": "repeat password",
     "first_name": "first name",
     "last_name": "last name",
-    "phone": "phone number"
+    "phone": "phone number",
+    "phone_format": "Format:+123-45-678-9000"
   },
   "sign_in": {
     "submit": "Sign In",

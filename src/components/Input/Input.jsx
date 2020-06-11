@@ -2,7 +2,16 @@ import React from "react";
 import "./Input.css";
 
 const Input = (props) => {
-  const { type, className, placeholder, value, onChange } = props;
+  const {
+    type,
+    className,
+    placeholder,
+    value,
+    onChange,
+    id,
+    name,
+    pattern,
+  } = props;
   return (
     <input
       type={type}
@@ -10,6 +19,9 @@ const Input = (props) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      id={id}
+      name={name}
+      pattern={pattern}
     ></input>
   );
 };

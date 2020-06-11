@@ -10,3 +10,6 @@ input {
 input:focus {
   outline: none;
 }
+input::placeholder {
+  font-size: smaller;
+}
