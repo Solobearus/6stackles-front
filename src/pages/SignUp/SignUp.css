@@ -12,18 +12,6 @@ p {
   align-items: center;
 }
 
-.signUp_input {
-  color: var(--main-dark-color);
-  font-size: var(--main-font-paragraph-size);
-  border-radius: var(--general-border-radius);
-  padding: var(--general-padding);
-  width: var(--general-input-width);
-}
-
-.signUp_input:focus {
-  outline: none;
-}
-
 .signUp button {
   width: var(--general-input-width);
 }
