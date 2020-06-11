@@ -11,6 +11,6 @@
   },
   "sign_up": {
     "submit": "Register",
-    "welcome": ["Hey stranger!", "Lets Sign you Up!"]
+    "welcome": ["Hey, Lets meet!"]
   }
 }

@@ -1,13 +1,17 @@
-import React from 'react'
-import './Input.css'
+import React from "react";
+import "./Input.css";
 
+const Input = (props) => {
+  const { type, className, placeholder, value, onChange } = props;
+  return (
+    <input
+      type={type}
+      className={className}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    ></input>
+  );
+};
 
-const Input = () => {
-    return (
-        < div className="input" data-testid="input">
-
-        </div >
-    )
-}
-
-export default Input
+export default Input;

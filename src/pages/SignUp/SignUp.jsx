@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import Button from "../../components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
+import Input from "../../components/Input/Input";
 // import { register } from "../../store/async";
 
 const SignUp = () => {
@@ -12,20 +13,15 @@ const SignUp = () => {
 
   return (
     <div className="signUp" data-testid="signUp">
-      <div className="signUp_welcome">
-        <p>{text.sign_up.welcome[0]}</p>
-        <p>{text.sign_up.welcome[1]}</p>
-      </div>
-      <input
+      <div className="signUp_welcome">{text.sign_up.welcome}</div>
+      <Input
         type="text"
-        className="signUp_input"
         placeholder={text.general.email}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <Input
         type="password"
-        className="signUp_input"
         placeholder={text.general.password}
         onChange={(e) => {
           setPassword(e.target.value);
