@@ -1,10 +1,16 @@
 {
-    "general": {
-        "email": "email",
-        "password": "password"
-    },
-    "sign_in": {
-        "submit": "Sign In",
-        "welcome": "Hey , welcome back !"
-    }
+  "general": {
+    "email": "email",
+    "password": "password",
+    "first_name": "first name",
+    "last_name": "last name"
+  },
+  "sign_in": {
+    "submit": "Sign In",
+    "welcome": "Hey , welcome back !"
+  },
+  "sign_up": {
+    "submit": "Register",
+    "welcome": ["Hey stranger!", "Lets Sign you Up!"]
+  }
 }
