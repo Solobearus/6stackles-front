@@ -12,7 +12,9 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const checkPassword = () => {};
+  const checkPassword = (comparePassword) => {
+    console.log("validate password");
+  };
 
   const handleSubmit = async () => {
     const result = await register(email, password, phone);
