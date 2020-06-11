@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './SignIn.css'
-import Button from '../_shared/Button/Button'
+import Button from '../../components/Button/Button'
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../store/async";
 import { userAuthSlice, userDetailsSlice } from "../../store/slices";
@@ -11,6 +11,11 @@ const SignIn = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleSubmit = async () => {
+        const result = await login(email, password);
+        dispatch(userAuthSlice.actions.setToken(result.token))
+    }
 
     return (
         < div className="signIn" data-testid="signIn">
@@ -34,21 +39,7 @@ const SignIn = () => {
 
             <Button
                 value={text.sign_in.submit}
-                // onClick={() => dispatch(userAuthSlice.actions.setToken(result.token))}
-                // onClick={() => {
-                //     dispatch(userAuthSlice.actions.setToken({ test: "test" }))
-                // }}
-                // onClick={() => {
-                //     return dispatch(userAuthSlice.actions.setToken("test"))
-                //     // return dispatch(userDetailsSlice.actions.setName("test"))
-                // }}
-
-                onClick={async () => {
-                    const result = await login(email, password);
-                    console.log(result);
-                    const test = result.token;
-                    dispatch(userAuthSlice.actions.setToken(result.token))
-                }}
+                onClick={() => handleSubmit()}
             />
         </div >
     )
