@@ -4,13 +4,13 @@ const userAuthSlice = createSlice({
   name: "userAuth",
 
   initialState: {
-    token: '',
+    token: "",
   },
 
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
-      localStorage.setItem('token', action.payload);
+      localStorage.setItem("token", action.payload);
     },
   },
 });
@@ -18,13 +18,17 @@ const userAuthSlice = createSlice({
 const userDetailsSlice = createSlice({
   name: "userDetails",
   initialState: {
-    email: '',
-    name: '',
+    email: "",
+    name: "",
   },
   reducers: {
-    setName: (state, action) => { state.name = action.payload },
-    setEmail: (state, action) => { state.email = action.payload },
-  }
+    setName: (state, action) => {
+      state.name = action.payload;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+  },
 });
 
 const productsSlice = createSlice({
@@ -32,67 +36,81 @@ const productsSlice = createSlice({
   initialState: {
     products: [
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
 
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
       {
-        name: 'xyz',
-        desc: 'xyz',
-        imgUrl: 'xyz',
-        price: 'xyz',
+        name: "xyz",
+        desc: "xyz",
+        imgUrl: "xyz",
+        price: "xyz",
+        location: "xyz",
       },
-    ]
+    ],
   },
   reducers: {
     setName: (state, action) => {
-      const newstate = [...state];
-      newstate[2].name = action.payload;
-      state = newstate;
+      state.products[action.index].name = action.payload;
     },
-    setEmail: (state, action) => { state.email = action.payload },
-  }
+    setDesc: (state, action) => {
+      state.products[action.index].desc = action.payload;
+    },
+    setImgUrl: (state, action) => {
+      state.products[action.index].imgUrl = action.payload;
+    },
+    setPrice: (state, action) => {
+      state.products[action.index].price = action.payload;
+    },
+    setLocation: (state, action) => {
+      state.products[action.index].location = action.payload;
+    },
+  },
 });
 
 const languagesSlice = createSlice({
   name: "languages",
   initialState: {
-    lang: 'en',
-    text: require('../locales/en.json')
+    lang: "en",
+    text: require("../locales/en.json"),
   },
   reducers: {
     setLang: (state, action) => {
-      state.lang = action.payload
-      state.text = require(`../locales/${action.payload}.json`)
+      state.lang = action.payload;
+      state.text = require(`../locales/${action.payload}.json`);
     },
-  }
+  },
 });
 
-
-export { userDetailsSlice, languagesSlice, userAuthSlice };
+export { userDetailsSlice, languagesSlice, userAuthSlice, productsSlice };
