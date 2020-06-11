@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import Products from './pages/Products/Products'
 import { useSelector, useDispatch } from "react-redux";
+
 
 import {
   BrowserRouter as Router,
@@ -17,10 +18,11 @@ import {
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { token } = useSelector(state => state.userAuth);
 
+
   return <Route {...rest} render={(props) => (
     token
       ? <Component {...props} />
-      : <Redirect to='/login' />
+      : <Redirect to='/signIn' />
   )} />
 }
 

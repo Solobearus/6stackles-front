@@ -7,9 +7,8 @@ import { userAuthSlice, userDetailsSlice } from "../../store/slices";
 import { useHistory } from "react-router-dom";
 import Input from "../../components/Input/Input";
 
-const SignIn = ({ from = "/" }) => {
+const SignIn = ({ from = "/products" }) => {
     const { text } = useSelector(state => state.language);
-    const [redirectToRefferel, setRedirectToRefferel] = useState(false);
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
