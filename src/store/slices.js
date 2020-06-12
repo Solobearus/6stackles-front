@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import products from '../data/products'
 const userAuthSlice = createSlice({
   name: "userAuth",
 
@@ -34,81 +34,7 @@ const userDetailsSlice = createSlice({
 const productsSlice = createSlice({
   name: "products",
   initialState: {
-    products: [
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-      {
-        name: "xyz",
-        desc: "xyz",
-        imgUrls: [
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-          "https://i.pinimg.com/originals/e8/95/28/e8952811f731a83f9fe311c64fa26688.jpg",
-        ],
-        price: "xyz",
-        location: "xyz",
-      },
-    ],
+    products
   },
   reducers: {
     setName: (state, action) => {
@@ -133,12 +59,12 @@ const languagesSlice = createSlice({
   name: "languages",
   initialState: {
     lang: "en",
-    text: require("../locales/en.json"),
+    text: require("../locales/en"),
   },
   reducers: {
     setLang: (state, action) => {
       state.lang = action.payload;
-      state.text = require(`../locales/${action.payload}.json`);
+      state.text = require(`../locales/${action.payload}.js`);
     },
   },
 });
