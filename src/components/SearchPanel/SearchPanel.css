@@ -1,0 +1,21 @@
+.search_panel {
+  background-color: var(--main-dark-color);
+  height: var(--header-height);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--general-padding);
+}
+.search_input {
+  display: inline-block;
+  margin: var(--general-margin);
+  border-radius: 50px;
+}
+
+.search_submit_btn {
+  margin: var(--general-margin);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+}

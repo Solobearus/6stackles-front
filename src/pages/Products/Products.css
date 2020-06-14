@@ -3,7 +3,9 @@
 }
 .products {
   width: 100vw;
+  height: calc(100vh - (2 * var(--header-height)));
 }
+
 .products_list {
   background-color: white;
   display: flex;
