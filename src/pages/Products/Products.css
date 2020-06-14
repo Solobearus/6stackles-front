@@ -1,8 +1,22 @@
 .products {
   flex: 1;
-  background-color: var(--main-dark-color);
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  list-style: none;
+  margin: var(--general-margin-large);
+}
+.product_item {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.product_img {
+  width: 30%;
+  border-radius: 10%;
 }
