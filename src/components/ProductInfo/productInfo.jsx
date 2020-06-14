@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProductInfo.css";
 export const ProductInfo = (props) => {
   return (
     <div className="product_info">

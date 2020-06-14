@@ -1,3 +1,5 @@
 .product_info {
   margin: var(--general-margin);
+  width: 70%;
+  overflow: hidden;
 }

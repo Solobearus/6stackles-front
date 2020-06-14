@@ -1,6 +1,6 @@
 import React from "react";
 import "./Products.css";
-import { ProductInfo } from "../../components/ProductInfo/productInfo";
+import { ProductInfo } from "../../components/ProductInfo/ProductInfo.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import Search from "../../pages/Search/Search";
 
@@ -11,17 +11,26 @@ const Products = () => {
   return (
     <div className="products" data-testid="products">
       <div className="search_panel">
-        <Search />
+        {/* <Search /> */}
+        <input />
       </div>
       <ul className="products_list">
-        <li>
-          <ProductInfo name={products[1].name} desc={products[1].desc} />
-          <img
-            src={products[1].imgUrls[1]}
-            alt={products[1].desc}
-            className="products_img"
-          />
-        </li>
+        {products.map((item) => (
+          <li className="product_item">
+            <ProductInfo name={item.name} desc={item.desc} />
+            <div className="product_img_wrapper">
+              <img
+                src={item.imgUrls[1]}
+                alt={item.desc}
+                className="product_img"
+              />
+              <span className="produc_img_footer">
+                <span>{item.price} $</span>
+                <span> {item.location}</span>
+              </span>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );
