@@ -1,4 +1,4 @@
-.imageGallery {
+.itemGallery {
     /* padding: var(--general-padding); */
     display: flex;
     flex-direction: row;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent, waitForElement, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import ImageGallery from './ImageGallery'
+import ImageGallery from './ItemGallery'
 
 afterEach(cleanup)
 

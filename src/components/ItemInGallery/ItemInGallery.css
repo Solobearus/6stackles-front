@@ -1,4 +1,4 @@
-.imageInGallery_container {
+.itemInGallery_container {
     position: relative;
     width: calc(50% - var(--general-padding) * 2);
     margin: var(--general-padding);
@@ -6,14 +6,14 @@
     transition: all 0.5s cubic-bezier(1, 0, 1, 1);
 }
 
-.imageInGallery_container:after {
+.itemInGallery_container:after {
     content: "";
     display: block;
     padding-bottom: 100%;
     /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
 }
 
-.imageInGallery_img {
+.itemInGallery_img {
     border-radius: var(--general-border-radius);
     position: absolute;
     /* Take your picture out of the flow */

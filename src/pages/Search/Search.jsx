@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const Search = () => {
 
     const [search, setSearch] = useState('');
-    const [isInputSelected, setIsInputSelected] = useState(false);
+    const [isInputSelected, setIsInputSelected] = useState(true);
 
     const { text } = useSelector(state => state.language);
 
@@ -20,8 +20,30 @@ const Search = () => {
         < div className="search" data-testid="search">
             <div className="nothing"></div>
             <div className="search_input_wrapper">
-                <input className="search_input_wrapper_input" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-                <div className="search_input_wrapper_display">{search}</div>
+                {
+                    isInputSelected ?
+                        <input
+                            className="search_input_wrapper_input"
+                            type="text"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)} />
+                        : <div
+                            className="search_input_wrapper_display">
+                            {search}
+                        </div>
+                }
+                {
+                    isInputSelected ?
+                        <input
+                            className="search_input_wrapper_input"
+                            type="text"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)} />
+                        : <div
+                            className="search_input_wrapper_display">
+                            {search}
+                        </div>
+                }
             </div>
             <Button className={'search_submit_btn'} value={text.default.search.submit} onClick={() => handleSearchSubmit()} />
         </div >
