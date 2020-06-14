@@ -1,24 +1,37 @@
 import React from "react";
 import "./Products.css";
-import Button from "../../components/Button/Button";
+import { ProductInfo } from "../../components/ProductInfo/ProductInfo.jsx";
 import { useSelector, useDispatch } from "react-redux";
-import Input from "../../components/Input/Input";
+import Search from "../../pages/Search/Search";
 
 const Products = () => {
   const { text } = useSelector((state) => state.language);
+  const { products } = useSelector((state) => state.products);
 
-  const search = () => {
-    console.log("dispatch a search in products...");
-  };
   return (
     <div className="products" data-testid="products">
-      <Input
-        type="text"
-        placeholder={text.general.search}
-        value={text}
-        onChange={(e) => search(e.target.value)}
-      />
-      <div>products..</div>
+      <div className="search_panel">
+        {/* <Search /> */}
+        <input />
+      </div>
+      <ul className="products_list">
+        {products.map((item) => (
+          <li className="product_item">
+            <ProductInfo name={item.name} desc={item.desc} />
+            <div className="product_img_wrapper">
+              <img
+                src={item.imgUrls[1]}
+                alt={item.desc}
+                className="product_img"
+              />
+              <span className="produc_img_footer">
+                <span>{item.price} $</span>
+                <span> 12 km</span>
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
