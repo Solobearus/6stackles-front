@@ -2,6 +2,8 @@ import React from 'react'
 import './Search.css'
 import { useState } from 'react'
 import Button from '../../components/Button/Button'
+import ItemGallery from '../../components/ItemGallery/ItemGallery'
+import CategoryFilter from '../../components/CategoryFilter/CategoryFilter'
 import { useSelector } from "react-redux";
 
 const Search = () => {
@@ -32,19 +34,13 @@ const Search = () => {
                             {search}
                         </div>
                 }
-                {
-                    isInputSelected ?
-                        <input
-                            className="search_input_wrapper_input"
-                            type="text"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)} />
-                        : <div
-                            className="search_input_wrapper_display">
-                            {search}
-                        </div>
-                }
             </div>
+            <ItemGallery>
+                <CategoryFilter />
+                <CategoryFilter />
+                <CategoryFilter />
+                <CategoryFilter />
+            </ItemGallery>
             <Button className={'search_submit_btn'} value={text.default.search.submit} onClick={() => handleSearchSubmit()} />
         </div >
     )
