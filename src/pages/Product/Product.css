@@ -1,3 +1,24 @@
-.product{
-    
+.product {
+    margin: var(--general-margin-large);
+}
+
+.product_info {
+    margin: var(--general-margin);
+}
+
+.product_footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin:  var(--general-margin-large) 0px;
+}
+
+.product_footer_item {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: var(--small-font);
+    text-align: center;
 }

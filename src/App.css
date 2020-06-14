@@ -9,10 +9,13 @@
     --main-font-size: 24px;
     --main-font-title-size: 2em;
     --main-font-paragraph-size: 1em;
+    --small-font: 0.5em;
     /* component sizes */
     --header-height: 70px;
     --general-border-radius: 10px;
     --general-padding: 5px;
+    --general-margin: 5px;
+    --general-margin-large: 15px;
     --general-input-width: 250px;
 }
 

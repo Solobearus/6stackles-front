@@ -16,12 +16,14 @@ const Product = ({ images }) => {
         < div className="product" data-testid="product">
             <ImageGallery images={products[id].imgUrls} name={products[id].name} ></ImageGallery>
 
-            <h3>{products[id].name}</h3>
-            <p>{products[id].desc}</p>
-            <div className="product_footer">
-                <div></div>
-                <Button value={text.product.submit} onClick={() => console.log(`test`)} />
-                <div>{products[id].price}</div>
+            <div className="product_info">
+                <h3>{products[id].name}</h3>
+                <p>{products[id].desc}</p>
+                <div className="product_footer">
+                    <div className="product_footer_item">{products[id].location}</div>
+                    <Button value={text.product.submit} onClick={() => console.log(`test`)} />
+                    <div className="product_footer_item">{products[id].price}</div>
+                </div>
             </div>
         </div >
     )

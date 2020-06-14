@@ -1,5 +1,5 @@
 .imageGallery {
-    padding: var(--general-padding);
+    /* padding: var(--general-padding); */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
