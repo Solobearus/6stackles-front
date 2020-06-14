@@ -19,5 +19,8 @@ export default {
   },
   product: {
     submit: "Contact"
+  },
+  search: {
+    submit: "submit"
   }
 }

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import './root.css';
 import './App.css';
 import Header from './components/Header/Header'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import Products from './pages/Products/Products'
 import Product from './pages/Product/Product'
+import Search from './pages/Search/Search'
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -41,6 +43,7 @@ const App = () => {
           </Route>
           <PrivateRoute path="/products" component={Products} />
           <PrivateRoute path="/product/:id" component={Product} />
+          <PrivateRoute path="/search" component={Search} />
         </Switch>
       </Router>
     </div>
