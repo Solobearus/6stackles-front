@@ -1,11 +1,11 @@
 import React from 'react'
 import { render, fireEvent, waitForElement, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import ImageGallery from './ImageGallery'
+import CategoryFilter from './CategoryFilter'
 
 afterEach(cleanup)
 
-describe('ImageGallery component', () => {
+describe('CategoryFilter component', () => {
     let props;
 
     beforeEach(() => {
@@ -15,8 +15,8 @@ describe('ImageGallery component', () => {
     });
 
     it('should render without crashing', () => {
-        const { getByTestId } = render(<ImageGallery {...props}/>);
-        const linkElement = getByTestId('ImageGallery');
+        const { getByTestId } = render(<CategoryFilter {...props}/>);
+        const linkElement = getByTestId('CategoryFilter');
         expect(linkElement).toBeInTheDocument();
     });
 });
