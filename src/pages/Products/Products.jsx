@@ -11,7 +11,7 @@ const Products = () => {
   return (
     <>
       <SearchPanel />
-      <div className="products" data-testid="products">
+      <div className="products scrollbar" data-testid="products">
         <ul className="products_list">
           {products.map((item) => (
             <li className="product_item">
