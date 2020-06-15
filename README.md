@@ -27,6 +27,7 @@ Exploring cutting edge technologies and implementing our prior knowledge into on
 - [Solobearus](https://github.com/solobearus "Ivan Solobear")
 - [naorpeled](https://github.com/naorpeled "Naor Peled")
 - [gguurr](https://github.com/gguurr "gguurr")
+- [NataEn](https://github.com/NataEn)
 
 ## ⚔ All the project parts
 #### Gateway:
