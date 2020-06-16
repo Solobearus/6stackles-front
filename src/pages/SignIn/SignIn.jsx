@@ -44,13 +44,13 @@ const SignIn = ({ from = "/products" }) => {
       <div className="signIn_welcome">{text.default.sign_in.welcome}</div>
       <Input
         type="text"
-        placeholder={text.default.general.email}
+        placeholder={text.default.main.email}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
         type="password"
-        placeholder={text.default.general.password}
+        placeholder={text.default.main.password}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

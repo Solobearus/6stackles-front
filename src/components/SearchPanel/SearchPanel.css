@@ -5,17 +5,17 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: var(--general-padding);
+  padding: var(--main-padding);
 }
 .search_panel_input {
   /* what is this for ? */
   /* display: inline-block; */  
-  margin: var(--general-margin);
+  margin: var(--main-margin);
   border-radius: 50px;
 }
 
 .search_panel_submit_btn {
-  margin: var(--general-margin);
+  margin: var(--main-margin);
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;

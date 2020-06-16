@@ -1,10 +1,10 @@
 .product {
-    padding: var(--general-padding-large);
+    padding: var(--main-padding-large);
     overflow-y: scroll;
 }
 
 .product__info {
-    margin: var(--general-margin);
+    margin: var(--main-margin);
 }
 
 .product__footer {
@@ -13,7 +13,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: var(--general-margin-large) 0px;
+    margin: var(--main-margin-large) 0px;
 }
 
 .product__footer_item {

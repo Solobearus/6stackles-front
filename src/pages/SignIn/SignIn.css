@@ -9,7 +9,7 @@
 }
 
 .signIn button {
-  width: var(--general-input-width);
+  width: var(--main-input-width);
 }
 
 .signIn_welcome {

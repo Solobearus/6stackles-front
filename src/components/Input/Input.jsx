@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./Input.css";
 
 const Input = ({
@@ -6,15 +6,23 @@ const Input = ({
   className = "",
   placeholder = "",
   value = "",
-  onChange = () => {},
+  onChange = () => { },
   id = "",
   name = "",
   pattern = "",
+  opened = false,
 }) => {
 
-  console.log(`input ${className}`)
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (opened)
+      inputRef.current.focus();
+  }, [opened])
+
   return (
     <input
+      ref={inputRef}
       type={type}
       className={`input ${className}`}
       placeholder={placeholder}
@@ -23,6 +31,7 @@ const Input = ({
       id={id}
       name={name}
       pattern={pattern}
+      autofocus
     ></input>
   );
 };

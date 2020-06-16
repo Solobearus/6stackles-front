@@ -25,20 +25,20 @@ const SignUp = () => {
       <div className="signUp_welcome">{text.default.sign_up.welcome}</div>
       <Input
         type="text"
-        placeholder={text.default.general.email}
+        placeholder={text.default.main.email}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
         type="password"
-        placeholder={text.default.general.password}
+        placeholder={text.default.main.password}
         onChange={(e) => {
           setPassword(e.target.value);
         }}
       />
       <Input
         type="text"
-        placeholder={text.default.general.repeat_password}
+        placeholder={text.default.main.repeat_password}
         onChange={(e) => {
           checkPassword(e.target.value);
         }}
@@ -46,7 +46,7 @@ const SignUp = () => {
       <Input
         type="tel"
         pattern="[0-9]{3} [0-9]{2}-[0-9]{3}-[0-9]{4}"
-        placeholder={text.default.general.phone_format}
+        placeholder={text.default.main.phone_format}
         onChange={(e) => {
           setPhone(e.target.value);
         }}

@@ -20,7 +20,7 @@ const SearchPanel = () => {
         // className="search_panel_input"
         type="text"
         value={search}
-        placeholder={text.default.general.search}
+        placeholder={text.default.main.search}
         onChange={(e) => setSearch(e.target.value)}
       />
       <Button

@@ -81,7 +81,9 @@ export const searchSlice = createSlice({
   },
   reducers: {
     setTextSearch: (state, action) => { state.textSearch = action.payload },
-    setCategorySearch: (state, action) => { state.categorySearch = action.payload },
+    setCategorySearch: (state, action) => { 
+      console.log(action.payload)
+      state.categorySearch = action.payload },
     setLocationSearch: (state, action) => { state.locationSearch = action.payload },
     setPriceSearch: (state, action) => { state.priceSearch = action.payload },
     setConditionSearch: (state, action) => { state.conditionSearch = action.payload },

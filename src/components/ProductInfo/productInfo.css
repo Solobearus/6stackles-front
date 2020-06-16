@@ -1,7 +1,7 @@
 .product_info {
   width: 65%;
   height: 100%;
-  margin: var(--general-margin);
+  margin: var(--main-margin);
   overflow-y: scroll;
 }
 .product_info_h3 {

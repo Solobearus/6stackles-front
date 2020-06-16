@@ -1,18 +1,18 @@
 .itemInGallery_container {
     position: relative;
-    width: calc(50% - var(--general-padding) * 2);
-    margin: var(--general-padding);
+    width: calc(50% - var(--main-padding) * 2);
+    margin: var(--main-padding);
     box-sizing: border-box;
     transition: all 0.5s cubic-bezier(1, 0, 1, 1);
-    padding-top: calc(50% - var(--general-padding) * 2);
-    border-radius: var(--general-border-radius);
+    padding-top: calc(50% - var(--main-padding) * 2);
+    border-radius: var(--main-border-radius);
     overflow: hidden;
 }
 
 .itemInGallery__close_btn {
     position: absolute;
-    top: var(--general-margin);
-    right: var(--general-margin);
+    top: var(--main-margin);
+    right: var(--main-margin);
     font-size: 1em;
     line-height: 1em;
     width: 1em;

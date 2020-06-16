@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './FilterWithSearch.css'
 import { searchSlice, categoriesSlice } from "../../store/slices";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,11 +16,11 @@ const FilterWithSearch = ({ opened }) => {
 
     const {
         categorySearch,
-    } = useSelector((state) => state.categories);
-
+    } = useSelector((state) => state.search);
 
     const handleClick = category => {
         dispatch(categoriesSlice.actions.setCategoriesSearch(category))
+        console.log(`test`)
         dispatch(searchSlice.actions.setCategorySearch(category))
     }
 
@@ -33,21 +33,23 @@ const FilterWithSearch = ({ opened }) => {
             {opened ?
                 <>
                     <Input
+                        opened={opened}
                         type='dropdown'
                         value={categoriesSearch}
                         onChange={(e) => handleOnSearchChange(e.target.value)} />
-                    <ul>
+                    <ul className={'filterWithSearch__results_ul scroll scroll_dark'}>
                         {categories && categories
                             .filter(category => category.includes(categoriesSearch))
                             .map(category =>
-                                <li onClick={handleClick(category)}>{category}</li>
+                                <li onClick={() => handleClick(category)}>{category}</li>
                             )}
                     </ul>
                 </>
                 :
                 <>
-                    <div>{categorySearch ? "category" : ""}</div>
-                    <div>{categorySearch ? categorySearch : "category"}</div>
+                    {console.log(categorySearch)}
+                    <div className="filterWithSearch__label">{categorySearch ? "category" : ""}</div>
+                    <div className="filterWithSearch__choise">{categorySearch ? categorySearch : "category"}</div>
                 </>
             }
         </div >

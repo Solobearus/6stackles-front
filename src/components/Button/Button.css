@@ -1,8 +1,8 @@
 .button {
     color: var(--typography-color);
     background-color: var(--action-color);
-    border-radius: var(--general-border-radius);
+    border-radius: var(--main-border-radius);
     border: 0;
     font-size: var(--main-font-paragraph-size);
-    padding: var(--general-padding) var(--general-padding-large);
+    padding: var(--main-padding) var(--main-padding-large);
 }

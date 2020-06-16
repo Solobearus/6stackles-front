@@ -13,7 +13,7 @@ const ItemInGallery = ({ index, chosenItem, setChosenItem, children }) => {
                 z-index: 1;
                 border-radius: ${
                 getComputedStyle(document.documentElement)
-                    .getPropertyValue('--general-border-radius-small')
+                    .getPropertyValue('--main-border-radius-small')
                 };
         `);
             setChosenItem(index);

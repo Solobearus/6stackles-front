@@ -1,5 +1,5 @@
 export default {
-  general: {
+  main: {
     email: "email",
     password: "password",
     repeat_password: "repeat password",

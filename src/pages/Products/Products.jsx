@@ -11,8 +11,8 @@ const Products = () => {
   return (
     <>
       <SearchPanel />
-      <div className="products scrollbar" data-testid="products">
-        <ul className="products_list">
+      <div className="products scroll scroll_dark" data-testid="products">
+        <ul className="products_list ">
           {products.map((item) => (
             <li className="product_item">
               <ProductInfo name={item.name} desc={item.desc} />

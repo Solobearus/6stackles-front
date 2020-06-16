@@ -13,7 +13,7 @@ p {
 }
 
 .signUp button {
-  width: var(--general-input-width);
+  width: var(--main-input-width);
 }
 
 .signUp_welcome {
