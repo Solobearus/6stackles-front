@@ -4,9 +4,9 @@
   margin: var(--general-margin);
   overflow-y: scroll;
 }
-h3 {
+.product_info_h3 {
   font-size: var(--main-font-paragraph-size);
 }
-p {
+.product_info_p {
   font-size: var(--main-font-paragraph-size);
 }

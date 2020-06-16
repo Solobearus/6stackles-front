@@ -1,12 +1,13 @@
 .product {
-    margin: var(--general-margin-large);
+    padding: var(--general-padding-large);
+    overflow-y: scroll;
 }
 
-.product_info {
+.product__info {
     margin: var(--general-margin);
 }
 
-.product_footer {
+.product__footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,7 +16,7 @@
     margin:  var(--general-margin-large) 0px;
 }
 
-.product_footer_item {
+.product__footer_item {
     flex: 1;
     overflow: hidden;
     white-space: nowrap;

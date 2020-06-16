@@ -1,21 +1,22 @@
 import React from "react";
 import "./Input.css";
 
-const Input = (props) => {
-  const {
-    type,
-    className,
-    placeholder,
-    value,
-    onChange,
-    id,
-    name,
-    pattern,
-  } = props;
+const Input = ({
+  type = "text",
+  className = "",
+  placeholder = "",
+  value = "",
+  onChange = () => {},
+  id = "",
+  name = "",
+  pattern = "",
+}) => {
+
+  console.log(`input ${className}`)
   return (
     <input
       type={type}
-      className={className}
+      className={`input ${className}`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}

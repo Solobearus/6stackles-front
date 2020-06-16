@@ -1,6 +1,7 @@
 import React from "react";
 import "./Search.css";
 import { useState } from "react";
+import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import CategoryFilter from "../../components/CategoryFilter/CategoryFilter";
@@ -22,9 +23,9 @@ const Search = () => {
       <div className="nothing"></div>
       <div className="search_input_wrapper">
         {isInputSelected ? (
-          <input
-            className="search_input_wrapper_input"
-            type="text"
+          <Input
+            // className="search_input_wrapper_input"
+            // type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

@@ -7,13 +7,14 @@
   align-items: center;
   padding: var(--general-padding);
 }
-.search_input {
-  display: inline-block;
+.search_panel_input {
+  /* what is this for ? */
+  /* display: inline-block; */  
   margin: var(--general-margin);
   border-radius: 50px;
 }
 
-.search_submit_btn {
+.search_panel_submit_btn {
   margin: var(--general-margin);
   border-radius: 50%;
   width: 2.5rem;

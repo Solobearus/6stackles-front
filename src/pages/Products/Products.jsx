@@ -22,7 +22,7 @@ const Products = () => {
                   alt={item.desc}
                   className="product_img"
                 />
-                <span className="produc_img_footer">
+                <span className="product_img_footer">
                   <span>{item.price} $</span>
                   <span> 12 km</span>
                 </span>

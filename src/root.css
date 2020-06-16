@@ -1,6 +1,7 @@
 :root {
   /* colors */
   --typography-color: #fff;
+  --typography-color-dark: #000;
   --main-dark-color: #27496d;
   --main-light-color: #759fcc;
   --action-color: #ee8572;
@@ -11,9 +12,10 @@
   --main-font-paragraph-size: 1em;
   --small-font: 0.5em;
   /* component sizes */
-  --header-height: 70px;
+  --header-height: 60px;
   --general-border-radius: 10px;
   --general-padding: 5px;
+  --general-padding-large: 15px;
   --general-margin: 5px;
   --general-margin-large: 15px;
   --general-input-width: 250px;
