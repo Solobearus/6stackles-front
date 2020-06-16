@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import './ItemInGallery.css'
 
 
-const ItemInGallery = ({  index, chosenItem, setChosenItem, children }) => {
+const ItemInGallery = ({ index, chosenItem, setChosenItem, children }) => {
 
     const theItem = useRef(null);
 
@@ -23,13 +23,17 @@ const ItemInGallery = ({  index, chosenItem, setChosenItem, children }) => {
         }
     }
 
+    const childrenWithExtraProp = React.Children.map(children, child =>
+        React.cloneElement(child, { opened: chosenItem === null })
+    );
+
     return (
         <div
             className={`itemInGallery_container`}
             ref={theItem}
             onClick={() => handleClickOnItem()}
         >
-            {children}
+            {childrenWithExtraProp}
         </div>
     )
 }
