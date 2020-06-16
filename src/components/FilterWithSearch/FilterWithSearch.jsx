@@ -32,11 +32,6 @@ const FilterWithSearch = ({ opened }) => {
         < div className="filterWithSearch" data-testid="filterWithSearch">
             {opened ?
                 <>
-                    <div>{categorySearch ? "category" : ""}</div>
-                    <div>{categorySearch ? categorySearch : "category"}</div>
-                </>
-                :
-                <>
                     <Input
                         type='dropdown'
                         value={categoriesSearch}
@@ -48,8 +43,13 @@ const FilterWithSearch = ({ opened }) => {
                                 <li onClick={handleClick(category)}>{category}</li>
                             )}
                     </ul>
-
-                </>}
+                </>
+                :
+                <>
+                    <div>{categorySearch ? "category" : ""}</div>
+                    <div>{categorySearch ? categorySearch : "category"}</div>
+                </>
+            }
         </div >
     )
 }

@@ -14,6 +14,7 @@
   /* component sizes */
   --header-height: 60px;
   --general-border-radius: 10px;
+  --general-border-radius-small: 5px;
   --general-padding: 5px;
   --general-padding-large: 15px;
   --general-margin: 5px;

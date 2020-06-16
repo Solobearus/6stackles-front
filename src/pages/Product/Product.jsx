@@ -18,7 +18,7 @@ const Product = ({ images }) => {
                 {
                     products[id].imgUrls && products[id].imgUrls.map((image, index) =>
                         <img
-                            className="itemInGallery_img"
+                            className="itemInGallery__img"
                             src={`${image}`}
                             alt={`${products[id].name}_${index}`}>
                         </img>
