@@ -10,8 +10,8 @@ const Products = () => {
   return (
     <>
       <SearchPanel />
-      <div className="products scrollbar" data-testid="products">
-        <ul className="products_list">
+      <div className="products scroll scroll_dark" data-testid="products">
+        <ul className="products_list ">
           {products.map((item) => (
             <li className="product_item">
               <ProductInfo name={item.name} desc={item.desc} />
@@ -21,7 +21,7 @@ const Products = () => {
                   alt={item.desc}
                   className="product_img"
                 />
-                <span className="produc_img_footer">
+                <span className="product_img_footer">
                   <span>{item.price} $</span>
                   <span> 12 km</span>
                 </span>

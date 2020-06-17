@@ -18,7 +18,7 @@ const Product = ({ images }) => {
                 {
                     products[id].imgUrls && products[id].imgUrls.map((image, index) =>
                         <img
-                            className="itemInGallery_img"
+                            className="itemInGallery__img"
                             src={`${image}`}
                             alt={`${products[id].name}_${index}`}>
                         </img>
@@ -26,13 +26,13 @@ const Product = ({ images }) => {
                 }
             </ItemGallery>
 
-            <div className="product_info">
+            <div className="product__info">
                 <h3>{products[id].name}</h3>
                 <p>{products[id].desc}</p>
-                <div className="product_footer">
-                    <div className="product_footer_item">{products[id].location}</div>
+                <div className="product__footer">
+                    <div className="product__footer_item">{products[id].location}</div>
                     <Button value={text.product.submit} onClick={() => console.log(`test`)} />
-                    <div className="product_footer_item">{products[id].price}</div>
+                    <div className="product__footer_item">{products[id].price}</div>
                 </div>
             </div>
         </div >

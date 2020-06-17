@@ -1,12 +1,12 @@
 .product_info {
   width: 65%;
   height: 100%;
-  margin: var(--general-margin);
+  margin: var(--main-margin);
   overflow-y: scroll;
 }
-h3 {
+.product_info_h3 {
   font-size: var(--main-font-paragraph-size);
 }
-p {
+.product_info_p {
   font-size: var(--main-font-paragraph-size);
 }

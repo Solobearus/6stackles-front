@@ -3,13 +3,19 @@
     height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    padding: var(--main-padding-large);
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .search_submit_btn{
-    margin: var(--general-margin-large);
+    margin: var(--main-margin-large);
+}
+.search_input_wrapper{
+    width: 100%;
+    padding: var(--main-padding);
 }
 
 .search_input_wrapper_input{

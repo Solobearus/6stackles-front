@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from '../data/products'
-const userAuthSlice = createSlice({
+
+export const userAuthSlice = createSlice({
   name: "userAuth",
 
   initialState: {
@@ -15,7 +16,7 @@ const userAuthSlice = createSlice({
   },
 });
 
-const userDetailsSlice = createSlice({
+export const userDetailsSlice = createSlice({
   name: "userDetails",
   initialState: {
     email: "",
@@ -31,7 +32,7 @@ const userDetailsSlice = createSlice({
   },
 });
 
-const productsSlice = createSlice({
+export const productsSlice = createSlice({
   name: "products",
   initialState: {
     products
@@ -55,7 +56,7 @@ const productsSlice = createSlice({
   },
 });
 
-const languagesSlice = createSlice({
+export const languagesSlice = createSlice({
   name: "languages",
   initialState: {
     lang: "en",
@@ -69,4 +70,50 @@ const languagesSlice = createSlice({
   },
 });
 
-export { userDetailsSlice, languagesSlice, userAuthSlice, productsSlice };
+export const searchSlice = createSlice({
+  name: "search",
+  initialState: {
+    textSearch: "",
+    categorySearch: "",
+    locationSearch: "",
+    priceSearch: { low: 0, high: 999 },
+    conditionSearch: "",
+  },
+  reducers: {
+    setTextSearch: (state, action) => { state.textSearch = action.payload },
+    setCategorySearch: (state, action) => { 
+      console.log(action.payload)
+      state.categorySearch = action.payload },
+    setLocationSearch: (state, action) => { state.locationSearch = action.payload },
+    setPriceSearch: (state, action) => { state.priceSearch = action.payload },
+    setConditionSearch: (state, action) => { state.conditionSearch = action.payload },
+  },
+});
+
+export const categoriesSlice = createSlice({
+  name: "categories",
+  initialState: {
+    categories: [
+      'Coach',
+      'Gun',
+      'Sandwich',
+      'Rubber',
+      'Hat',
+      'Shirt',
+      'Soap',
+      'Chips',
+      'Ball',
+      'Pants',
+      'Towels',
+      'Computer',
+      'Chair',
+      'Ball',
+    ],
+    categoriesSearch: '',
+  },
+  reducers: {
+    setCategoriesSearch: (state, action) => {
+      state.categoriesSearch = action.payload;
+    },
+  },
+});

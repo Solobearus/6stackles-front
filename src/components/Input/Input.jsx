@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./Input.css";
 
-const Input = (props) => {
-  const {
-    type,
-    className,
-    placeholder,
-    value,
-    onChange,
-    id,
-    name,
-    pattern,
-  } = props;
+const Input = ({
+  type = "text",
+  className = "",
+  placeholder = "",
+  value = "",
+  onChange = () => { },
+  id = "",
+  name = "",
+  pattern = "",
+  opened = false,
+}) => {
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (opened)
+      inputRef.current.focus();
+  }, [opened])
+
   return (
     <input
+      ref={inputRef}
       type={type}
-      className={className}
+      className={`input ${className}`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       id={id}
       name={name}
       pattern={pattern}
+      autofocus
     ></input>
   );
 };

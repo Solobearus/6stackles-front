@@ -4,6 +4,8 @@ import {
   languagesSlice,
   userAuthSlice,
   productsSlice,
+  searchSlice,
+  categoriesSlice,
 } from "./slices";
 
 const store = configureStore({
@@ -12,6 +14,8 @@ const store = configureStore({
     language: languagesSlice.reducer,
     userAuth: userAuthSlice.reducer,
     products: productsSlice.reducer,
+    search: searchSlice.reducer,
+    categories: categoriesSlice.reducer,
   },
 });
 
