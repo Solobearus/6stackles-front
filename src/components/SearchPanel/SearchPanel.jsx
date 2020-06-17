@@ -8,7 +8,6 @@ const SearchPanel = () => {
   const [search, setSearch] = useState("");
 
   const { text } = useSelector((state) => state.language);
-  console.log(text);
   const handleSearchSubmit = () => {
     console.log("im in handleSearchSubmit");
   };

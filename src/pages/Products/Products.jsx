@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 
 const Products = () => {
-  const { text } = useSelector((state) => state.language);
   const { products } = useSelector((state) => state.products);
 
   return (
