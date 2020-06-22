@@ -14,7 +14,11 @@ const Products = () => {
         <ul className="products_list ">
           {products.map((item) => (
             <li className="product_item">
-              <ProductInfo name={item.name} desc={item.desc} />
+              <ProductInfo
+                name={item.name}
+                desc={item.desc}
+                id={item.id || 1}
+              />
               <div className="product_img_wrapper">
                 <img
                   src={item.imgUrls[1]}
