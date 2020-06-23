@@ -9,6 +9,7 @@
 }
 
 .products_list {
+  width: 100%;
   background-color: var(--typography-color);
   display: flex;
   flex-direction: column;

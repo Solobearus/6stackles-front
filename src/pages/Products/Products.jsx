@@ -4,6 +4,7 @@ import { ProductInfo } from "../../components/ProductInfo/ProductInfo";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
+// import ProductItem from "../../components/ProductItem/ProductItem";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -46,26 +47,34 @@ const Products = () => {
           scrollableTarget="scrollableDiv"
         >
           <ul className="products_list ">
-            {productsList.map((item) => (
-              <li className="product_item" key={item.name}>
-                <ProductInfo
-                  name={item.name}
-                  desc={item.desc}
-                  id={item.id || 1}
-                />
-                <div className="product_img_wrapper">
-                  <img
-                    src={item.imgUrls[1]}
-                    alt={item.desc}
-                    className="product_img"
+            {productsList &&
+              productsList.map((item) => (
+                <li className="product_item">
+                  {/* <ProductItem
+                    name={item.name}
+                    desc={item.desc}
+                    id={item.id || 1}
+                    imgUrl={item.imgUrls[1]}
+                    price={item.price}
+                  /> */}
+                  <ProductInfo
+                    name={item.name}
+                    desc={item.desc}
+                    id={item.id || 1}
                   />
-                  <span className="product_img_footer">
-                    <span>{item.price} $</span>
-                    <span> 12 km</span>
-                  </span>
-                </div>
-              </li>
-            ))}
+                  <div className="product_item_img_wrapper">
+                    <img
+                      src={item.imgUrl}
+                      alt={item.desc}
+                      className="product_item_img"
+                    />
+                    <span className="product_item_img_footer">
+                      <span>{item.price} $</span>
+                      <span> 12 km</span>
+                    </span>
+                  </div>
+                </li>
+              ))}
           </ul>
         </InfiniteScroll>
       </div>
