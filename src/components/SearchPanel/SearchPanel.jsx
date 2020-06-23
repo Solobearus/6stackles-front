@@ -14,9 +14,9 @@ const SearchPanel = () => {
   };
 
   return (
-    <div className="search_panel_panel" data-testid="search">
+    <div className="search_panel" data-testid="search">
       <Input
-        // className="search_panel_input"
+        className="search_panel_input"
         type="text"
         value={search}
         placeholder={text.default.main.search}
