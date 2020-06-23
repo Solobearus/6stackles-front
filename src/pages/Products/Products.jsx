@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import { ProductInfo } from "../../components/ProductInfo/ProductInfo";
+import { ProductInfo } from "../../components/ProductInfo/productInfo";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
@@ -50,25 +50,18 @@ const Products = () => {
             {productsList &&
               productsList.map((item) => (
                 <li className="product_item">
-                  {/* <ProductItem
-                    name={item.name}
-                    desc={item.desc}
-                    id={item.id || 1}
-                    imgUrl={item.imgUrls[1]}
-                    price={item.price}
-                  /> */}
                   <ProductInfo
                     name={item.name}
                     desc={item.desc}
                     id={item.id || 1}
                   />
-                  <div className="product_item_img_wrapper">
+                  <div className="product_img_wrapper">
                     <img
-                      src={item.imgUrl}
+                      src={item.imgUrls[1]}
                       alt={item.desc}
-                      className="product_item_img"
+                      className="product_img"
                     />
-                    <span className="product_item_img_footer">
+                    <span className="product_img_footer">
                       <span>{item.price} $</span>
                       <span> 12 km</span>
                     </span>
