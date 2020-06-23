@@ -21,7 +21,7 @@
   padding-left: var(--main-padding);
 }
 
-li.product_item {
+.product_item {
   background-color: var(--typography-color);
   display: flex;
   flex-direction: row;
