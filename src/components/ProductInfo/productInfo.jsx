@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ProductInfo.css";
-export const ProductInfo = (props) => {
+const ProductInfo = (props) => {
   return (
     <div className="product_info">
       <h3 className="product_info_h3">{props.name}</h3>
@@ -12,3 +12,4 @@ export const ProductInfo = (props) => {
     </div>
   );
 };
+export default ProductInfo;

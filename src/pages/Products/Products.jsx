@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import { ProductInfo } from "../../components/ProductInfo/productInfo";
+import ProductInfo from "../../components/ProductInfo/ProductInfo";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
-// import ProductItem from "../../components/ProductItem/ProductItem";
+import ProductItem from "../../components/ProductItem/ProductItem";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -48,24 +48,16 @@ const Products = () => {
         >
           <ul className="products_list ">
             {productsList &&
-              productsList.map((item) => (
-                <li className="product_item">
-                  <ProductInfo
+              productsList.map((item, i) => (
+                <li>
+                  <ProductItem
                     name={item.name}
-                    desc={item.desc}
                     id={item.id || 1}
+                    desc={item.desc}
+                    price={item.price}
+                    key={item.name + Math.random(10)}
+                    imgUrl={item.imgUrls[1]}
                   />
-                  <div className="product_img_wrapper">
-                    <img
-                      src={item.imgUrls[1]}
-                      alt={item.desc}
-                      className="product_img"
-                    />
-                    <span className="product_img_footer">
-                      <span>{item.price} $</span>
-                      <span> 12 km</span>
-                    </span>
-                  </div>
                 </li>
               ))}
           </ul>
