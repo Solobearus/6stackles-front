@@ -9,15 +9,14 @@ const SearchPanel = () => {
   const [search, setSearch] = useState("");
 
   const { text } = useSelector((state) => state.language);
-  console.log(text);
   const handleSearchSubmit = () => {
     console.log("im in handleSearchSubmit");
   };
 
   return (
-    <div className="search_panel_panel" data-testid="search">
+    <div className="search_panel" data-testid="search">
       <Input
-        // className="search_panel_input"
+        className="search_panel_input"
         type="text"
         value={search}
         placeholder={text.default.main.search}

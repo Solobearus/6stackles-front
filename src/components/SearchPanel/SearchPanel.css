@@ -3,20 +3,20 @@
   height: var(--header-height);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: var(--main-padding);
 }
 .search_panel_input {
-  /* what is this for ? */
-  /* display: inline-block; */  
   margin: var(--main-margin);
   border-radius: 50px;
+  width: 70%;
 }
 
 .search_panel_submit_btn {
-  margin: var(--main-margin);
   border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  font-size: 150%;
+  padding: 0;
 }

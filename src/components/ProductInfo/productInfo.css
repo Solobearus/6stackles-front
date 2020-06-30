@@ -2,11 +2,19 @@
   width: 65%;
   height: 100%;
   margin: var(--main-margin);
-  overflow-y: scroll;
 }
+
 .product_info_h3 {
   font-size: var(--main-font-paragraph-size);
 }
 .product_info_p {
+  height: 7.8rem;
+  overflow-y: hidden;
   font-size: var(--main-font-paragraph-size);
+}
+.product_info_link {
+  display: block;
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
 }

@@ -6,19 +6,17 @@ const Input = ({
   className = "",
   placeholder = "",
   value = "",
-  onChange = () => { },
+  onChange = () => {},
   id = "",
   name = "",
   pattern = "",
   opened = false,
 }) => {
-
   const inputRef = useRef();
 
   useEffect(() => {
-    if (opened)
-      inputRef.current.focus();
-  }, [opened])
+    if (opened) inputRef.current.focus();
+  }, [opened]);
 
   return (
     <input
@@ -31,7 +29,7 @@ const Input = ({
       id={id}
       name={name}
       pattern={pattern}
-      autofocus
+      autoFocus
     ></input>
   );
 };
