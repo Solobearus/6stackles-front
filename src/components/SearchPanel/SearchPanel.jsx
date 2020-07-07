@@ -22,11 +22,11 @@ const SearchPanel = () => {
         placeholder={text.default.main.search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <Button
+      {/* <Button
         className={"search_panel_submit_btn"}
         value={"Q"}
         onClick={() => handleSearchSubmit()}
-      />
+      /> */}
     </div>
   );
 };

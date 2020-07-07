@@ -9,8 +9,9 @@
 }
 .search_panel_input {
   margin: var(--main-margin);
+  padding: var(--main-padding);
   border-radius: 50px;
-  width: 70%;
+  width: calc(100% - var(--main-padding-large));
 }
 
 .search_panel_submit_btn {

@@ -19,8 +19,10 @@
   --main-padding: 5px;
   --main-padding-medium: 10px;
   --main-padding-large: 15px;
+  --main-padding-largest: 25px;
   --main-margin: 5px;
   --main-margin-medium: 10px;
   --main-margin-large: 15px;
+  --main-margin-largest: 25px;
   --main-input-width: 250px;
 }
