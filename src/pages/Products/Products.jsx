@@ -26,7 +26,6 @@ const Products = () => {
   }, [itemsAmount]);
 
   const fetchData = () => {
-    debugger;
     setItemsAmount(itemsAmount + 10);
   };
 
@@ -43,13 +42,11 @@ const Products = () => {
           next={fetchData}
           hasMore={hasMore}
           loader={<h4>loading...</h4>}
-          endMessage={<h4>end of products</h4>}
           scrollableTarget="scrollableDiv"
         >
           <ul className="products_list ">
             {productsList &&
               productsList.map((item, i) => (
-                <li>
                   <ProductItem
                     name={item.name}
                     id={item.id || 1}
@@ -58,7 +55,6 @@ const Products = () => {
                     key={item.name + Math.random(10)}
                     imgUrl={item.imgUrls[1]}
                   />
-                </li>
               ))}
           </ul>
         </InfiniteScroll>
