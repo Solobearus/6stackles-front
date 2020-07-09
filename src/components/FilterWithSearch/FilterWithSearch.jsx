@@ -20,7 +20,6 @@ const FilterWithSearch = ({ opened }) => {
 
     const handleClick = category => {
         dispatch(categoriesSlice.actions.setCategoriesSearch(category))
-        console.log(`test`)
         dispatch(searchSlice.actions.setCategorySearch(category))
     }
 

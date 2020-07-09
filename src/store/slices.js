@@ -74,25 +74,14 @@ export const searchSlice = createSlice({
   name: "search",
   initialState: {
     textSearch: "",
-    categorySearch: "",
-    locationSearch: "",
-    priceSearch: { low: 0, high: 999 },
-    conditionSearch: "",
-  },
-  reducers: {
-    setTextSearch: (state, action) => { state.textSearch = action.payload },
-    setCategorySearch: (state, action) => { 
-      console.log(action.payload)
-      state.categorySearch = action.payload },
-    setLocationSearch: (state, action) => { state.locationSearch = action.payload },
-    setPriceSearch: (state, action) => { state.priceSearch = action.payload },
-    setConditionSearch: (state, action) => { state.conditionSearch = action.payload },
-  },
-});
-
-export const categoriesSlice = createSlice({
-  name: "categories",
-  initialState: {
+    categorySearchInput: "",
+    categorySearchApplied: "",
+    locationSearchInput: "",
+    locationSearchApplied: "",
+    priceSearchInput: { low: 0, high: 999 },
+    priceSearchApplied: { low: 0, high: 999 },
+    conditionSearchInput: "",
+    conditionSearchApplied: "",
     categories: [
       'Coach',
       'Gun',
@@ -109,11 +98,82 @@ export const categoriesSlice = createSlice({
       'Chair',
       'Ball',
     ],
-    categoriesSearch: '',
+    conditions: [
+      'Bad',
+      'Good',
+      'New'
+    ],
+    Locations:[
+      "Bahamas",
+      "Tunisia",
+      "Slovenia",
+      "Georgia",
+      "Kazakhstan",
+      "Tajikistan",
+      "Greenland",
+      "Hong Kong",
+      "Russian Federation",
+      "Jersey",
+      "Paraguay",
+      "Greece",
+      "Montenegro",
+      "Ecuador",
+      "Burkina Faso",
+      "Jordan",
+      "Cook Islands",
+      "Norfolk Island",
+      "Japan",
+      "Ireland",
+      "Iceland",
+      "Mali",
+      "Madagascar",
+      "Tonga",
+      "Zimbabwe",
+      "Tunisia",
+      "Hungary",
+      "Timor-Leste",
+      "United Kingdom",
+      "Ecuador"
+    ]
   },
   reducers: {
-    setCategoriesSearch: (state, action) => {
-      state.categoriesSearch = action.payload;
-    },
+    setTextSearch: (state, action) => { state.textSearch = action.payload },
+    setCategorySearchInput: (state, action) => { state.categorySearchInput = action.payload },
+    setCategorySearchApplied: (state, action) => { state.categorySearchApplied = action.payload },
+    setLocationSearchInput: (state, action) => { state.locationSearchInput = action.payload },
+    setLocationSearchApplied: (state, action) => { state.locationSearchApplied = action.payload },
+    setPriceSearchInput: (state, action) => { state.priceSearchInput = action.payload },
+    setPriceSearchApplied: (state, action) => { state.priceSearchApplied = action.payload },
+    setConditionSearchInput: (state, action) => { state.conditionSearchInput = action.payload },
+    setConditionSearchApplied: (state, action) => { state.conditionSearchApplied = action.payload },
   },
 });
+
+// export const categoriesSlice = createSlice({
+//   name: "categories",
+//   initialState: {
+//     categories: [
+//       'Coach',
+//       'Gun',
+//       'Sandwich',
+//       'Rubber',
+//       'Hat',
+//       'Shirt',
+//       'Soap',
+//       'Chips',
+//       'Ball',
+//       'Pants',
+//       'Towels',
+//       'Computer',
+//       'Chair',
+//       'Ball',
+//     ],
+//     categoriesSearch: '',
+//   },
+//   reducers: {
+//     setCategoriesSearch: (state, action) => {
+//       state.categoriesSearch = action.payload;
+//     },
+//   },
+// });
+
