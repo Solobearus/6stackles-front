@@ -52,7 +52,6 @@ const Search = () => {
       <div className="search_input_wrapper">
         {isInputSelected ? (
           <Input
-            // className="search_input_wrapper_input"
             value={textSearch}
             onChange={(e) =>
               dispatch(searchSlice.actions.setTextSearch(e.target.value))
