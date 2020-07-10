@@ -6,21 +6,38 @@ import Button from "../../components/Button/Button";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import FilterWithSearch from "../../components/FilterWithSearch/FilterWithSearch";
 import { useSelector, useDispatch } from "react-redux";
-import { searchSlice, userDetailsSlice } from "../../store/slices";
-
-
+import { searchSlice } from "../../store/slices";
+import {} from "../../store/slices";
 const Search = () => {
-
   const [isInputSelected, setIsInputSelected] = useState(true);
 
   const { text } = useSelector((state) => state.language);
   const {
     textSearch,
-    categorySearch,
-    locationSearch,
-    priceSearch,
-    conditionSearch
+    categorySearchInput,
+    categorySearchApplied,
+    locationSearchInput,
+    locationSearchApplied,
+    priceSearchInput,
+    priceSearchApplied,
+    conditionSearchInput,
+    conditionSearchApplied,
+
+    categories,
+    conditions,
+    locations,
   } = useSelector((state) => state.search);
+
+  const {
+    setCategorySearchInput,
+    setCategorySearchApplied,
+    setLocationSearchInput,
+    setLocationSearchApplied,
+    setPriceSearchInput,
+    setPriceSearchApplied,
+    setConditionSearchInput,
+    setConditionSearchApplied,
+  } = searchSlice.actions;
 
   const dispatch = useDispatch();
 
@@ -31,23 +48,56 @@ const Search = () => {
   return (
     <div className="search" data-testid="search">
       <div className="nothing"></div>
+
       <div className="search_input_wrapper">
         {isInputSelected ? (
           <Input
             // className="search_input_wrapper_input"
             value={textSearch}
-            onChange={(e) => dispatch(searchSlice.actions.setTextSearch(e.target.value))}
+            onChange={(e) =>
+              dispatch(searchSlice.actions.setTextSearch(e.target.value))
+            }
           />
         ) : (
-            <div className="search_input_wrapper_display">{textSearch}</div>
-          )}
+          <div className="search_input_wrapper_display">{textSearch}</div>
+        )}
       </div>
+
       <ItemGallery>
-        <FilterWithSearch />
-        <FilterWithSearch />
-        <FilterWithSearch />
-        <FilterWithSearch />
+        <FilterWithSearch
+          nameOfFilter={"category"}
+          searchInput={categorySearchInput}
+          searchApplied={categorySearchApplied}
+          searchOptions={categories}
+          setSearchInput={setCategorySearchInput}
+          setSearchApplied={setCategorySearchApplied}
+        />
+        <FilterWithSearch
+          nameOfFilter={"location"}
+          searchInput={locationSearchInput}
+          searchApplied={locationSearchApplied}
+          searchOptions={locations}
+          setSearchInput={setLocationSearchInput}
+          setSearchApplied={setLocationSearchApplied}
+        />
+        <FilterWithSearch
+          nameOfFilter={"condition"}
+          searchInput={conditionSearchInput}
+          searchApplied={conditionSearchApplied}
+          searchOptions={conditions}
+          setSearchInput={setConditionSearchInput}
+          setSearchApplied={setConditionSearchApplied}
+        />
+        <FilterWithSearch
+          nameOfFilter={"price"}
+          searchInput={categorySearchInput}
+          searchApplied={categorySearchApplied}
+          searchOptions={categories}
+          setSearchInput={setPriceSearchInput}
+          setSearchApplied={setPriceSearchApplied}
+        />
       </ItemGallery>
+
       <Button
         className={"search_submit_btn"}
         value={text.default.search.submit}

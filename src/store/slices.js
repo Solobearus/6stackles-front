@@ -103,7 +103,7 @@ export const searchSlice = createSlice({
       'Good',
       'New'
     ],
-    Locations:[
+    locations:[
       "Bahamas",
       "Tunisia",
       "Slovenia",
