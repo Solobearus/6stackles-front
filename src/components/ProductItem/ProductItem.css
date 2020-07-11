@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 0 var(--main-margin-large)  0;
+  margin: 0 0 var(--main-margin-large) 0;
   /* margin: 0 0 calc(var(--main-margin) * 2) 0; */
   box-shadow: 2px 2px 6px #00000097;
   height: 150px;
@@ -21,6 +21,8 @@
 .product_item_img {
   height: 100%;
   width: 150px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .product_item_img_footer {
