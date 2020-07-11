@@ -11,39 +11,39 @@ const ITEMS_TO_GENERATE_PER_PAGE = 10;
 const Products = () => {
   const { productsFiltered } = useSelector((state) => state.products);
 
-  const [itemsAmount, setItemsAmount] = useState(ITEMS_TO_GENERATE_PER_PAGE);
+  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(ITEMS_TO_GENERATE_PER_PAGE);
   const [hasMore, setHasMore] = useState(true);
 
-  const [productsFilteredToDisplay, setProductsListToDisplay] = useState(
+  const [productsFilteredToDisplay, setProductsFilteredToDisplay] = useState(
     productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
   );
 
   useEffect(() => {
-    if (itemsAmount <= productsFiltered.length) {
-      setProductsListToDisplay(
-        {
-          ...productsFiltered,
+    if (currentPaginationIndex <= productsFiltered.length) {
+      setProductsFilteredToDisplay(
+        [
+          ...productsFilteredToDisplay,
           ...productsFiltered.slice(
-            itemsAmount - ITEMS_TO_GENERATE_PER_PAGE,
-            itemsAmount
+            currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
+            currentPaginationIndex
           )
-        }
+        ]
       );
     } else {
       setHasMore(false);
     }
-  }, [itemsAmount]);
+  }, [currentPaginationIndex]);
 
   useEffect(() => {
-    setItemsAmount(ITEMS_TO_GENERATE_PER_PAGE);
-    setProductsListToDisplay(
+    setCurrentPaginationIndex(ITEMS_TO_GENERATE_PER_PAGE);
+    setProductsFilteredToDisplay(
       productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
-      // Array.from({ length: itemsAmount }, (_, index) => productsFiltered[index])
+      // Array.from({ length: currentPaginationIndex }, (_, index) => productsFiltered[index])
     );
   }, [productsFiltered]);
 
   const fetchData = () => {
-    setItemsAmount(itemsAmount + ITEMS_TO_GENERATE_PER_PAGE);
+    setCurrentPaginationIndex(currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE);
   };
 
   return (

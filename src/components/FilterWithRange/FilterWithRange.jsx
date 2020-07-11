@@ -57,7 +57,6 @@ const FilterWithRange = ({
         </>
       ) : (
         <>
-          {console.log(searchApplied)}
           <div className="FilterWithRange__label">
             {searchApplied ? nameOfFilter : ""}
           </div>
