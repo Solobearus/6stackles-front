@@ -10,7 +10,7 @@ const Product = ({ images }) => {
   const { products } = useSelector((state) => state.products);
   const { id } = useParams();
 
-  const product =  products.find((item) => id == item.id);
+  const product = products.find((item) => id == item.id);
 
   return (
     <div className="product" data-testid="product">
@@ -18,6 +18,7 @@ const Product = ({ images }) => {
         {product.imgUrls &&
           product.imgUrls.map((image, index) => (
             <img
+              key={`${index}`}
               className="itemInGallery__img"
               src={`${image}`}
               alt={`${product.name}_${index}`}
