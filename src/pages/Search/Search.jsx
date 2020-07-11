@@ -8,11 +8,14 @@ import FilterWithSearch from "../../components/FilterWithSearch/FilterWithSearch
 import FilterWithRange from "../../components/FilterWithRange/FilterWithRange";
 import { useSelector, useDispatch } from "react-redux";
 import { searchSlice } from "../../store/slices";
-import {} from "../../store/slices";
+import { productsSlice } from "../../store/slices";
+import { useHistory } from "react-router-dom";
+
 const Search = () => {
   const [isInputSelected, setIsInputSelected] = useState(true);
 
   const { text } = useSelector((state) => state.language);
+
   const {
     textSearch,
     categorySearchInput,
@@ -23,7 +26,6 @@ const Search = () => {
     priceSearchApplied,
     conditionSearchInput,
     conditionSearchApplied,
-
     categories,
     conditions,
     locations,
@@ -40,10 +42,21 @@ const Search = () => {
     setConditionSearchApplied,
   } = searchSlice.actions;
 
+  const history = useHistory();
+
   const dispatch = useDispatch();
 
   const handleSearchSubmit = () => {
-    console.log("im in handleSearchSubmit");
+    dispatch(
+      productsSlice.actions.filterProducts({
+        textSearch,
+        categorySearchApplied,
+        locationSearchApplied,
+        priceSearchApplied,
+        conditionSearchApplied,
+      })
+    );
+    history.push("products");
   };
 
   return (
@@ -54,12 +67,19 @@ const Search = () => {
         {isInputSelected ? (
           <Input
             value={textSearch}
+            className="search_input_wrapper_display"
+            onBlur={() => setIsInputSelected(false)}
             onChange={(e) =>
               dispatch(searchSlice.actions.setTextSearch(e.target.value))
             }
           />
         ) : (
-          <div className="search_input_wrapper_display">{textSearch}</div>
+          <div
+            className="search_input_wrapper_display"
+            onClick={() => setIsInputSelected(true)}
+          >
+            {textSearch.trim() == "" ? "Write what you need" : textSearch}
+          </div>
         )}
       </div>
 

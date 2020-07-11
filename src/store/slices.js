@@ -3,11 +3,9 @@ import products from '../data/products'
 
 export const userAuthSlice = createSlice({
   name: "userAuth",
-
   initialState: {
     token: localStorage.getItem('token'),
   },
-
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
@@ -35,7 +33,8 @@ export const userDetailsSlice = createSlice({
 export const productsSlice = createSlice({
   name: "products",
   initialState: {
-    products
+    products,
+    productsFiltered: products
   },
   reducers: {
     setName: (state, action) => {
@@ -52,6 +51,23 @@ export const productsSlice = createSlice({
     },
     setLocation: (state, action) => {
       state.products[action.index].location = action.payload;
+    },
+    filterProducts: (state, action) => {
+      state.productsFiltered = state.products
+        .filter(item => {
+          console.log(`test`);
+          if (
+            (action.payload.categorySearchApplied && action.payload.categorySearchApplied != item.category) ||
+            (action.payload.conditionSearchApplied && action.payload.conditionSearchApplied != item.condition) ||
+            (action.payload.locationSearchApplied && action.payload.locationSearchApplied != item.location) ||
+            (action.payload.priceSearchApplied.min && action.payload.priceSearchApplied.min > item.price) ||
+            (action.payload.priceSearchApplied.max && action.payload.priceSearchApplied.max < item.price) ||
+            (action.payload.textSearch && !item.name.includes(action.payload.name))
+          )
+            return false;
+
+          return true
+        });
     },
   },
 });
@@ -91,16 +107,14 @@ export const searchSlice = createSlice({
       'Shirt',
       'Soap',
       'Chips',
-      'Ball',
       'Pants',
       'Towels',
       'Computer',
       'Chair',
       'Ball',
-
     ],
     conditions: [
-      'Bad',
+      'Used',
       'Good',
       'New'
     ],

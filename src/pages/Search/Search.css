@@ -11,6 +11,7 @@
 }
 
 .search_submit_btn{
+    width: calc(100% - var(--main-margin));
     margin: var(--main-margin-large);
 }
 .search_input_wrapper{
@@ -24,4 +25,12 @@
 
 .search_input_wrapper_display{
 
+}
+
+.search_input_wrapper_display{
+    text-align: center;
+    font-size: var(--main-font-title-size);
+    font-family: var(--main-font);
+    background:transparent;
+    color: var(--typography-color);
 }

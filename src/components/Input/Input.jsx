@@ -11,6 +11,7 @@ const Input = ({
   name = "",
   pattern = "",
   focus = false,
+  onBlur = () => {},
 }) => {
   const inputRef = useRef();
 
@@ -29,6 +30,7 @@ const Input = ({
       id={id}
       name={name}
       pattern={pattern}
+      onBlur={() => onBlur()}
       autoFocus
     ></input>
   );

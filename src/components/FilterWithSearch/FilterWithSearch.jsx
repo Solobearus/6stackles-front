@@ -39,7 +39,9 @@ const FilterWithSearch = ({
               searchOptions
                 .filter((option) => option.includes(searchInput))
                 .map((option) => (
-                  <li onClick={() => handleClick(option)}>{option}</li>
+                  <li key={option} onClick={() => handleClick(option)}>
+                    {option}
+                  </li>
                 ))}
           </ul>
         </>

@@ -13,7 +13,8 @@ const ItemGallery = ({ children }) => {
                 <ItemInGallery
                     index={index}
                     chosenItem={chosenItem}
-                    setChosenItem={setChosenItem}>
+                    setChosenItem={setChosenItem}
+                    key={index}>
                     {child}
                 </ItemInGallery>
             )}
