@@ -7,12 +7,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const SearchPanel = () => {
-  const [search, setSearch] = useState("");
-
   const { text } = useSelector((state) => state.language);
-  const handleSearchSubmit = () => {
-    console.log("im in handleSearchSubmit");
-  };
+  const { textSearch } = useSelector((state) => state.search);
 
   return (
     <div className="search_panel" data-testid="search">
@@ -20,16 +16,10 @@ const SearchPanel = () => {
         <Input
           className="search_panel_input"
           type="text"
-          value={search}
+          value={textSearch}
           placeholder={text.default.main.search}
-          onChange={(e) => setSearch(e.target.value)}
         />
       </Link>
-      {/* <Button
-        className={"search_panel_submit_btn"}
-        value={"Q"}
-        onClick={() => handleSearchSubmit()}
-      /> */}
     </div>
   );
 };
