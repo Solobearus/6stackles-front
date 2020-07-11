@@ -78,8 +78,8 @@ export const searchSlice = createSlice({
     categorySearchApplied: "",
     locationSearchInput: "",
     locationSearchApplied: "",
-    priceSearchInput: { low: 0, high: 999 },
-    priceSearchApplied: { low: 0, high: 999 },
+    priceSearchInput: { min: 0, max: 999 },
+    priceSearchApplied: { min: 0, max: 999 },
     conditionSearchInput: "",
     conditionSearchApplied: "",
     categories: [
@@ -97,13 +97,16 @@ export const searchSlice = createSlice({
       'Computer',
       'Chair',
       'Ball',
+
     ],
     conditions: [
       'Bad',
       'Good',
       'New'
     ],
-    locations:[
+    locations: [
+      "Tahiti",
+      "Israel",
       "Bahamas",
       "Tunisia",
       "Slovenia",

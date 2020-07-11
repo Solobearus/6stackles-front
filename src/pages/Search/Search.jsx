@@ -5,6 +5,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import FilterWithSearch from "../../components/FilterWithSearch/FilterWithSearch";
+import FilterWithRange from "../../components/FilterWithRange/FilterWithRange";
 import { useSelector, useDispatch } from "react-redux";
 import { searchSlice } from "../../store/slices";
 import {} from "../../store/slices";
@@ -87,11 +88,10 @@ const Search = () => {
           setSearchInput={setConditionSearchInput}
           setSearchApplied={setConditionSearchApplied}
         />
-        <FilterWithSearch
+        <FilterWithRange
           nameOfFilter={"price"}
-          searchInput={categorySearchInput}
-          searchApplied={categorySearchApplied}
-          searchOptions={categories}
+          searchInput={priceSearchInput}
+          searchApplied={priceSearchApplied}
           setSearchInput={setPriceSearchInput}
           setSearchApplied={setPriceSearchApplied}
         />

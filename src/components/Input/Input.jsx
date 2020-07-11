@@ -10,13 +10,13 @@ const Input = ({
   id = "",
   name = "",
   pattern = "",
-  opened = false,
+  focus = false,
 }) => {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (opened) inputRef.current.focus();
-  }, [opened]);
+    if (focus) inputRef.current.focus();
+  }, [focus]);
 
   return (
     <input

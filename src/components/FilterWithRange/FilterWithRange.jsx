@@ -14,28 +14,46 @@ const FilterWithRange = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handleClick = (option) => {
-    dispatch(setSearchInput(option));
-    dispatch(setSearchApplied(option));
-  };
-
   const handleOnSearchChange = (input) => {
     dispatch(setSearchInput(input));
+    dispatch(setSearchApplied(input));
   };
 
   return (
     <div className="FilterWithRange" data-testid="FilterWithRange">
       {opened ? (
         <>
-          <Input
-            opened={opened}
-            type="dropdown"
-            value={searchInput}
-            onChange={(e) => handleOnSearchChange(e.target.value)}
-          />
-          <ul className={"FilterWithRange__results_ul scroll scroll_dark"}>
-            
-          </ul>
+          <div className="FilterWithRange__label">{nameOfFilter}</div>
+          <div className={"FilterWithRange__Range_div"}>
+            <div>
+              Min :
+              <Input
+                focus={opened}
+                type="text"
+                value={searchInput.min}
+                onChange={(e) =>
+                  handleOnSearchChange({
+                    min: e.target.value,
+                    max: searchInput.max,
+                  })
+                }
+              />
+            </div>
+            <div>
+              Max :
+              <Input
+                focus={opened}
+                type="text"
+                value={searchInput.max}
+                onChange={(e) =>
+                  handleOnSearchChange({
+                    min: searchInput.min,
+                    max: e.target.value,
+                  })
+                }
+              />
+            </div>
+          </div>
         </>
       ) : (
         <>
@@ -44,7 +62,9 @@ const FilterWithRange = ({
             {searchApplied ? nameOfFilter : ""}
           </div>
           <div className="FilterWithRange__choise">
-            {searchApplied ? `Min: ${searchApplied.min} - Max: ${searchApplied.max}` : nameOfFilter}
+            {searchApplied
+              ? `Min: ${searchApplied.min} - Max: ${searchApplied.max}`
+              : nameOfFilter}
           </div>
         </>
       )}
