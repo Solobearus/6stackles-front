@@ -24,6 +24,8 @@ export const userDetailsSlice = createSlice({
   initialState: {
     email: "",
     name: "",
+    phone: "",
+    profilePicURL: "",
   },
   reducers: {
     setName: (state, action) => {
@@ -31,6 +33,12 @@ export const userDetailsSlice = createSlice({
     },
     setEmail: (state, action) => {
       state.email = action.payload;
+    },
+    setPhone: (state, action) => {
+      state.phone = action.payload;
+    },
+    setProfilePicURL: (state, action) => {
+      state.profilePicURL = action.payload;
     },
   },
 });

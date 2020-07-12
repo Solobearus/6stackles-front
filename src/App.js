@@ -7,7 +7,8 @@ import SignUp from "./pages/SignUp/SignUp";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Search from "./pages/Search/Search";
-import { useSelector, useDispatch } from "react-redux";
+import Profile from "./pages/Profile/Profile";
+import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/products" component={Products} />
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>
