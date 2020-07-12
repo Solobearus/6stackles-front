@@ -4,6 +4,7 @@ import userLogo from "../../img/userLogo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { userDetailsSlice } from "../../store/slices";
+import Button from "../../components/Button/Button";
 const Profile = () => {
   const { name, email, phone, productsPosted } = useSelector(
     (state) => state.userDetails
@@ -45,6 +46,10 @@ const Profile = () => {
             </div>
           ))}
       </div>
+
+      <Link className="product_info_link" to={`/products/create`}>
+        <Button value="Add New"></Button>
+      </Link>
     </div>
   );
 };

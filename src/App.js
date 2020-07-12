@@ -34,8 +34,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 const App = () => {
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route path="/signIn">
             <SignIn />
