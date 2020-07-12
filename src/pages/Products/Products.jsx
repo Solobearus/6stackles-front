@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import ProductInfo from "../../components/ProductInfo/ProductInfo";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
