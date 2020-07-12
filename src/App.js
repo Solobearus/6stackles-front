@@ -8,6 +8,7 @@ import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
+import CreateProduct from "./pages/CreateProduct/CreateProduct";
 import { useSelector } from "react-redux";
 
 import {
@@ -43,7 +44,8 @@ const App = () => {
           <Route path="/signUp">
             <SignUp />
           </Route>
-          <Route path="/products" component={Products} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/products/create" component={CreateProduct} />
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
           <Route path="/profile" component={Profile} />
