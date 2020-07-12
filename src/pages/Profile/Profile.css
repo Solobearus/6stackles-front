@@ -6,6 +6,11 @@
     /* justify-content: space-around; */
     align-items: center;
     padding: var(--main-padding-large);
+    color: var(--typography-color);
+}
+
+.profile a{
+    color: var(--action-color);
 }
 
 .profile__pic_userLogo{

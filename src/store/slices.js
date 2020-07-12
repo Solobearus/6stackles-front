@@ -22,10 +22,12 @@ export const userAuthSlice = createSlice({
 export const userDetailsSlice = createSlice({
   name: "userDetails",
   initialState: {
-    email: "",
-    name: "",
-    phone: "",
+    id: "5e32e3884041cf0d80a9b530",
+    email: "placeholder@gmail.com",
+    name: "Elon Musk",
+    phone: "050-420-DERP",
     profilePicURL: "",
+    productsPosted: [],
   },
   reducers: {
     setName: (state, action) => {
@@ -39,6 +41,10 @@ export const userDetailsSlice = createSlice({
     },
     setProfilePicURL: (state, action) => {
       state.profilePicURL = action.payload;
+    },
+    findProductsPostedByUser: (state, action) => {
+      state.productsPosted = action.payload
+        .filter(product => state.id === product.authorId)
     },
   },
 });
