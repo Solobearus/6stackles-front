@@ -11,18 +11,14 @@
 .scroll::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
     border-radius: var(--main-border-radius);
-    margin-right: 5px;
 }
 
 .scroll::-webkit-scrollbar {
-    width: 0.8rem;
-    margin-right: 5px;
+    width: 10px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
     border-radius: var(--main-border-radius);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    margin-right: 5px;
 }
 
 .scroll_dark::-webkit-scrollbar-track {

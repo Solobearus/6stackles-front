@@ -10,13 +10,14 @@ const Input = ({
   id = "",
   name = "",
   pattern = "",
-  opened = false,
+  focus = false,
+  onBlur = () => {},
 }) => {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (opened) inputRef.current.focus();
-  }, [opened]);
+    if (focus) inputRef.current.focus();
+  }, [focus]);
 
   return (
     <input
@@ -29,6 +30,7 @@ const Input = ({
       id={id}
       name={name}
       pattern={pattern}
+      onBlur={() => onBlur()}
       autoFocus
     ></input>
   );

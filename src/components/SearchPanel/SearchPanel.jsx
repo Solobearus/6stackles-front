@@ -4,29 +4,22 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const SearchPanel = () => {
-  const [search, setSearch] = useState("");
-
   const { text } = useSelector((state) => state.language);
-  const handleSearchSubmit = () => {
-    console.log("im in handleSearchSubmit");
-  };
+  const { textSearchApplied } = useSelector((state) => state.search);
 
   return (
     <div className="search_panel" data-testid="search">
-      <Input
-        className="search_panel_input"
-        type="text"
-        value={search}
-        placeholder={text.default.main.search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <Button
-        className={"search_panel_submit_btn"}
-        value={"Q"}
-        onClick={() => handleSearchSubmit()}
-      />
+      <Link className="search_panel_link" to={`/search`}>
+        <Input
+          className="search_panel_input"
+          type="text"
+          value={textSearchApplied}
+          placeholder={text.default.main.search}
+        />
+      </Link>
     </div>
   );
 };

@@ -5,28 +5,44 @@ import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 import ProductItem from "../../components/ProductItem/ProductItem";
 
+const ITEMS_TO_GENERATE_PER_PAGE = 10;
+
 const Products = () => {
-  const { products } = useSelector((state) => state.products);
-  const [itemsAmount, setItemsAmount] = useState(10);
-  const [hasMore, setHaseMore] = useState(true);
-  const [productsList, setProductsList] = useState(
-    Array.from({ length: itemsAmount }, (v, i) => products[i])
+  const { productsFiltered } = useSelector((state) => state.products);
+
+  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(ITEMS_TO_GENERATE_PER_PAGE);
+  const [hasMore, setHasMore] = useState(true);
+
+  const [productsFilteredToDisplay, setProductsFilteredToDisplay] = useState(
+    productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
   );
+
   useEffect(() => {
-    if (itemsAmount <= products.length) {
-      const newProductsList = Array.from(
-        { length: itemsAmount },
-        (v, i) => products[i]
+    if (currentPaginationIndex <= productsFiltered.length) {
+      setProductsFilteredToDisplay(
+        [
+          ...productsFilteredToDisplay,
+          ...productsFiltered.slice(
+            currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
+            currentPaginationIndex
+          )
+        ]
       );
-      setProductsList(newProductsList);
     } else {
-      setHaseMore(false);
+      setHasMore(false);
     }
-  }, [itemsAmount]);
+  }, [currentPaginationIndex]);
+
+  useEffect(() => {
+    setCurrentPaginationIndex(ITEMS_TO_GENERATE_PER_PAGE);
+    setProductsFilteredToDisplay(
+      productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
+      // Array.from({ length: currentPaginationIndex }, (_, index) => productsFiltered[index])
+    );
+  }, [productsFiltered]);
 
   const fetchData = () => {
-    debugger;
-    setItemsAmount(itemsAmount + 10);
+    setCurrentPaginationIndex(currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE);
   };
 
   return (
@@ -38,26 +54,23 @@ const Products = () => {
         data-testid="products"
       >
         <InfiniteScroll
-          dataLength={productsList.length}
+          dataLength={productsFilteredToDisplay.length}
           next={fetchData}
           hasMore={hasMore}
           loader={<h4>loading...</h4>}
-          endMessage={<h4>end of products</h4>}
           scrollableTarget="scrollableDiv"
         >
           <ul className="products_list ">
-            {productsList &&
-              productsList.map((item, i) => (
-                <li>
-                  <ProductItem
-                    name={item.name}
-                    id={item.id || 1}
-                    desc={item.desc}
-                    price={item.price}
-                    key={item.name + Math.random(10)}
-                    imgUrl={item.imgUrls[1]}
-                  />
-                </li>
+            {productsFilteredToDisplay &&
+              productsFilteredToDisplay.map((item) => (
+                <ProductItem
+                  key={item.id}
+                  name={item.name}
+                  id={item.id || 1}
+                  desc={item.desc}
+                  price={item.price}
+                  imgUrl={item.imgUrls[1]}
+                />
               ))}
           </ul>
         </InfiniteScroll>

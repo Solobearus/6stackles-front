@@ -7,8 +7,9 @@
   --action-color: #ee8572;
   /* fonts */
   --main-font: "roboto sans-serif";
-  --main-font-size: 18px;
+  --main-font-size: 13px;
   --main-font-title-size: 2em;
+  --main-font-header-size: 1.2em;
   --main-font-paragraph-size: 1em;
   --small-font: 0.5em;
   /* component sizes */
@@ -16,8 +17,12 @@
   --main-border-radius: 10px;
   --main-border-radius-small: 5px;
   --main-padding: 5px;
+  --main-padding-medium: 10px;
   --main-padding-large: 15px;
+  --main-padding-largest: 25px;
   --main-margin: 5px;
+  --main-margin-medium: 10px;
   --main-margin-large: 15px;
+  --main-margin-largest: 25px;
   --main-input-width: 250px;
 }

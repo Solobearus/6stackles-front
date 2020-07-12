@@ -5,7 +5,7 @@ import {
   userAuthSlice,
   productsSlice,
   searchSlice,
-  categoriesSlice,
+  // categoriesSlice,
 } from "./slices";
 
 const store = configureStore({
@@ -15,7 +15,7 @@ const store = configureStore({
     userAuth: userAuthSlice.reducer,
     products: productsSlice.reducer,
     search: searchSlice.reducer,
-    categories: categoriesSlice.reducer,
+    // categories: categoriesSlice.reducer,
   },
 });
 

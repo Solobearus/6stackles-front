@@ -1,59 +1,59 @@
-import React, { useRef, useEffect } from 'react'
-import './FilterWithSearch.css'
-import { searchSlice, categoriesSlice } from "../../store/slices";
+import React, { useRef, useEffect } from "react";
+import "./FilterWithSearch.css";
+import { searchSlice } from "../../store/slices";
 import { useSelector, useDispatch } from "react-redux";
 import Input from "../../components/Input/Input";
 
+const FilterWithSearch = ({
+  opened,
+  nameOfFilter,
+  searchInput,
+  searchOptions,
+  setSearchInput,
+}) => {
+  const dispatch = useDispatch();
 
-const FilterWithSearch = ({ opened }) => {
+  const handleOnOptionClick = (option) => {
+    dispatch(setSearchInput(option));
+  };
 
-    const dispatch = useDispatch();
+  const handleOnSearchChange = (input) => {
+    dispatch(setSearchInput(input));
+  };
 
-    const {
-        categories,
-        categoriesSearch,
-    } = useSelector((state) => state.categories);
+  return (
+    <div className="filterWithSearch" data-testid="filterWithSearch">
+      {opened ? (
+        <>
+          <Input
+            opened={opened}
+            type="dropdown"
+            value={searchInput}
+            onChange={(e) => handleOnSearchChange(e.target.value)}
+          />
+          <ul className={"filterWithSearch__results_ul scroll scroll_dark"}>
+            {searchOptions &&
+              searchOptions
+                .filter((option) => option.includes(searchInput))
+                .map((option) => (
+                  <li key={option} onClick={() => handleOnOptionClick(option)}>
+                    {option}
+                  </li>
+                ))}
+          </ul>
+        </>
+      ) : (
+        <>
+            <div className="filterWithSearch__label">
+            {searchInput ? nameOfFilter : ""}
+          </div>
+          <div className="filterWithSearch__choise">
+            {searchInput ? searchInput : nameOfFilter}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
-    const {
-        categorySearch,
-    } = useSelector((state) => state.search);
-
-    const handleClick = category => {
-        dispatch(categoriesSlice.actions.setCategoriesSearch(category))
-        console.log(`test`)
-        dispatch(searchSlice.actions.setCategorySearch(category))
-    }
-
-    const handleOnSearchChange = search => {
-        dispatch(categoriesSlice.actions.setCategoriesSearch(search));
-    }
-
-    return (
-        < div className="filterWithSearch" data-testid="filterWithSearch">
-            {opened ?
-                <>
-                    <Input
-                        opened={opened}
-                        type='dropdown'
-                        value={categoriesSearch}
-                        onChange={(e) => handleOnSearchChange(e.target.value)} />
-                    <ul className={'filterWithSearch__results_ul scroll scroll_dark'}>
-                        {categories && categories
-                            .filter(category => category.includes(categoriesSearch))
-                            .map(category =>
-                                <li onClick={() => handleClick(category)}>{category}</li>
-                            )}
-                    </ul>
-                </>
-                :
-                <>
-                    {console.log(categorySearch)}
-                    <div className="filterWithSearch__label">{categorySearch ? "category" : ""}</div>
-                    <div className="filterWithSearch__choise">{categorySearch ? categorySearch : "category"}</div>
-                </>
-            }
-        </div >
-    )
-}
-
-export default FilterWithSearch
+export default FilterWithSearch;

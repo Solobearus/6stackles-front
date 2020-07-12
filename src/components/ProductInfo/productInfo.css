@@ -1,20 +1,22 @@
 .product_info {
-  width: 65%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
   height: 100%;
-  margin: var(--main-margin);
+  padding: var(--main-padding);
 }
 
 .product_info_h3 {
-  font-size: var(--main-font-paragraph-size);
+  margin: 0;
+  font-size: var(--main-font-header-size);
 }
 .product_info_p {
-  height: 7.8rem;
+  flex: 1;
   overflow-y: hidden;
   font-size: var(--main-font-paragraph-size);
 }
-.product_info_link {
-  display: block;
-  position: relative;
-  z-index: 10;
-  background-color: transparent;
+.product_info_link { 
 }

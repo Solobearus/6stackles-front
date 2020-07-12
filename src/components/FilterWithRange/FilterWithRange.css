@@ -1,0 +1,46 @@
+.FilterWithRange {
+    background: var(--typography-color);
+    border-radius: var(--main-border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    position: absolute;
+    /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* Make the picture taking the size of it's parent */
+    width: 100%;
+    /* This if for the object-fit */
+    height: 100%;
+}
+
+.FilterWithRange__Range_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    height: 100%;
+    overflow-y: scroll;
+    margin: var(--main-margin);
+    font-size: var(--main-font-size);
+}
+
+.FilterWithRange__label {
+    position: absolute;
+    top: var(--main-margin);
+    left: var(--main-margin);
+}
+
+.FilterWithRange__choise {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

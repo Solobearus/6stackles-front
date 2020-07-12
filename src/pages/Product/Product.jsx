@@ -1,42 +1,55 @@
-import React from 'react'
-import './Product.css'
+import React from "react";
+import "./Product.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import ItemGallery from '../../components/ItemGallery/ItemGallery'
-import Button from '../../components/Button/Button'
-import text from '../../locales/en'
+import ItemGallery from "../../components/ItemGallery/ItemGallery";
+import Button from "../../components/Button/Button";
+import text from "../../locales/en";
+import { Link } from "react-router-dom";
 
 const Product = ({ images }) => {
+  const { products } = useSelector((state) => state.products);
+  const { id } = useParams();
 
-    const { products } = useSelector((state) => state.products);
-    const { id } = useParams();
+  const product = products.find((item) => id == item.id);
 
+  const handleOnSubmitClick = () => {
+    console.log(`handleOnSubmitClick`);
+  };
 
-    return (
-        < div className="product" data-testid="product">
-            <ItemGallery>
-                {
-                    products[id].imgUrls && products[id].imgUrls.map((image, index) =>
-                        <img
-                            className="itemInGallery__img"
-                            src={`${image}`}
-                            alt={`${products[id].name}_${index}`}>
-                        </img>
-                    )
-                }
-            </ItemGallery>
+  return (
+    <div className="product" data-testid="product">
+      <Link className="product_info_link" to={`/products`}>
+        🔙
+      </Link>
+      <ItemGallery>
+        {product.imgUrls &&
+          product.imgUrls.map((image, index) => (
+            <img
+              key={`${index}`}
+              className="itemInGallery__img"
+              src={`${image}`}
+              alt={`${product.name}_${index}`}
+            ></img>
+          ))}
+      </ItemGallery>
 
-            <div className="product__info">
-                <h3>{products[id].name}</h3>
-                <p>{products[id].desc}</p>
-                <div className="product__footer">
-                    <div className="product__footer_item">{products[id].location}</div>
-                    <Button value={text.product.submit} onClick={() => console.log(`test`)} />
-                    <div className="product__footer_item">{products[id].price}</div>
-                </div>
-            </div>
-        </div >
-    )
-}
+      <div className="product__info">
+        <h3>{product.name}</h3>
+        <h4>Condition : {product.condition}</h4>
+        <h4>Category : {product.category}</h4>
+        <p>{product.desc}</p>
+        <div className="product__footer">
+          <div className="product__footer_item">{product.location}</div>
+          <Button
+            value={text.product.submit}
+            onClick={() => handleOnSubmitClick()}
+          />
+          <div className="product__footer_item">{product.price}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Product
+export default Product;

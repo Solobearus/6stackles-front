@@ -2,56 +2,39 @@
   background-color: var(--typography-color);
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 15rem;
-  width: 90%;
-  padding: var(--main-padding);
-  margin-bottom: var(--main-margin);
-  box-shadow: -1px 5px 3px #b1acac;
-}
-.product_item_img_wrapper {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
-  height: 100%;
-  overflow-y: hidden;
-  background-color: var(--action-color);
+  flex-wrap: wrap;
+  margin: 0 0 var(--main-margin-large) 0;
+  /* margin: 0 0 calc(var(--main-margin) * 2) 0; */
+  box-shadow: 2px 2px 6px #00000097;
+  height: 150px;
 }
-.product_item_img_wrapper:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
+
+.product_item_img_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product_item_img {
-  position: absolute; /* Take your picture out of the flow */
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; /* Make the picture taking the size of it's parent */
-  width: 100%; /* This if for the object-fit */
-  height: 80%; /* This if for the object-fit */
-  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+  height: 100%;
+  width: 150px;
+  object-fit: cover;
   object-position: center;
-  padding: 0;
-  margin: 0;
 }
 
 .product_item_img_footer {
-  position: relative;
-  top: 80%;
-  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1.5em;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  background-color: var(--action-color);
   color: white;
-  padding: var(--main-padding);
-  width: 100%;
-  height: 20%;
   font-size: calc(var(--main-font-paragraph-size) * 0.7);
 }
