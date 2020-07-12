@@ -37,16 +37,17 @@ const Input = ({
           onBlur={() => onBlur()}
           autoFocus
         ></input>
-        <div className="input__options">
-          {options &&
-            options
+        {options && (
+          <div className="input__options">
+            {options
               .filter((option) => option.includes(value))
               .map((option) => (
                 <option key={option} onClick={() => onChange(option)}>
                   {option}
                 </option>
               ))}
-        </div>
+          </div>
+        )}
       </div>
     </>
   );
