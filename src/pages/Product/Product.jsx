@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
 import text from "../../locales/en";
+import { Link } from "react-router-dom";
 
 const Product = ({ images }) => {
   const { products } = useSelector((state) => state.products);
@@ -12,8 +13,15 @@ const Product = ({ images }) => {
 
   const product = products.find((item) => id == item.id);
 
+  const handleOnSubmitClick = () => {
+    console.log(`handleOnSubmitClick`);
+  };
+
   return (
     <div className="product" data-testid="product">
+      <Link className="product_info_link" to={`/products`}>
+        🔙
+      </Link>
       <ItemGallery>
         {product.imgUrls &&
           product.imgUrls.map((image, index) => (
@@ -35,7 +43,7 @@ const Product = ({ images }) => {
           <div className="product__footer_item">{product.location}</div>
           <Button
             value={text.product.submit}
-            onClick={() => console.log(`test`)}
+            onClick={() => handleOnSubmitClick()}
           />
           <div className="product__footer_item">{product.price}</div>
         </div>

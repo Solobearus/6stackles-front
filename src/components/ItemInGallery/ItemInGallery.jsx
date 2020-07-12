@@ -31,9 +31,9 @@ const ItemInGallery = ({ index, chosenItem, setChosenItem, children }) => {
   };
 
   const childrenWithExtraProp = React.Children.map(children, (child) =>
-    React.isValidElement(child)
-      ? child
-      : React.cloneElement(child, { opened: chosenItem === index, handleClose })
+    React.isValidElement(child) && typeof child.type === "function"
+      ? React.cloneElement(child, { opened: chosenItem === index, handleClose })
+      : child
   );
 
   return (

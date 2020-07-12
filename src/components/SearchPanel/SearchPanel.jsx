@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const SearchPanel = () => {
   const { text } = useSelector((state) => state.language);
-  const { textSearch } = useSelector((state) => state.search);
+  const { textSearchApplied } = useSelector((state) => state.search);
 
   return (
     <div className="search_panel" data-testid="search">
@@ -16,7 +16,7 @@ const SearchPanel = () => {
         <Input
           className="search_panel_input"
           type="text"
-          value={textSearch}
+          value={textSearchApplied}
           placeholder={text.default.main.search}
         />
       </Link>

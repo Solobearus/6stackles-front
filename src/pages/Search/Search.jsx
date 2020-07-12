@@ -1,23 +1,21 @@
 import React from "react";
 import "./Search.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import FilterWithSearch from "../../components/FilterWithSearch/FilterWithSearch";
 import FilterWithRange from "../../components/FilterWithRange/FilterWithRange";
 import { useSelector, useDispatch } from "react-redux";
-import { searchSlice } from "../../store/slices";
-import { productsSlice } from "../../store/slices";
-import { useHistory } from "react-router-dom";
+import { searchSlice, productsSlice } from "../../store/slices";
+import { useHistory, Link } from "react-router-dom";
 
 const Search = () => {
   const [isInputSelected, setIsInputSelected] = useState(true);
-
   const { text } = useSelector((state) => state.language);
 
   const {
-    textSearch,
+    textSearchInput,
     categorySearchInput,
     categorySearchApplied,
     locationSearchInput,
@@ -43,17 +41,21 @@ const Search = () => {
   } = searchSlice.actions;
 
   const history = useHistory();
-
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(searchSlice.actions.resetSearchInput());
+  }, []);
+
   const handleSearchSubmit = () => {
+    dispatch(searchSlice.actions.submitSearch());
     dispatch(
       productsSlice.actions.filterProducts({
-        textSearch,
-        categorySearchApplied,
-        locationSearchApplied,
-        priceSearchApplied,
-        conditionSearchApplied,
+        textSearchInput,
+        categorySearchInput,
+        locationSearchInput,
+        priceSearchInput,
+        conditionSearchInput,
       })
     );
     history.push("products");
@@ -62,15 +64,17 @@ const Search = () => {
   return (
     <div className="search" data-testid="search">
       <div className="nothing"></div>
-
+      <Link className="product_info_link" to={`/products`}>
+        🔙
+      </Link>
       <div className="search_input_wrapper">
         {isInputSelected ? (
           <Input
-            value={textSearch}
+            value={textSearchInput}
             className="search_input_wrapper_display"
             onBlur={() => setIsInputSelected(false)}
             onChange={(e) =>
-              dispatch(searchSlice.actions.setTextSearch(e.target.value))
+              dispatch(searchSlice.actions.setTextSearchInput(e.target.value))
             }
           />
         ) : (
@@ -78,7 +82,7 @@ const Search = () => {
             className="search_input_wrapper_display"
             onClick={() => setIsInputSelected(true)}
           >
-            {textSearch.trim() == "" ? "Write what you need" : textSearch}
+            {textSearchInput.trim() == "" ? "Write what you need" : textSearchInput}
           </div>
         )}
       </div>
@@ -87,33 +91,33 @@ const Search = () => {
         <FilterWithSearch
           nameOfFilter={"category"}
           searchInput={categorySearchInput}
-          searchApplied={categorySearchApplied}
+          // searchApplied={categorySearchApplied}
           searchOptions={categories}
           setSearchInput={setCategorySearchInput}
-          setSearchApplied={setCategorySearchApplied}
+          // setSearchApplied={setCategorySearchApplied}
         />
         <FilterWithSearch
           nameOfFilter={"location"}
           searchInput={locationSearchInput}
-          searchApplied={locationSearchApplied}
+          // searchApplied={locationSearchApplied}
           searchOptions={locations}
           setSearchInput={setLocationSearchInput}
-          setSearchApplied={setLocationSearchApplied}
+          // setSearchApplied={setLocationSearchApplied}
         />
         <FilterWithSearch
           nameOfFilter={"condition"}
           searchInput={conditionSearchInput}
-          searchApplied={conditionSearchApplied}
+          // searchApplied={conditionSearchApplied}
           searchOptions={conditions}
           setSearchInput={setConditionSearchInput}
-          setSearchApplied={setConditionSearchApplied}
+          // setSearchApplied={setConditionSearchApplied}
         />
         <FilterWithRange
           nameOfFilter={"price"}
           searchInput={priceSearchInput}
-          searchApplied={priceSearchApplied}
+          // searchApplied={priceSearchApplied}
           setSearchInput={setPriceSearchInput}
-          setSearchApplied={setPriceSearchApplied}
+          // setSearchApplied={setPriceSearchApplied}
         />
       </ItemGallery>
 

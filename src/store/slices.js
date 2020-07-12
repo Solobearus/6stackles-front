@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from '../data/products'
+import {
+  categories,
+  conditions,
+  locations,
+} from '../data/searchParams'
 
 export const userAuthSlice = createSlice({
   name: "userAuth",
@@ -55,14 +60,13 @@ export const productsSlice = createSlice({
     filterProducts: (state, action) => {
       state.productsFiltered = state.products
         .filter(item => {
-          console.log(`${action.payload.textSearch} --- ${action.payload.name}`);
           if (
-            (action.payload.categorySearchApplied && action.payload.categorySearchApplied != item.category) ||
-            (action.payload.conditionSearchApplied && action.payload.conditionSearchApplied != item.condition) ||
-            (action.payload.locationSearchApplied && action.payload.locationSearchApplied != item.location) ||
-            (action.payload.priceSearchApplied.min && action.payload.priceSearchApplied.min > item.price) ||
-            (action.payload.priceSearchApplied.max && action.payload.priceSearchApplied.max < item.price) ||
-            (action.payload.textSearch && !item.name.toLocaleLowerCase().includes(action.payload.textSearch.toLocaleLowerCase()))
+            (action.payload.categorySearchInput && action.payload.categorySearchInput != item.category) ||
+            (action.payload.conditionSearchInput && action.payload.conditionSearchInput != item.condition) ||
+            (action.payload.locationSearchInput && action.payload.locationSearchInput != item.location) ||
+            (action.payload.priceSearchInput && action.payload.priceSearchInput.min > item.price) ||
+            (action.payload.priceSearchInput && action.payload.priceSearchInput.max < item.price) ||
+            (action.payload.textSearchInput.trim && action.payload.textSearchInput.trim() != '' && !item.name.toLocaleLowerCase().includes(action.payload.textSearchInput.toLocaleLowerCase()))
           )
             return false;
 
@@ -89,7 +93,8 @@ export const languagesSlice = createSlice({
 export const searchSlice = createSlice({
   name: "search",
   initialState: {
-    textSearch: "",
+    textSearchInput: "",
+    textSearchApplied: "",
     categorySearchInput: "",
     categorySearchApplied: "",
     locationSearchInput: "",
@@ -98,63 +103,13 @@ export const searchSlice = createSlice({
     priceSearchApplied: { min: 0, max: 999 },
     conditionSearchInput: "",
     conditionSearchApplied: "",
-    categories: [
-      'Coach',
-      'Gun',
-      'Sandwich',
-      'Rubber',
-      'Hat',
-      'Shirt',
-      'Soap',
-      'Chips',
-      'Pants',
-      'Towels',
-      'Computer',
-      'Chair',
-      'Ball',
-    ],
-    conditions: [
-      'Used',
-      'Good',
-      'New'
-    ],
-    locations: [
-      "Tahiti",
-      "Israel",
-      "Bahamas",
-      "Tunisia",
-      "Slovenia",
-      "Georgia",
-      "Kazakhstan",
-      "Tajikistan",
-      "Greenland",
-      "Hong Kong",
-      "Russian Federation",
-      "Jersey",
-      "Paraguay",
-      "Greece",
-      "Montenegro",
-      "Ecuador",
-      "Burkina Faso",
-      "Jordan",
-      "Cook Islands",
-      "Norfolk Island",
-      "Japan",
-      "Ireland",
-      "Iceland",
-      "Mali",
-      "Madagascar",
-      "Tonga",
-      "Zimbabwe",
-      "Tunisia",
-      "Hungary",
-      "Timor-Leste",
-      "United Kingdom",
-      "Ecuador"
-    ]
+    categories,
+    conditions,
+    locations,
   },
   reducers: {
-    setTextSearch: (state, action) => { state.textSearch = action.payload },
+    setTextSearchInput: (state, action) => { state.textSearchInput = action.payload },
+    setTextSearchApplied: (state, action) => { state.textSearchApplied = action.payload },
     setCategorySearchInput: (state, action) => { state.categorySearchInput = action.payload },
     setCategorySearchApplied: (state, action) => { state.categorySearchApplied = action.payload },
     setLocationSearchInput: (state, action) => { state.locationSearchInput = action.payload },
@@ -163,34 +118,19 @@ export const searchSlice = createSlice({
     setPriceSearchApplied: (state, action) => { state.priceSearchApplied = action.payload },
     setConditionSearchInput: (state, action) => { state.conditionSearchInput = action.payload },
     setConditionSearchApplied: (state, action) => { state.conditionSearchApplied = action.payload },
+    submitSearch: (state, action) => {
+      state.textSearchApplied = state.textSearchInput;
+      state.categorySearchApplied = state.categorySearchInput;
+      state.locationSearchApplied = state.locationSearchInput;
+      state.priceSearchApplied = state.priceSearchInput;
+      state.conditionSearchApplied = state.conditionSearchInput;
+    },
+    resetSearchInput: (state, action) => {
+      state.textSearchInput = state.textSearchApplied;
+      state.categorySearchInput = state.categorySearchApplied;
+      state.locationSearchInput = state.locationSearchApplied;
+      state.priceSearchInput = state.priceSearchApplied;
+      state.conditionSearchInput = state.conditionSearchApplied;
+    }
   },
 });
-
-// export const categoriesSlice = createSlice({
-//   name: "categories",
-//   initialState: {
-//     categories: [
-//       'Coach',
-//       'Gun',
-//       'Sandwich',
-//       'Rubber',
-//       'Hat',
-//       'Shirt',
-//       'Soap',
-//       'Chips',
-//       'Ball',
-//       'Pants',
-//       'Towels',
-//       'Computer',
-//       'Chair',
-//       'Ball',
-//     ],
-//     categoriesSearch: '',
-//   },
-//   reducers: {
-//     setCategoriesSearch: (state, action) => {
-//       state.categoriesSearch = action.payload;
-//     },
-//   },
-// });
-

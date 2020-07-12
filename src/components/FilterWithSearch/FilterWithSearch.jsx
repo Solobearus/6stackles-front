@@ -8,16 +8,13 @@ const FilterWithSearch = ({
   opened,
   nameOfFilter,
   searchInput,
-  searchApplied,
   searchOptions,
   setSearchInput,
-  setSearchApplied,
 }) => {
   const dispatch = useDispatch();
 
-  const handleClick = (option) => {
+  const handleOnOptionClick = (option) => {
     dispatch(setSearchInput(option));
-    dispatch(setSearchApplied(option));
   };
 
   const handleOnSearchChange = (input) => {
@@ -39,7 +36,7 @@ const FilterWithSearch = ({
               searchOptions
                 .filter((option) => option.includes(searchInput))
                 .map((option) => (
-                  <li key={option} onClick={() => handleClick(option)}>
+                  <li key={option} onClick={() => handleOnOptionClick(option)}>
                     {option}
                   </li>
                 ))}
@@ -47,12 +44,11 @@ const FilterWithSearch = ({
         </>
       ) : (
         <>
-          {console.log(searchApplied)}
-          <div className="filterWithSearch__label">
-            {searchApplied ? nameOfFilter : ""}
+            <div className="filterWithSearch__label">
+            {searchInput ? nameOfFilter : ""}
           </div>
           <div className="filterWithSearch__choise">
-            {searchApplied ? searchApplied : nameOfFilter}
+            {searchInput ? searchInput : nameOfFilter}
           </div>
         </>
       )}
