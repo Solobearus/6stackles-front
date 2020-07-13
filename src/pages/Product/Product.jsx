@@ -23,36 +23,38 @@ const Product = ({ images }) => {
       <Link className="product_info_link" to={`/products`}>
         🔙
       </Link>
-      <ItemGallery>
-        {product.imgUrls &&
-          product.imgUrls.map((image, index) => (
-            <img
-              key={`${index}`}
-              className="itemInGallery__img"
-              src={`${
-                image
-                  ? image
-                  : imagePlaceholder
-              }`}
-              alt={`${product.name}_${index}`}
-            ></img>
-          ))}
-      </ItemGallery>
+      {product ? (
+        <>
+          <ItemGallery>
+            {product.imgUrls &&
+              product.imgUrls.map((image, index) => (
+                <img
+                  key={`${index}`}
+                  className="itemInGallery__img"
+                  src={`${image ? image : imagePlaceholder}`}
+                  alt={`${product.name}_${index}`}
+                ></img>
+              ))}
+          </ItemGallery>
 
-      <div className="product__info">
-        <h3>{product.name}</h3>
-        <h4>Condition : {product.condition}</h4>
-        <h4>Category : {product.category}</h4>
-        <p>{product.desc}</p>
-        <div className="product__footer">
-          <div className="product__footer_item">{product.location}</div>
-          <Button
-            value={text.product.submit}
-            onClick={() => handleOnSubmitClick()}
-          />
-          <div className="product__footer_item">{product.price}</div>
-        </div>
-      </div>
+          <div className="product__info">
+            <h3>{product.name}</h3>
+            <h4>Condition : {product.condition}</h4>
+            <h4>Category : {product.category}</h4>
+            <p>{product.desc}</p>
+            <div className="product__footer">
+              <div className="product__footer_item">{product.location}</div>
+              <Button
+                value={text.product.submit}
+                onClick={() => handleOnSubmitClick()}
+              />
+              <div className="product__footer_item">{product.price}</div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div>404 : product is not found</div>
+      )}
     </div>
   );
 };

@@ -8,25 +8,42 @@ import text from "../../locales/en";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { productsSlice } from "../../store/slices";
+import { useParams } from "react-router-dom";
 
 const CreateProduct = () => {
   const { categories, conditions, locations } = useSelector(
     (state) => state.search
   );
   const { text } = useSelector((state) => state.language);
-  const { id } = useSelector((state) => state.userDetails);
+  const { id: userId, productsPosted } = useSelector(
+    (state) => state.userDetails
+  );
+  const { products } = useSelector((state) => state.products);
 
+  const { id: paramsId } = useParams();
+
+  const product = products.find((product) => paramsId == product.id);
+
+  console.log(product);
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [imageURLs, setImageURLs] = useState([null, null, null, null]);
+  const [imgUrls, setImageURLs] = useState(
+    product ? product.imgUrls : [null, null, null, null]
+  );
 
-  const [name, setName] = useState("test");
-  const [category, setCategory] = useState("Hat");
-  const [location, setLocation] = useState("Israel");
-  const [condition, setCondition] = useState("Good");
-  const [description, setDescription] = useState("testtesttesttest");
-  const [price, setPrice] = useState(0);
+  const [name, setName] = useState(product ? product.name : "test");
+  const [category, setCategory] = useState(product ? product.category : "Hat");
+  const [location, setLocation] = useState(
+    product ? product.location : "Israel"
+  );
+  const [condition, setCondition] = useState(
+    product ? product.condition : "Good"
+  );
+  const [description, setDescription] = useState(
+    product ? product.desc : "testtesttesttest"
+  );
+  const [price, setPrice] = useState(product ? product.price : 0);
 
   const [error, setError] = useState("");
 
@@ -51,34 +68,52 @@ const CreateProduct = () => {
       setError(text.default.error[1004]);
       return;
     }
-    if (
-      description.trim().length < 10 ||
-      description.trim().length > 500
-    ) {
+    if (description.trim().length < 10 || description.trim().length > 500) {
       setError(text.default.error[1005]);
       return;
     }
-
-    const randomId = Math.random() * 99999 + "";
-    dispatch(
-      productsSlice.actions.addProduct({
-        id: randomId,
-        authorId: id,
-        name,
-        category,
-        condition,
-        desc:description,
-        imgUrls: imageURLs,
-        price,
-        location,
-      })
-    );
-    history.push(`/product/${randomId}`);
+    if (paramsId) {
+      if (productsPosted.find((product) => product.authorId === userId)) {
+        dispatch(
+          productsSlice.actions.editProduct({
+            id: paramsId,
+            authorId: userId,
+            name,
+            category,
+            condition,
+            desc: description,
+            imgUrls,
+            price,
+            location,
+          })
+        );
+        history.push(`/product/${paramsId}`);
+      }else{
+        console.log(`error at submit`);
+        setError(text.default.error[2000]);
+      }
+    } else {
+      const randomId = Math.random() * 99999 + "";
+      dispatch(
+        productsSlice.actions.addProduct({
+          id: randomId,
+          authorId: userId,
+          name,
+          category,
+          condition,
+          desc: description,
+          imgUrls,
+          price,
+          location,
+        })
+      );
+      history.push(`/product/${randomId}`);
+    }
   };
 
   const onImageChange = (image, index) => {
     console.log(image.files[0]);
-    const newImageURLs = [...imageURLs];
+    const newImageURLs = [...imgUrls];
     newImageURLs[index] = URL.createObjectURL(image.files[0]);
     setImageURLs(newImageURLs);
   };
@@ -89,8 +124,8 @@ const CreateProduct = () => {
         🔙
       </Link>
       <ItemGallery>
-        {imageURLs &&
-          imageURLs.map((image, index) =>
+        {imgUrls &&
+          imgUrls.map((image, index) =>
             image === null ? (
               <div className="create_product__input_pic">
                 <label for={`files_${index}`} class="btn">

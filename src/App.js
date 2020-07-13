@@ -46,6 +46,7 @@ const App = () => {
           </Route>
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/create" component={CreateProduct} />
+          <Route path="/products/edit/:id" component={CreateProduct} />
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
           <Route path="/profile" component={Profile} />

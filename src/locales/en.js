@@ -41,5 +41,6 @@ export default {
     1003: "Error 1003: Please choose a condition for the product from the li",
     1004: "Error 1004: Please choose a valid price for your product",
     1005: "Error 1005: Please choose a valid description for your product(10-500 characters)",
+    2000: "Error 2000: you are not authorized to edit this product",
   }
 };

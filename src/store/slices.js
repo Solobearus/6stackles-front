@@ -56,10 +56,14 @@ export const productsSlice = createSlice({
     productsFiltered: products
   },
   reducers: {
+    editProduct: (state, action) => {
+      const newProducts = [...state.products];
+      const indexOfProductToChange = newProducts.findIndex(product => product.id === action.payload.id);
+      newProducts[indexOfProductToChange] = action.payload.id;
+      state.products = newProducts;
+    },
     addProduct: (state, action) => {
       const newProducts = [...state.products, action.payload];
-      // console.log(newProducts)
-      // state.products.add(action.payload);
       state.products = newProducts;
     },
     setName: (state, action) => {

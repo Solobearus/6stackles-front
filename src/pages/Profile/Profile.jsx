@@ -38,7 +38,7 @@ const Profile = () => {
               <div className="">
                 <Link
                   className="product_info_link"
-                  to={`/product/${product.id}`}
+                  to={`/products/edit/${product.id}`}
                 >
                   Edit
                 </Link>
