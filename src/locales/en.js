@@ -23,4 +23,14 @@ export default {
   search: {
     submit: "submit",
   },
+  createProduct: {
+    name: "name : ",
+    category: "category : ",
+    location: "location : ",
+    condition: "condition : ",
+    price: "price : ",
+  },
+  generic: {
+    submit: "submit"
+  }
 };
