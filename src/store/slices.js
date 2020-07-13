@@ -56,6 +56,11 @@ export const productsSlice = createSlice({
     productsFiltered: products
   },
   reducers: {
+    addProduct: (state, action) => {
+      const newProducts = [...state.products ];
+      newProducts.add(action.payload);
+      state.products = newProducts;
+    },
     setName: (state, action) => {
       state.products[action.index].name = action.payload;
     },

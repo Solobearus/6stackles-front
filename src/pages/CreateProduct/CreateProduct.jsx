@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import "./CreateProduct.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
 import text from "../../locales/en";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
+import { productsSlice } from "../../store/slices";
 
 const CreateProduct = () => {
   const { categories, conditions, locations } = useSelector(
     (state) => state.search
   );
-
   const { text } = useSelector((state) => state.language);
+  const { id } = useSelector((state) => state.userDetails);
+
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const [imageURLs, setImageURLs] = useState([null, null, null, null]);
 
@@ -21,33 +25,56 @@ const CreateProduct = () => {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [condition, setCondition] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
 
   const [error, setError] = useState("");
 
   const handleOnSubmitClick = () => {
     if (name.trim() === "") {
-      setError("Error: please choose a name for the product");
+      setError(text.default.error[1000]);
       return;
     }
     if (category.trim() === "" || !categories.includes(category.trim())) {
-      setError("Error: Please choose a category for the product from the list");
+      setError(text.default.error[1001]);
       return;
     }
     if (location.trim() === "" || !locations.includes(location.trim())) {
-      setError("Error: Please choose a location for the product from the list");
+      setError(text.default.error[1002]);
       return;
     }
     if (condition.trim() === "" || !conditions.includes(condition.trim())) {
-      setError(
-        "Error: Please choose a condition for the product from the list"
-      );
+      setError(text.default.error[1003]);
       return;
     }
     if (price < 0) {
-      setError("Error: Please choose a valid price for your product");
+      setError(text.default.error[1004]);
       return;
     }
+    if (
+      description.trim().length < 10 ||
+      description.trim().length < 500
+    ) {
+      setError(text.default.error[1005]);
+      return;
+    }
+
+    const randomId = Math.random() * 99999 + "";
+    dispatch(
+      productsSlice.addProduct({
+        id: randomId,
+        authorId: id,
+        name,
+        category,
+        condition,
+        desc:
+          "Iste dolorem similique vel et. Amet atque nihil qui qui nostrum eligendi eum dolorem quia. Molestias dolorem ex et exercitationem explicabo. Iste nemo assumenda corporis. Quisquam ducimus praesentium tenetur maxime deleniti. ",
+        imgUrls: imageURLs,
+        price,
+        location,
+      })
+    );
+    history.push(`/product/${randomId}`);
   };
 
   const onImageChange = (image, index) => {
@@ -144,6 +171,17 @@ const CreateProduct = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
+        <div className="create_product__info__input_group">
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.description}
+          </span>
+          <Input
+            className={`create_product__info__input_group__input`}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+
         {error && <div className="error">{error}</div>}
         <Button
           value={text.default.generic.submit}
