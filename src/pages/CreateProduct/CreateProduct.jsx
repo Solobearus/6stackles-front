@@ -92,7 +92,9 @@ const CreateProduct = () => {
 
       <div className="create_product__info">
         <div className="create_product__info__input_group">
-          <span>{text.default.createProduct.name}</span>
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.name}
+          </span>
           <Input
             className={`create_product__info__input_group__input`}
             value={name}
@@ -100,7 +102,9 @@ const CreateProduct = () => {
           />
         </div>
         <div className="create_product__info__input_group">
-          <span>{text.default.createProduct.category}</span>
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.category}
+          </span>
           <Input
             className={`create_product__info__input_group__input`}
             value={category}
@@ -109,7 +113,9 @@ const CreateProduct = () => {
           />
         </div>
         <div className="create_product__info__input_group">
-          <span>{text.default.createProduct.location}</span>
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.location}
+          </span>
           <Input
             className={`create_product__info__input_group__input`}
             value={location}
@@ -118,7 +124,9 @@ const CreateProduct = () => {
           />
         </div>
         <div className="create_product__info__input_group">
-          <span>{text.default.createProduct.condition}</span>
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.condition}
+          </span>
           <Input
             className={`create_product__info__input_group__input`}
             value={condition}
@@ -127,7 +135,9 @@ const CreateProduct = () => {
           />
         </div>
         <div className="create_product__info__input_group">
-          <span>{text.default.createProduct.price}</span>
+          <span className="create_product__info__input_group__span">
+            {text.default.createProduct.price}
+          </span>
           <Input
             className={`create_product__info__input_group__input`}
             value={price}

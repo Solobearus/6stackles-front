@@ -29,4 +29,11 @@
 
 .create_product__info__input_group__input {
     margin: var(--main-margin);
+    flex: 1;
+}
+
+.create_product__info__input_group__span{
+    flex: 1;
+    margin-left: var(--main-margin);
+    color: var(--typography-color);
 }
