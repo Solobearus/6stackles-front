@@ -21,11 +21,11 @@ const CreateProduct = () => {
 
   const [imageURLs, setImageURLs] = useState([null, null, null, null]);
 
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
-  const [condition, setCondition] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState("test");
+  const [category, setCategory] = useState("Hat");
+  const [location, setLocation] = useState("Israel");
+  const [condition, setCondition] = useState("Good");
+  const [description, setDescription] = useState("testtesttesttest");
   const [price, setPrice] = useState(0);
 
   const [error, setError] = useState("");
@@ -53,7 +53,7 @@ const CreateProduct = () => {
     }
     if (
       description.trim().length < 10 ||
-      description.trim().length < 500
+      description.trim().length > 500
     ) {
       setError(text.default.error[1005]);
       return;
@@ -61,14 +61,13 @@ const CreateProduct = () => {
 
     const randomId = Math.random() * 99999 + "";
     dispatch(
-      productsSlice.addProduct({
+      productsSlice.actions.addProduct({
         id: randomId,
         authorId: id,
         name,
         category,
         condition,
-        desc:
-          "Iste dolorem similique vel et. Amet atque nihil qui qui nostrum eligendi eum dolorem quia. Molestias dolorem ex et exercitationem explicabo. Iste nemo assumenda corporis. Quisquam ducimus praesentium tenetur maxime deleniti. ",
+        desc:description,
         imgUrls: imageURLs,
         price,
         location,

@@ -57,8 +57,9 @@ export const productsSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      const newProducts = [...state.products ];
-      newProducts.add(action.payload);
+      const newProducts = [...state.products, action.payload];
+      // console.log(newProducts)
+      // state.products.add(action.payload);
       state.products = newProducts;
     },
     setName: (state, action) => {
