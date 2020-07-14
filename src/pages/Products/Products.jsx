@@ -21,7 +21,7 @@ const Products = () => {
 
   useEffect(() => {
     if (currentPaginationIndex <= productsFiltered.length) {
-      setProductsFilteredToDisplay([
+      setProductsFilteredToDisplay(productsFilteredToDisplay => [
         ...productsFilteredToDisplay,
         ...productsFiltered.slice(
           currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
@@ -31,7 +31,7 @@ const Products = () => {
     } else {
       setHasMore(false);
     }
-  }, [currentPaginationIndex, productsFilteredToDisplay, productsFiltered]);
+  }, [currentPaginationIndex, productsFiltered]);
 
   useEffect(() => {
     setCurrentPaginationIndex(ITEMS_TO_GENERATE_PER_PAGE);

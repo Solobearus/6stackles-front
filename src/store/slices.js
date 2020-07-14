@@ -59,7 +59,7 @@ export const productsSlice = createSlice({
     editProduct: (state, action) => {
       const newProducts = [...state.products];
       const indexOfProductToChange = newProducts.findIndex(product => product.id === action.payload.id);
-      newProducts[indexOfProductToChange] = action.payload.id;
+      newProducts[indexOfProductToChange] = action.payload;
       state.products = newProducts;
     },
     addProduct: (state, action) => {
