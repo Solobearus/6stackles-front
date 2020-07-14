@@ -1,6 +1,6 @@
 import React from "react";
 import "./Product.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
@@ -12,7 +12,7 @@ const Product = ({ images }) => {
   const { products } = useSelector((state) => state.products);
   const { id } = useParams();
 
-  const product = products.find((item) => id == item.id);
+  const product = products.find((item) => id === item.id);
 
   const handleOnSubmitClick = () => {
     console.log(`handleOnSubmitClick`);

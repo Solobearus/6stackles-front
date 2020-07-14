@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./Input.css";
-import { Children } from "react";
 
 const Input = ({
   type = "text",

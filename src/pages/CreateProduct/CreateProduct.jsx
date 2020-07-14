@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
-import text from "../../locales/en";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { productsSlice } from "../../store/slices";
@@ -22,9 +21,8 @@ const CreateProduct = () => {
 
   const { id: paramsId } = useParams();
 
-  const product = products.find((product) => paramsId == product.id);
+  const product = products.find((product) => paramsId === product.id);
 
-  console.log(product);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -112,7 +110,6 @@ const CreateProduct = () => {
   };
 
   const onImageChange = (image, index) => {
-    console.log(image.files[0]);
     const newImageURLs = [...imgUrls];
     newImageURLs[index] = URL.createObjectURL(image.files[0]);
     setImageURLs(newImageURLs);
@@ -127,8 +124,8 @@ const CreateProduct = () => {
         {imgUrls &&
           imgUrls.map((image, index) =>
             image === null ? (
-              <div className="create_product__input_pic">
-                <label for={`files_${index}`} class="btn">
+              <div className="create_product__input_pic" key={`${index}`}>
+                <label htmlFor={`files_${index}`} className="create_product__input_pic__label">
                   ➕
                 </label>
                 <input

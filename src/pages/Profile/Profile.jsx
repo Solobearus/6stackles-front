@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import "./Profile.css";
 import userLogo from "../../img/userLogo.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,11 +12,11 @@ const Profile = () => {
 
   const { products } = useSelector((state) => state.products);
 
-  const dispatch = useDispatch();
+  const dispatch = useCallback(useDispatch(), []);
 
   useEffect(() => {
     dispatch(userDetailsSlice.actions.findProductsPostedByUser(products));
-  }, []);
+  }, [products, dispatch]);
 
   return (
     <div className="profile" data-testid="profile">
@@ -31,7 +31,10 @@ const Profile = () => {
       <div className="profile__products_posted">
         {productsPosted &&
           productsPosted.map((product) => (
-            <div className="profile__products_posted__product">
+            <div
+              className="profile__products_posted__product"
+              key={`${product.id}`}
+            >
               <div className="">id : {product.id}</div>
               <div className="">name : {product.name}</div>
               <div className="">price : {product.price}</div>

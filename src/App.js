@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./root.css";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -9,28 +9,28 @@ import Product from "./pages/Product/Product";
 import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
-import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-  Link,
 } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { token } = useSelector((state) => state.userAuth);
+// !!! will be used once connection to backend is implemented !!!
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        token ? <Component {...props} /> : <Redirect to="/signIn" />
-      }
-    />
-  );
-};
+// const PrivateRoute = ({ component: Component, ...rest }) => {
+//   const { token } = useSelector((state) => state.userAuth);
+
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         token ? <Component {...props} /> : <Redirect to="/signIn" />
+//       }
+//     />
+//   );
+// };
 
 const App = () => {
   return (

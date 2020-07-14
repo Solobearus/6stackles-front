@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./SignIn.css";
 import Button from "../../components/Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { login, verify } from "../../api";
-import { userAuthSlice, userDetailsSlice } from "../../store/slices";
+import { userAuthSlice } from "../../store/slices";
 import { useHistory } from "react-router-dom";
 import Input from "../../components/Input/Input";
 
@@ -13,7 +13,7 @@ const SignIn = ({ from = "/products" }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  let history = useHistory();
+  const history = useCallback(useHistory(), []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,7 +23,7 @@ const SignIn = ({ from = "/products" }) => {
       verify(token)
         .then((res) => history.push(from))
         .catch((err) => console.log(err));
-  }, []);
+  }, [history, from]);
 
   const handleSubmit = async () => {
     // const result = await login(email, password);
@@ -40,7 +40,7 @@ const SignIn = ({ from = "/products" }) => {
 
   return (
     <div className="signIn" data-testid="signIn">
-      {error != "" && <div className="error">error</div>}
+      {error !== "" && <div className="error">error</div>}
       <div className="signIn_welcome">{text.default.sign_in.welcome}</div>
       <Input
         type="text"

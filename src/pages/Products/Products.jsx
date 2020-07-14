@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import ProductInfo from "../../components/ProductInfo/ProductInfo";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 import ProductItem from "../../components/ProductItem/ProductItem";
 
@@ -11,7 +10,9 @@ const ITEMS_TO_GENERATE_PER_PAGE = 10;
 const Products = () => {
   const { productsFiltered } = useSelector((state) => state.products);
 
-  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(ITEMS_TO_GENERATE_PER_PAGE);
+  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(
+    ITEMS_TO_GENERATE_PER_PAGE
+  );
   const [hasMore, setHasMore] = useState(true);
 
   const [productsFilteredToDisplay, setProductsFilteredToDisplay] = useState(
@@ -20,19 +21,17 @@ const Products = () => {
 
   useEffect(() => {
     if (currentPaginationIndex <= productsFiltered.length) {
-      setProductsFilteredToDisplay(
-        [
-          ...productsFilteredToDisplay,
-          ...productsFiltered.slice(
-            currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
-            currentPaginationIndex
-          )
-        ]
-      );
+      setProductsFilteredToDisplay([
+        ...productsFilteredToDisplay,
+        ...productsFiltered.slice(
+          currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
+          currentPaginationIndex
+        ),
+      ]);
     } else {
       setHasMore(false);
     }
-  }, [currentPaginationIndex]);
+  }, [currentPaginationIndex, productsFilteredToDisplay, productsFiltered]);
 
   useEffect(() => {
     setCurrentPaginationIndex(ITEMS_TO_GENERATE_PER_PAGE);
@@ -43,7 +42,9 @@ const Products = () => {
   }, [productsFiltered]);
 
   const fetchData = () => {
-    setCurrentPaginationIndex(currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE);
+    setCurrentPaginationIndex(
+      currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE
+    );
   };
 
   return (

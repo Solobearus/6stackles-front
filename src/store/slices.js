@@ -85,12 +85,12 @@ export const productsSlice = createSlice({
       state.productsFiltered = state.products
         .filter(item => {
           if (
-            (action.payload.categorySearchInput && action.payload.categorySearchInput != item.category) ||
-            (action.payload.conditionSearchInput && action.payload.conditionSearchInput != item.condition) ||
-            (action.payload.locationSearchInput && action.payload.locationSearchInput != item.location) ||
+            (action.payload.categorySearchInput && action.payload.categorySearchInput !== item.category) ||
+            (action.payload.conditionSearchInput && action.payload.conditionSearchInput !== item.condition) ||
+            (action.payload.locationSearchInput && action.payload.locationSearchInput !== item.location) ||
             (action.payload.priceSearchInput && action.payload.priceSearchInput.min > item.price) ||
             (action.payload.priceSearchInput && action.payload.priceSearchInput.max < item.price) ||
-            (action.payload.textSearchInput.trim && action.payload.textSearchInput.trim() != '' && !item.name.toLocaleLowerCase().includes(action.payload.textSearchInput.toLocaleLowerCase()))
+            (action.payload.textSearchInput.trim && action.payload.textSearchInput.trim() !== '' && !item.name.toLocaleLowerCase().includes(action.payload.textSearchInput.toLocaleLowerCase()))
           )
             return false;
 

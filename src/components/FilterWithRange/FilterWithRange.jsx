@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./FilterWithRange.css";
-import { searchSlice } from "../../store/slices";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Input from "../../components/Input/Input";
 
 const FilterWithRange = ({
