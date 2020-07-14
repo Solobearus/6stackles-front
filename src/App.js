@@ -50,6 +50,9 @@ const App = () => {
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
           <Route path="/profile" component={Profile} />
+          <Route path="/">
+            <Redirect to="/products" />
+          </Route>
         </Switch>
       </Router>
     </div>
