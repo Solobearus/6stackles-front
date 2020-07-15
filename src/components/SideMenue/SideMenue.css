@@ -1,8 +1,16 @@
 .Menue_div {
     height: 100%;
-    position: fixed;
+    position: absolute;
+    top: 70px;
+    background-color: lawngreen;
     z-index: 10;
     transition: 0.5s;
 }
 
-.Menue_div.open {}
+.Menue_div.closed {
+    left: -100vw;
+}
+
+.Menue_div.open {
+    left: 0vw;
+}
