@@ -17,13 +17,9 @@ const Search = () => {
   const {
     textSearchInput,
     categorySearchInput,
-    categorySearchApplied,
     locationSearchInput,
-    locationSearchApplied,
     priceSearchInput,
-    priceSearchApplied,
     conditionSearchInput,
-    conditionSearchApplied,
     categories,
     conditions,
     locations,
@@ -31,13 +27,9 @@ const Search = () => {
 
   const {
     setCategorySearchInput,
-    setCategorySearchApplied,
     setLocationSearchInput,
-    setLocationSearchApplied,
     setPriceSearchInput,
-    setPriceSearchApplied,
     setConditionSearchInput,
-    setConditionSearchApplied,
   } = searchSlice.actions;
 
   const history = useHistory();
@@ -91,33 +83,25 @@ const Search = () => {
         <FilterWithSearch
           nameOfFilter={"category"}
           searchInput={categorySearchInput}
-          // searchApplied={categorySearchApplied}
           searchOptions={categories}
           setSearchInput={setCategorySearchInput}
-          // setSearchApplied={setCategorySearchApplied}
         />
         <FilterWithSearch
           nameOfFilter={"location"}
           searchInput={locationSearchInput}
-          // searchApplied={locationSearchApplied}
           searchOptions={locations}
           setSearchInput={setLocationSearchInput}
-          // setSearchApplied={setLocationSearchApplied}
         />
         <FilterWithSearch
           nameOfFilter={"condition"}
           searchInput={conditionSearchInput}
-          // searchApplied={conditionSearchApplied}
           searchOptions={conditions}
           setSearchInput={setConditionSearchInput}
-          // setSearchApplied={setConditionSearchApplied}
         />
         <FilterWithRange
           nameOfFilter={"price"}
           searchInput={priceSearchInput}
-          // searchApplied={priceSearchApplied}
           setSearchInput={setPriceSearchInput}
-          // setSearchApplied={setPriceSearchApplied}
         />
       </ItemGallery>
 

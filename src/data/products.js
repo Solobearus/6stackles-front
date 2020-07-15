@@ -2,6 +2,7 @@ export default
     [
         {
             id:"c693a6d0-4ecd-437d-983e-d54c6f54c48c",
+            authorId: "x2",
             name: "Awesome Concrete Fish",
             category: "Soap",
             condition: "New",
@@ -17,6 +18,7 @@ export default
         },
         {
             id:"7a3dcbbc-b8e0-4dbf-8e52-a80a3bd339ec",
+            authorId: "x2",
             name: "Practical Rubber Fish",
             category: "Keyboard",
             condition: "Used",
@@ -32,6 +34,7 @@ export default
         },
         {
             id:"ce07edfd-d40c-46ca-b4a5-6902fa291ea9",
+            authorId: "x2",
             name: "Handmade Frozen Sausages",
             category: "Car",
             condition: "Used",
@@ -47,6 +50,7 @@ export default
         },
         {
             id:"07bd9dbe-3d6e-4cdb-99fc-04eecce65cb5",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Awesome Fresh Pizza",
             category: "Bacon",
             condition: "Used",
@@ -62,6 +66,7 @@ export default
         },
         {
             id:"88d81812-15d0-4fb9-a814-f07eedf85280",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Fantastic Fresh Bike",
             category: "Mouse",
             condition: "Used",
@@ -77,6 +82,7 @@ export default
         },
         {
             id:"387c075a-d8ff-4de7-af42-88831a2f75d2",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Rustic Steel Mouse",
             category: "Cheese",
             condition: "Used",
@@ -92,6 +98,7 @@ export default
         },
         {
             id:"c90b994b-93e4-4e62-9369-5dcc645af8d0",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Gorgeous Frozen Shoes",
             category: "Salad",
             condition: "Used",
@@ -107,6 +114,7 @@ export default
         },
         {
             id:"da8f80b9-f1eb-49bd-9429-8ced25c1eaf7",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Tasty Rubber Shoes",
             category: "Chicken",
             condition: "Used",
@@ -122,6 +130,7 @@ export default
         },
         {
             id:"9de7e5bd-c438-45c8-9af4-7353002e096a",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Incredible Frozen Salad",
             category: "Chips",
             condition: "Used",
@@ -137,6 +146,7 @@ export default
         },
         {
             id:"e8d8de54-cb64-4239-abd8-a4f87b35b83e",
+            authorId: "5e32e3884041cf0d80a9b530",
             name: "Sleek Rubber Bacon",
             category: "Shirt",
             condition: "Used",
@@ -152,6 +162,7 @@ export default
         },
         {
             id:"4d5fd324-e2e6-48f1-955f-fdd1f4616828",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Practical Soft Ball",
             category: "Mouse",
             condition: "Used",
@@ -167,6 +178,7 @@ export default
         },
         {
             id:"7ce1d03f-ddcd-4c7b-8fcb-e9ed1d9a24b5",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Tasty Rubber Shoes",
             category: "Cheese",
             condition: "Used",
@@ -182,6 +194,7 @@ export default
         },
         {
             id:"568b39fb-ad6b-402f-9e69-474e0f0f1948",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Sleek Concrete Tuna",
             category: "Shirt",
             condition: "Used",
@@ -197,6 +210,7 @@ export default
         },
         {
             id:"4ebf12f2-a47b-42e3-a378-254888c46f20",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Gorgeous Concrete Bacon",
             category: "Car",
             condition: "Used",
@@ -212,6 +226,7 @@ export default
         },
         {
             id:"d4505f82-131a-4ed1-97a0-27dfbb9dd1d3",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Licensed Wooden Bacon",
             category: "Bike",
             condition: "Used",
@@ -227,6 +242,7 @@ export default
         },
         {
             id:"a8546a4a-3835-4eec-98f4-43d1c0daa6eb",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Tasty Steel Mouse",
             category: "Chicken",
             condition: "New",
@@ -242,6 +258,7 @@ export default
         },
         {
             id:"8efddd32-d8f1-4a7e-b7be-b4f95728e881",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Awesome Fresh Tuna",
             category: "Table",
             condition: "New",
@@ -257,6 +274,7 @@ export default
         },
         {
             id:"36c9fa96-bcdf-496c-bbd4-f65086911655",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Unbranded Steel Gloves",
             category: "Pizza",
             condition: "New",
@@ -272,6 +290,7 @@ export default
         },
         {
             id:"6e993367-a0ae-4f94-a6f1-fedfc1b96cb9",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Generic Granite Pizza",
             category: "Chair",
             condition: "New",
@@ -287,6 +306,7 @@ export default
         },
         {
             id:"b6ceeba1-e143-454b-8fc5-404aa19b2ea3",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Refined Granite Table",
             category: "Car",
             condition: "New",
@@ -302,6 +322,7 @@ export default
         },
         {
             id:"4fa63dca-9a5e-4edf-9ca9-0f0042f3c317",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Awesome Granite Towels",
             category: "Sausages",
             condition: "New",
@@ -317,6 +338,7 @@ export default
         },
         {
             id:"9820d072-081b-41ce-bf46-5c4fae3330f4",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Handcrafted Concrete Table",
             category: "Soap",
             condition: "New",
@@ -332,6 +354,7 @@ export default
         },
         {
             id:"7fc4f079-39ce-4844-877b-b42628920ec9",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Tasty Cotton Ball",
             category: "Table",
             condition: "New",
@@ -347,6 +370,7 @@ export default
         },
         {
             id:"0d07c5f7-dbfd-4559-a49a-64888d0a8c49",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Awesome Rubber Gloves",
             category: "Tuna",
             condition: "New",
@@ -362,6 +386,7 @@ export default
         },
         {
             id:"fecc8968-069c-446c-a2a2-bb476df74a71",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Awesome Soft Towels",
             category: "Salad",
             condition: "Good",
@@ -377,6 +402,7 @@ export default
         },
         {
             id:"a556ae04-004e-46ea-985c-24b782fee9bf",
+            authorId: "5e42918e7dde0d51649b8c42",
             name: "Incredible Wooden Tuna",
             category: "Pants",
             condition: "Good",
@@ -392,6 +418,7 @@ export default
         },
         {
             id:"1d460844-7a0b-4c41-8095-2007a1d5a865",
+            authorId: "x1",
             name: "Handcrafted Metal Cheese",
             category: "Shirt",
             condition: "Good",
@@ -407,6 +434,7 @@ export default
         },
         {
             id:"2b269834-453b-42b7-a985-0d968299f945",
+            authorId: "x1",
             name: "Refined Soft Hat",
             category: "Chips",
             condition: "Good",
@@ -422,6 +450,7 @@ export default
         },
         {
             id:"764deb2c-af9e-47f5-b773-d0ec9ea66e70",
+            authorId: "x1",
             name: "Generic Concrete Keyboard",
             category: "Table",
             condition: "Good",
@@ -437,6 +466,7 @@ export default
         },
         {
             id:"bf3fb68f-689c-4786-9e4e-e419bac52adc",
+            authorId: "x1",
             name: "Tasty Frozen Car",
             category: "Chips",
             condition: "Good",
@@ -452,6 +482,7 @@ export default
         },
         {
             id:"36aacd4a-dccc-484d-85a0-a191345acf4a",
+            authorId: "x1",
             name: "Licensed Concrete Cheese",
             category: "Pants",
             condition: "New",
@@ -467,6 +498,7 @@ export default
         },
         {
             id:"639895ce-c078-43ac-9183-6152f42a22ce",
+            authorId: "x1",
             name: "Gorgeous Soft Salad",
             category: "Sausages",
             condition: "New",
@@ -482,6 +514,7 @@ export default
         },
         {
             id:"b4ecf551-24f8-4db5-9b9b-8612c18ebe49",
+            authorId: "x1",
             name: "Awesome Rubber Shoes",
             category: "Chair",
             condition: "New",
@@ -497,6 +530,7 @@ export default
         },
         {
             id:"b5a17b7d-aa14-46d3-adf3-7aacac4b0adf",
+            authorId: "x1",
             name: "Sleek Concrete Towels",
             category: "Computer",
             condition: "New",
@@ -512,6 +546,7 @@ export default
         },
         {
             id:"bdfc3bb4-5c0f-4ed3-ba54-c8a2a69b166a",
+            authorId: "x1",
             name: "Refined Wooden Keyboard",
             category: "Hat",
             condition: "New",
@@ -527,6 +562,7 @@ export default
         },
         {
             id:"427375f0-ad8e-4eb3-8938-408ba1eaf9ba",
+            authorId: "x1",
             name: "Fantastic Wooden Pizza",
             category: "Chair",
             condition: "New",
@@ -542,6 +578,7 @@ export default
         },
         {
             id:"d02f3eef-ef2a-48f0-b649-9fb61432872a",
+            authorId: "x1",
             name: "Incredible Fresh Chair",
             category: "Towels",
             condition: "New",
@@ -557,6 +594,7 @@ export default
         },
         {
             id:"e23054dd-7c29-4758-94fa-5aab77ddec6c",
+            authorId: "x1",
             name: "Refined Frozen Fish",
             category: "Salad",
             condition: "New",
@@ -572,6 +610,7 @@ export default
         },
         {
             id:"41f4e2c9-73d1-4083-87df-fc73e340cea1",
+            authorId: "x1",
             name: "Sleek Plastic Pizza",
             category: "Tuna",
             condition: "New",
@@ -587,6 +626,7 @@ export default
         },
         {
             id:"d37c4ec8-7c83-4b70-9208-562f0ed4058a",
+            authorId: "x1",
             name: "Small Steel Fish",
             category: "Shoes",
             condition: "New",
@@ -602,6 +642,7 @@ export default
         },
         {
             id:"3640c4c2-c970-44fe-a9af-db7296c6985e",
+            authorId: "x2",
             name: "Practical Soft Car",
             category: "Keyboard",
             condition: "New",
@@ -617,6 +658,7 @@ export default
         },
         {
             id:"bf285781-e453-4f91-8aaa-07065ca74250",
+            authorId: "x2",
             name: "Generic Frozen Gloves",
             category: "Cheese",
             condition: "New",
@@ -632,6 +674,7 @@ export default
         },
         {
             id:"ebf58c33-8df1-498d-85a7-c3e72a5e9992",
+            authorId: "x2",
             name: "Handcrafted Frozen Ball",
             category: "Shoes",
             condition: "New",
@@ -647,6 +690,7 @@ export default
         },
         {
             id:"3261c093-3a42-4602-a7b1-7463159e0909",
+            authorId: "x2",
             name: "Practical Frozen Tuna",
             category: "Cheese",
             condition: "New",
@@ -662,6 +706,7 @@ export default
         },
         {
             id:"92f16c64-69c8-44f5-b54a-dda58e547674",
+            authorId: "x2",
             name: "Sleek Cotton Sausages",
             category: "Chair",
             condition: "New",
@@ -677,6 +722,7 @@ export default
         },
         {
             id:"de74575b-214a-4572-94ab-84ab77de3109",
+            authorId: "x2",
             name: "Licensed Plastic Ball",
             category: "Towels",
             condition: "New",
@@ -692,6 +738,7 @@ export default
         },
         {
             id:"fcfd77ec-4f67-4df1-8c4a-679c59a181cd",
+            authorId: "x2",
             name: "Practical Metal Gloves",
             category: "Shoes",
             condition: "New",
@@ -707,6 +754,7 @@ export default
         },
         {
             id:"34b3253d-2394-4f77-9546-e51b15a3ff36",
+            authorId: "x2",
             name: "Refined Rubber Table",
             category: "Table",
             condition: "New",
@@ -722,6 +770,7 @@ export default
         },
         {
             id:"8d5cdaa6-c8c6-4084-8eed-c8e99e3df15c",
+            authorId: "x2",
             name: "Tasty Plastic Salad",
             category: "Mouse",
             condition: "New",
@@ -737,6 +786,7 @@ export default
         },
         {
             id:"32004d26-913e-44d7-b928-0a90755325de",
+            authorId: "x2",
             name: "Unbranded Steel Keyboard",
             category: "Soap",
             condition: "New",

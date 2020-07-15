@@ -8,7 +8,9 @@ import SignUp from "./pages/SignUp/SignUp";
 import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Search from "./pages/Search/Search";
-import { useSelector, useDispatch } from "react-redux";
+import Profile from "./pages/Profile/Profile";
+import CreateProduct from "./pages/CreateProduct/CreateProduct";
+import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -34,9 +36,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 const App = () => {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Header />
       <SideManue />
+=======
+>>>>>>> upstream/master
       <Router>
+        <Header />
         <Switch>
           <Route path="/signIn">
             <SignIn />
@@ -44,9 +50,11 @@ const App = () => {
           <Route path="/signUp">
             <SignUp />
           </Route>
-          <Route path="/products" component={Products} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/products/create" component={CreateProduct} />
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>

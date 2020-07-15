@@ -22,8 +22,12 @@ export const userAuthSlice = createSlice({
 export const userDetailsSlice = createSlice({
   name: "userDetails",
   initialState: {
-    email: "",
-    name: "",
+    id: "5e32e3884041cf0d80a9b530",
+    email: "placeholder@gmail.com",
+    name: "Elon Musk",
+    phone: "050-420-DERP",
+    profilePicURL: "",
+    productsPosted: [],
   },
   reducers: {
     setName: (state, action) => {
@@ -31,6 +35,16 @@ export const userDetailsSlice = createSlice({
     },
     setEmail: (state, action) => {
       state.email = action.payload;
+    },
+    setPhone: (state, action) => {
+      state.phone = action.payload;
+    },
+    setProfilePicURL: (state, action) => {
+      state.profilePicURL = action.payload;
+    },
+    findProductsPostedByUser: (state, action) => {
+      state.productsPosted = action.payload
+        .filter(product => state.id === product.authorId)
     },
   },
 });
@@ -42,6 +56,12 @@ export const productsSlice = createSlice({
     productsFiltered: products
   },
   reducers: {
+    addProduct: (state, action) => {
+      const newProducts = [...state.products, action.payload];
+      // console.log(newProducts)
+      // state.products.add(action.payload);
+      state.products = newProducts;
+    },
     setName: (state, action) => {
       state.products[action.index].name = action.payload;
     },

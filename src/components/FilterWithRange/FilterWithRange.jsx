@@ -8,15 +8,12 @@ const FilterWithRange = ({
   opened,
   nameOfFilter,
   searchInput,
-  searchApplied,
   setSearchInput,
-  setSearchApplied,
 }) => {
   const dispatch = useDispatch();
 
   const handleOnSearchChange = (input) => {
     dispatch(setSearchInput(input));
-    dispatch(setSearchApplied(input));
   };
 
   return (
@@ -28,6 +25,7 @@ const FilterWithRange = ({
             <div>
               Min :
               <Input
+                id={"min"}
                 focus={opened}
                 type="text"
                 value={searchInput.min}
@@ -42,6 +40,7 @@ const FilterWithRange = ({
             <div>
               Max :
               <Input
+                id={"max"}
                 focus={opened}
                 type="text"
                 value={searchInput.max}
@@ -58,11 +57,11 @@ const FilterWithRange = ({
       ) : (
         <>
           <div className="FilterWithRange__label">
-            {searchApplied ? nameOfFilter : ""}
+            {searchInput ? nameOfFilter : ""}
           </div>
           <div className="FilterWithRange__choise">
-            {searchApplied
-              ? `Min: ${searchApplied.min} - Max: ${searchApplied.max}`
+            {searchInput
+              ? `Min: ${searchInput.min} - Max: ${searchInput.max}`
               : nameOfFilter}
           </div>
         </>
