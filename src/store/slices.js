@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from '../data/products'
+// import products from '../data/products'
 import {
   categories,
   conditions,
@@ -52,10 +52,15 @@ export const userDetailsSlice = createSlice({
 export const productsSlice = createSlice({
   name: "products",
   initialState: {
-    products,
-    productsFiltered: products
+    products: [],
+    productsFiltered: []
   },
   reducers: {
+    setProducts: (state, action) => {
+      console.log(action.payload)
+      state.products = action.payload;
+      state.productsFiltered = action.payload;
+    },
     editProduct: (state, action) => {
       const newProducts = [...state.products];
       const indexOfProductToChange = newProducts.findIndex(product => product.id === action.payload.id);

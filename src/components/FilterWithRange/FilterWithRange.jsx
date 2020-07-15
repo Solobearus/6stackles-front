@@ -25,7 +25,7 @@ const FilterWithRange = ({
               Min :
               <Input
                 id={"min"}
-                focus={opened}
+                focus={true}
                 type="text"
                 value={searchInput.min}
                 onChange={(e) =>
@@ -40,7 +40,7 @@ const FilterWithRange = ({
               Max :
               <Input
                 id={"max"}
-                focus={opened}
+                focus={false}
                 type="text"
                 value={searchInput.max}
                 onChange={(e) =>

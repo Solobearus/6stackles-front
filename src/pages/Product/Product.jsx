@@ -26,8 +26,8 @@ const Product = ({ images }) => {
       {product ? (
         <>
           <ItemGallery>
-            {product.imgUrls &&
-              product.imgUrls.map((image, index) => (
+            {product.images &&
+              product.images.map((image, index) => (
                 <img
                   key={`${index}`}
                   className="itemInGallery__img"

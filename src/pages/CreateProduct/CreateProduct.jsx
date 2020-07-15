@@ -26,8 +26,8 @@ const CreateProduct = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [imgUrls, setImageURLs] = useState(
-    product ? product.imgUrls : [null, null, null, null]
+  const [images, setImages] = useState(
+    product ? product.images : [null, null, null, null]
   );
 
   const [name, setName] = useState(product ? product.name : "test");
@@ -80,13 +80,13 @@ const CreateProduct = () => {
             category,
             condition,
             desc: description,
-            imgUrls,
+            images,
             price,
             location,
           })
         );
         history.push(`/product/${paramsId}`);
-      }else{
+      } else {
         console.log(`error at submit`);
         setError(text.default.error[2000]);
       }
@@ -100,7 +100,7 @@ const CreateProduct = () => {
           category,
           condition,
           desc: description,
-          imgUrls,
+          images,
           price,
           location,
         })
@@ -110,9 +110,9 @@ const CreateProduct = () => {
   };
 
   const onImageChange = (image, index) => {
-    const newImageURLs = [...imgUrls];
+    const newImageURLs = [...images];
     newImageURLs[index] = URL.createObjectURL(image.files[0]);
-    setImageURLs(newImageURLs);
+    setImages(newImageURLs);
   };
 
   return (
@@ -121,11 +121,14 @@ const CreateProduct = () => {
         🔙
       </Link>
       <ItemGallery>
-        {imgUrls &&
-          imgUrls.map((image, index) =>
+        {images &&
+          images.map((image, index) =>
             image === null ? (
               <div className="create_product__input_pic" key={`${index}`}>
-                <label htmlFor={`files_${index}`} className="create_product__input_pic__label">
+                <label
+                  htmlFor={`files_${index}`}
+                  className="create_product__input_pic__label"
+                >
                   ➕
                 </label>
                 <input

@@ -46,3 +46,15 @@ export const register = ({ email, password, phone }) =>
         .then((res) => res.json())
         .then((res) => res)
         .catch((err) => console.error(err));
+
+
+export const fetchProducts = () =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
+
