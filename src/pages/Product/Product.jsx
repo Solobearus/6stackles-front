@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Product.css";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -7,16 +7,25 @@ import Button from "../../components/Button/Button";
 import text from "../../locales/en";
 import { Link } from "react-router-dom";
 import imagePlaceholder from "../../images/imagePlaceholder.jpg";
+import { fetchProduct } from "../../api";
 
 const Product = ({ images }) => {
-  const { products } = useSelector((state) => state.products);
+  // const { products } = useSelector((state) => state.products);
   const { id } = useParams();
 
-  const product = products.find((item) => id === item.id);
+  const [product, setProduct] = useState({});
 
   const handleOnSubmitClick = () => {
     console.log(`handleOnSubmitClick`);
   };
+
+  useEffect(() => {
+    const func = async () => {
+      const product = await fetchProduct(id);
+      setProduct(product);
+    };
+    func();
+  }, []);
 
   return (
     <div className="product" data-testid="product">

@@ -77,9 +77,9 @@ const Products = () => {
             {productsFilteredToDisplay &&
               productsFilteredToDisplay.map((item) => (
                 <ProductItem
-                  key={item.id}
+                  key={item._id}
                   name={item.name}
-                  id={item.id || 1}
+                  id={item._id || 1}
                   desc={item.description}
                   price={item.price}
                   imgUrl={item.images[1]}
