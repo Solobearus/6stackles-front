@@ -30,16 +30,9 @@ input::placeholder {
   overflow: scroll;
   z-index: 2;
 }
-.input__options:hover {
-  background: #221773;
-}
 
 .input__options__option {
   background: var(--main-dark-color);
   color: var(--typography-color);
   z-index: 3;
-}
-
-.input__options__option:hover {
-  background: #221773;
 }
