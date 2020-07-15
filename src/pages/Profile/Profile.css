@@ -1,0 +1,20 @@
+.profile {
+    flex: 1;
+    background-color: var(--main-dark-color);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    padding: var(--main-padding-large);
+    color: var(--typography-color);
+    overflow-y: scroll;
+}
+
+.profile a{
+    color: var(--action-color);
+}
+
+.profile__pic_userLogo{
+    width: 100%;
+    border-radius: 50%;
+}

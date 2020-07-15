@@ -19,3 +19,7 @@
     height: 1em;
     z-index: 2;
 }
+
+.itemInGallery__img{
+    background-color: var(--secondary-color);
+}

@@ -10,7 +10,7 @@ import {
 
 const store = configureStore({
   reducer: {
-    counter: userDetailsSlice.reducer,
+    userDetails: userDetailsSlice.reducer,
     language: languagesSlice.reducer,
     userAuth: userAuthSlice.reducer,
     products: productsSlice.reducer,

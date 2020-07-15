@@ -4,8 +4,12 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: stretch;
 }
 
+.error{
+    color: red;
+}
 /* scroll bar */
 
 .scroll::-webkit-scrollbar-track {

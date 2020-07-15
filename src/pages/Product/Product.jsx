@@ -6,6 +6,7 @@ import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
 import text from "../../locales/en";
 import { Link } from "react-router-dom";
+import imagePlaceholder from "../../images/imagePlaceholder.jpg";
 
 const Product = ({ images }) => {
   const { products } = useSelector((state) => state.products);
@@ -28,7 +29,11 @@ const Product = ({ images }) => {
             <img
               key={`${index}`}
               className="itemInGallery__img"
-              src={`${image}`}
+              src={`${
+                image
+                  ? image
+                  : imagePlaceholder
+              }`}
               alt={`${product.name}_${index}`}
             ></img>
           ))}

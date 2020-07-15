@@ -1,0 +1,8 @@
+.Menue_div {
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.Menue_div.open {}

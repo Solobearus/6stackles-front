@@ -1,3 +1,7 @@
+.input_wrapper {
+  position: relative;
+}
+
 .input {
   color: var(--main-dark-color);
   font-size: var(--main-font-paragraph-size);
@@ -17,4 +21,25 @@ input:focus {
 
 input::placeholder {
   font-size: smaller;
+}
+
+.input__options {
+  position: absolute;
+  height: 500%;
+  width: 100%;
+  overflow: scroll;
+  z-index: 2;
+}
+.input__options:hover {
+  background: #221773;
+}
+
+.input__options__option {
+  background: var(--main-dark-color);
+  color: var(--typography-color);
+  z-index: 3;
+}
+
+.input__options__option:hover {
+  background: #221773;
 }
