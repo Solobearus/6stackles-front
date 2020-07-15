@@ -48,8 +48,13 @@ export const register = ({ email, password, phone }) =>
         .catch((err) => console.error(err));
 
 
-export const fetchProducts = () =>
-    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products`,
+export const fetchProducts = (params = {}) => {
+
+    const paramsArray = [];
+    Object.keys(params).map(key => paramsArray.push(`${key}=${params[key]}`))
+    const paramsString = paramsArray.join('&');
+
+    return fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products?${paramsString}`,
         {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -57,7 +62,7 @@ export const fetchProducts = () =>
         .then((res) => res.json())
         .then((res) => res)
         .catch(err => console.error(err))
-
+}
 
 export const fetchProduct = (_id) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/${_id}`,
