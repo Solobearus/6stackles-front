@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./root.css";
 import "./App.css";
 import Header from "./components/Header/Header";
+import SideManue from "./components/SideMenue/SideMenue";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Products from "./pages/Products/Products";
@@ -34,6 +35,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
+      <SideManue />
       <Router>
         <Switch>
           <Route path="/signIn">
