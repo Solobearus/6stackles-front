@@ -1,8 +1,11 @@
 .Menue_div {
     height: 100%;
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 70px;
-    background-color: lawngreen;
+    background-color: var(--main-dark-color);
+    opacity: 0.8;
     z-index: 10;
     transition: 0.5s;
 }
