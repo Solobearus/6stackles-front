@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { productsSlice } from "../../store/slices";
+import { productsSlice,searchSlice } from "../../store/slices";
 import { useParams } from "react-router-dom";
+import { fetchCategories } from "../../api";
+
+
 
 export const useCreateProduct = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id: paramsId } = useParams();
-  
+
   const { text } = useSelector((state) => state.language);
   const { products } = useSelector((state) => state.products);
   const { categories, conditions, locations } = useSelector((state) => state.search);
   const { id: userId, productsPosted } = useSelector((state) => state.userDetails);
 
   const product = products.find((product) => paramsId === product.id);
-  
+
   const [images, setImages] = useState(product ? product.images : [null, null, null, null]);
   const [name, setName] = useState(product ? product.name : "test");
   const [category, setCategory] = useState(product ? product.category : "Hat");
@@ -24,6 +27,15 @@ export const useCreateProduct = () => {
   const [description, setDescription] = useState(product ? product.desc : "testtesttesttest");
   const [price, setPrice] = useState(product ? product.price : 0);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const func = async () => {
+      const categories = await fetchCategories();
+      const categoriesArray = categories.map(category => category.name);
+      dispatch(searchSlice.actions.setCategories(categoriesArray))
+    }
+    func();
+  }, []);
 
   const handleOnSubmitClick = () => {
     if (name.trim() === "") {

@@ -132,11 +132,12 @@ export const searchSlice = createSlice({
     priceSearchApplied: { min: 0, max: 999 },
     conditionSearchInput: "",
     conditionSearchApplied: "",
-    categories,
+    categories : [],
     conditions,
     locations,
   },
   reducers: {
+    setCategories: (state, action) => { state.categories = action.payload },
     setTextSearchInput: (state, action) => { state.textSearchInput = action.payload },
     setTextSearchApplied: (state, action) => { state.textSearchApplied = action.payload },
     setCategorySearchInput: (state, action) => { state.categorySearchInput = action.payload },

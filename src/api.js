@@ -48,14 +48,8 @@ export const register = ({ email, password, phone }) =>
         .catch((err) => console.error(err));
 
 
-export const fetchProducts = (params = {}) => {
-
-    //TODO: export to function
-    const paramsArray = [];
-    Object.keys(params).map(key => paramsArray.push(`${key}=${params[key]}`))
-    const paramsString = paramsArray.join('&');
-
-    return fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products?${paramsString}`,
+export const fetchProducts = (params = {}) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products?${paramsObjectToString(params)}`,
         {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -63,7 +57,7 @@ export const fetchProducts = (params = {}) => {
         .then((res) => res.json())
         .then((res) => res)
         .catch(err => console.error(err))
-}
+
 
 export const fetchProduct = (_id) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/${_id}`,
@@ -75,3 +69,35 @@ export const fetchProduct = (_id) =>
         .then((res) => res)
         .catch(err => console.error(err))
 
+
+
+export const fetchCategories = (params = {}) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/categories`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
+
+export const fetchCategory = (_id) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/categories/${_id}`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
+
+
+
+
+
+
+const paramsObjectToString = (params = {}) => {
+    const paramsArray = [];
+    Object.keys(params).map(key => paramsArray.push(`${key}=${params[key]}`))
+    return paramsArray.join('&');
+}
