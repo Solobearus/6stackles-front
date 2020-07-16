@@ -50,7 +50,7 @@ const Product = ({ images }) => {
             <h3>{product.name}</h3>
             <h4>Condition : {product.condition}</h4>
             <h4>Category : {product.category}</h4>
-            <p>{product.desc}</p>
+            <p>{product.description}</p>
             <div className="product__footer">
               <div className="product__footer_item">{product.location}</div>
               <Button
