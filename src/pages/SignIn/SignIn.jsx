@@ -10,8 +10,8 @@ import Input from "../../components/Input/Input";
 const SignIn = ({ from = "/products" }) => {
   const { text } = useSelector((state) => state.language);
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("321@ab.cd");
+  const [password, setPassword] = useState("a1");
   const [error, setError] = useState("");
   const history = useCallback(useHistory(), []);
 

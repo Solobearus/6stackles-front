@@ -9,6 +9,7 @@ import Product from "./pages/Product/Product";
 import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
+import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -19,18 +20,18 @@ import {
 
 // !!! will be used once connection to backend is implemented !!!
 
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-//   const { token } = useSelector((state) => state.userAuth);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { token } = useSelector((state) => state.userAuth);
 
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) =>
-//         token ? <Component {...props} /> : <Redirect to="/signIn" />
-//       }
-//     />
-//   );
-// };
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        token ? <Component {...props} /> : <Redirect to="/signIn" />
+      }
+    />
+  );
+};
 
 const App = () => {
   return (
@@ -44,15 +45,15 @@ const App = () => {
           <Route path="/signUp">
             <SignUp />
           </Route>
-          <Route exact path="/products" component={Products} />
-          <Route exact path="/products/create" component={CreateProduct} />
-          <Route path="/products/edit/:id" component={CreateProduct} />
-          <Route path="/product/:id" component={Product} />
-          <Route path="/search" component={Search} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/">
+          <PrivateRoute exact path="/products" component={Products} />
+          <PrivateRoute exact path="/products/create" component={CreateProduct} />
+          <PrivateRoute path="/products/edit/:id" component={CreateProduct} />
+          <PrivateRoute path="/product/:id" component={Product} />
+          <PrivateRoute path="/search" component={Search} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/">
             <Redirect to="/products" />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </div>

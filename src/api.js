@@ -1,6 +1,8 @@
 
+// ------------- AUTH ----------------//        
+
 export const login = (email = "321@ab.cd", password = "a1") =>
-    fetch(`http://localhost:${process.env.REACT_APP_PORT_OF_GATEWAY}/auth/signin`,
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/auth/signin`,
         {
             method: 'POST',
             body: JSON.stringify({
@@ -14,7 +16,7 @@ export const login = (email = "321@ab.cd", password = "a1") =>
         .catch(err => console.error(err))
 
 export const verify = (token) =>
-    fetch(`http://localhost:${process.env.REACT_APP_PORT_OF_GATEWAY}/auth/verify`,
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/auth/verify`,
         {
             method: 'POST',
             body: JSON.stringify({
@@ -29,7 +31,7 @@ export const verify = (token) =>
 
 export const register = ({ email, password, phone }) =>
     fetch(
-        `http://localhost:${process.env.REACT_APP_PORT_OF_GATEWAY}/auth/signup`,
+        `${process.env.REACT_APP_GATEWAY_ADRESS}/auth/signup`,
         {
             method: "POST",
             body: JSON.stringify({
@@ -47,6 +49,11 @@ export const register = ({ email, password, phone }) =>
         .then((res) => res)
         .catch((err) => console.error(err));
 
+
+
+
+
+// ------------- PRODUCTS ----------------//        
 
 export const fetchProducts = (params = {}) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products?${paramsObjectToString(params)}`,
@@ -70,6 +77,43 @@ export const fetchProduct = (_id) =>
         .catch(err => console.error(err))
 
 
+export const fetchCreateProduct = (
+    {
+        name,
+        description,
+        price,
+        condition,
+        category,
+        images,
+        location,
+    },
+    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTQyOTE4ZTdkZGUwZDUxNjQ5YjhjNDIiLCJpYXQiOjE1OTQ4OTI1NjUsImV4cCI6MTU5NDg5NjE2NX0.8WT3Cs7muJfoe-yKsHqh-zjdvwZvHD_tnYGv1CW73aQ",
+) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products`,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                description,
+                price,
+                condition,
+                category,
+                images,
+                location,
+                token
+            }),
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
+
+
+
+
+
+
+// ------------- CATEGORIES ----------------//        
 
 export const fetchCategories = (params = {}) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/categories`,
@@ -95,6 +139,8 @@ export const fetchCategory = (_id) =>
 
 
 
+
+// ------------- UTILS ----------------//        
 
 const paramsObjectToString = (params = {}) => {
     const paramsArray = [];

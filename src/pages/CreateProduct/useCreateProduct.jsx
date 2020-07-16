@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { productsSlice,searchSlice } from "../../store/slices";
+import { productsSlice, searchSlice } from "../../store/slices";
 import { useParams } from "react-router-dom";
-import { fetchCategories } from "../../api";
-
-
+import { fetchCategories,fetchCreateProduct } from "../../api";
 
 export const useCreateProduct = () => {
   const history = useHistory();
@@ -31,13 +29,13 @@ export const useCreateProduct = () => {
   useEffect(() => {
     const func = async () => {
       const categories = await fetchCategories();
-      const categoriesArray = categories.map(category => category.name);
-      dispatch(searchSlice.actions.setCategories(categoriesArray))
-    }
+      const categoriesArray = categories.map((category) => category.name);
+      dispatch(searchSlice.actions.setCategories(categoriesArray));
+    };
     func();
   }, []);
 
-  const handleOnSubmitClick = () => {
+  const handleOnSubmitClick = async () => {
     if (name.trim() === "") {
       setError(text.default.error[1000]);
       return;
@@ -83,21 +81,23 @@ export const useCreateProduct = () => {
         setError(text.default.error[2000]);
       }
     } else {
-      const randomId = Math.random() * 99999 + "";
-      dispatch(
-        productsSlice.actions.addProduct({
-          id: randomId,
-          authorId: userId,
-          name,
-          category,
-          condition,
-          desc: description,
-          images,
-          price,
-          location,
-        })
-      );
-      history.push(`/product/${randomId}`);
+      // const randomId = Math.random() * 99999 + "";
+      const createProductResult = await fetchCreateProduct({
+        // id: randomId,
+        authorId: userId,
+        name,
+        category,
+        condition,
+        description,
+        images,
+        price,
+        location,
+      });
+      console.log("createProductResult");
+      console.log(createProductResult);
+      // dispatch(productsSlice.actions.addProduct());
+
+      history.push(`/product/${createProductResult._id}`);
     }
   };
 
