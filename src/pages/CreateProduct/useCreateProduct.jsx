@@ -5,40 +5,24 @@ import { productsSlice } from "../../store/slices";
 import { useParams } from "react-router-dom";
 
 export const useCreateProduct = () => {
-  const { categories, conditions, locations } = useSelector(
-    (state) => state.search
-  );
-
-  const { text } = useSelector((state) => state.language);
-  const { id: userId, productsPosted } = useSelector(
-    (state) => state.userDetails
-  );
-  const { products } = useSelector((state) => state.products);
-
-  const { id: paramsId } = useParams();
-
-  const product = products.find((product) => paramsId === product.id);
-
   const history = useHistory();
   const dispatch = useDispatch();
+  const { id: paramsId } = useParams();
+  
+  const { text } = useSelector((state) => state.language);
+  const { products } = useSelector((state) => state.products);
+  const { categories, conditions, locations } = useSelector((state) => state.search);
+  const { id: userId, productsPosted } = useSelector((state) => state.userDetails);
 
-  const [images, setImages] = useState(
-    product ? product.images : [null, null, null, null]
-  );
-
+  const product = products.find((product) => paramsId === product.id);
+  
+  const [images, setImages] = useState(product ? product.images : [null, null, null, null]);
   const [name, setName] = useState(product ? product.name : "test");
   const [category, setCategory] = useState(product ? product.category : "Hat");
-  const [location, setLocation] = useState(
-    product ? product.location : "Israel"
-  );
-  const [condition, setCondition] = useState(
-    product ? product.condition : "Good"
-  );
-  const [description, setDescription] = useState(
-    product ? product.desc : "testtesttesttest"
-  );
+  const [location, setLocation] = useState(product ? product.location : "Israel");
+  const [condition, setCondition] = useState(product ? product.condition : "Good");
+  const [description, setDescription] = useState(product ? product.desc : "testtesttesttest");
   const [price, setPrice] = useState(product ? product.price : 0);
-
   const [error, setError] = useState("");
 
   const handleOnSubmitClick = () => {
