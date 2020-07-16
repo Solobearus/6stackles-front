@@ -50,6 +50,7 @@ export const register = ({ email, password, phone }) =>
 
 export const fetchProducts = (params = {}) => {
 
+    //TODO: export to function
     const paramsArray = [];
     Object.keys(params).map(key => paramsArray.push(`${key}=${params[key]}`))
     const paramsString = paramsArray.join('&');
