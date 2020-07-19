@@ -43,8 +43,11 @@ export const userDetailsSlice = createSlice({
       state.profilePicURL = action.payload;
     },
     findProductsPostedByUser: (state, action) => {
+      state.productsPosted = action.payload.products
+        .filter(product => action.payload.id === product.authorId)
+    },
+    setProductsPostedByUser: (state, action) => {
       state.productsPosted = action.payload
-        .filter(product => state.id === product.authorId)
     },
   },
 });

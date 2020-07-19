@@ -65,6 +65,16 @@ export const fetchProducts = (params = {}) =>
         .then((res) => res)
         .catch(err => console.error(err))
 
+export const getProductByAuthorId = (authorId) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/getProductByAuthorId/${authorId}`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
+
 
 export const fetchProduct = (_id) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/${_id}`,
