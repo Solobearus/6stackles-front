@@ -16,16 +16,14 @@ const SideMenue = ({ open }) => {
   }, []);
   return (
     <ul className={`Menue_ul ${open ? "open" : "closed"} `}>
-      <Router>
-        {pages.map((page) => (
-          <MenueLink
-            path={page.path}
-            title={page.title}
-            iconNameString={page.icon}
-            key={page.title}
-          />
-        ))}
-      </Router>
+      {pages.map((page) => (
+        <MenueLink
+          path={page.path}
+          title={page.title}
+          iconNameString={page.icon}
+          key={page.title}
+        />
+      ))}
     </ul>
   );
 };
