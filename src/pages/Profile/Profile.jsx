@@ -10,8 +10,6 @@ import { verify,getProductByAuthorId } from "../../api";
 const Profile = () => {
   const { name, email, phone, productsPosted } = useSelector((state) => state.userDetails);
 
-  const { products } = useSelector((state) => state.products);
-
   const dispatch = useCallback(useDispatch(), []);
 
   useEffect(() => {
@@ -36,12 +34,12 @@ const Profile = () => {
       <div className="profile__products_posted">
         {productsPosted &&
           productsPosted.map((product) => (
-            <div className="profile__products_posted__product" key={`${product.id}`}>
-              <div className="">id : {product.id}</div>
+            <div className="profile__products_posted__product" key={`${product._id}`}>
+              <div className="">id : {product._id}</div>
               <div className="">name : {product.name}</div>
               <div className="">price : {product.price}</div>
               <div className="">
-                <Link className="product_info_link" to={`/products/edit/${product.id}`}>
+                <Link className="product_info_link" to={`/products/edit/${product._id}`}>
                   Edit
                 </Link>
               </div>
