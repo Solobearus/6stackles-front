@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MenueLink from "../MenueLink/MenueLink";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./SideMenue.css";
 
 const SideMenue = ({ open, setOpen }) => {

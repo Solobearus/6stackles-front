@@ -16,8 +16,10 @@
 
 .Menue_ul.closed {
   left: -100vw;
+  transition: left 0.6s ease-in;
 }
 
 .Menue_ul.open {
   left: 0vw;
+  transition: left 0.6s ease-out;
 }
