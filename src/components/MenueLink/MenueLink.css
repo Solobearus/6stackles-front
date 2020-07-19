@@ -1,0 +1,10 @@
+.menue_link_link,
+svg.menue_link_icon {
+  font-family: var(--main-font);
+  color: var(--action-color);
+  font-size: var(--main-font-header-size);
+}
+.menue_link_link {
+  padding: var(--main-padding);
+  text-decoration: none;
+}

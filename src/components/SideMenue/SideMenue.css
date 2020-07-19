@@ -1,19 +1,23 @@
-.Menue_div {
-    height: 100%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 70px;
-    background-color: var(--main-dark-color);
-    opacity: 0.8;
-    z-index: 10;
-    transition: 0.5s;
+.Menue_ul {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 70px;
+  background-color: var(--main-dark-color);
+  padding: var(--main-padding-medium);
+  opacity: 0.8;
+  z-index: 10;
+  transition: 0.5s;
+  list-style-type: none;
+  line-height: 200%;
 }
 
-.Menue_div.closed {
-    left: -100vw;
+.Menue_ul.closed {
+  left: -100vw;
 }
 
-.Menue_div.open {
-    left: 0vw;
+.Menue_ul.open {
+  left: 0vw;
 }

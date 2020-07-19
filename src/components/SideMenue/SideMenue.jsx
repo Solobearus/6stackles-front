@@ -6,7 +6,7 @@ import "./SideMenue.css";
 const SideMenue = ({ open }) => {
   const [menueItem, setMenueItem] = useState(1);
   const pages = [
-    // { path: "/home", title: "Home Page", icon: "home" },
+    { path: "/", title: "Home", icon: "home" },
     // { path: "/contactus", title: "Contact Us", icon: "address-card" },
     { path: "/products", title: "Products", icon: "shopping-cart" },
     { path: "/products/create", title: "Create Product", icon: "plus-circle" },
@@ -15,7 +15,7 @@ const SideMenue = ({ open }) => {
     setMenueItem(2);
   }, []);
   return (
-    <div className={`Menue_div ${open ? "open" : "closed"} `}>
+    <ul className={`Menue_ul ${open ? "open" : "closed"} `}>
       <Router>
         {pages.map((page) => (
           <MenueLink
@@ -26,7 +26,7 @@ const SideMenue = ({ open }) => {
           />
         ))}
       </Router>
-    </div>
+    </ul>
   );
 };
 export default SideMenue;
