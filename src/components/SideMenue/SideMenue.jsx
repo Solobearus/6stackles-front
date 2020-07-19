@@ -6,8 +6,10 @@ import "./SideMenue.css";
 const SideMenue = ({ open }) => {
   const [menueItem, setMenueItem] = useState(1);
   const pages = [
-    { path: "/products", title: "Products", icon: "faBars" },
-    { path: "/products/create", title: "Create Product" },
+    // { path: "/home", title: "Home Page", icon: "home" },
+    // { path: "/contactus", title: "Contact Us", icon: "address-card" },
+    { path: "/products", title: "Products", icon: "shopping-cart" },
+    { path: "/products/create", title: "Create Product", icon: "plus-circle" },
   ];
   useEffect(() => {
     setMenueItem(2);
@@ -19,7 +21,7 @@ const SideMenue = ({ open }) => {
           <MenueLink
             path={page.path}
             title={page.title}
-            icon={page.icon}
+            iconNameString={page.icon}
             key={page.title}
           />
         ))}

@@ -18,6 +18,25 @@ import {
   Redirect,
   Link,
 } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCheckSquare,
+  faBars,
+  faPlusCircle,
+  faShoppingCart,
+  faHome,
+  faAddressCard,
+} from "@fortawesome/free-solid-svg-icons";
+import { fab, faCottonBureau } from "@fortawesome/free-brands-svg-icons";
+library.add(
+  fab,
+  faCheckSquare,
+  faBars,
+  faPlusCircle,
+  faShoppingCart,
+  faHome,
+  faAddressCard
+);
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { token } = useSelector((state) => state.userAuth);

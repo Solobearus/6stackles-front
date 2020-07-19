@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function MenueLink({ path, title, icon }) {
-  const linkIcon = React.lazy(() =>
-    import(`@fortawesome/free-solid-svg-icons/${icon}`)
-  );
-  debugger;
+const MenueLink = ({ path, title, iconNameString }) => {
   return (
-    <>
-      {icon && linkIcon}
+    <li>
+      <FontAwesomeIcon icon={iconNameString} />
       <Link to={path}>{title}</Link>
-    </>
+    </li>
   );
-}
+};
+export default MenueLink;
