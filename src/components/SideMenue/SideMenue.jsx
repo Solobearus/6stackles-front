@@ -3,7 +3,7 @@ import MenueLink from "../MenueLink/MenueLink";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./SideMenue.css";
 
-const SideMenue = ({ open }) => {
+const SideMenue = ({ open, setOpen }) => {
   const [menueItem, setMenueItem] = useState(1);
   const pages = [
     { path: "/", title: "Home", icon: "home" },
@@ -22,6 +22,7 @@ const SideMenue = ({ open }) => {
           title={page.title}
           iconNameString={page.icon}
           key={page.title}
+          openMenue={setOpen}
         />
       ))}
     </ul>

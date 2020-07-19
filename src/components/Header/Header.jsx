@@ -3,7 +3,6 @@ import "./Header.css";
 import yad from "../../img/yad.png";
 import userLogo from "../../img/userLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SideManue from "../SideMenue/SideMenue";
 
 const Header = () => {
@@ -12,10 +11,9 @@ const Header = () => {
     <>
       <div className="header" data-testid="header">
         <FontAwesomeIcon
-          icon={faBars}
+          icon={"bars"}
           className="header_ham"
           onClick={() => {
-            console.log("clicked ham");
             setSideMenueOpen(!sideMenueOpen);
           }}
         />
@@ -23,7 +21,7 @@ const Header = () => {
         <img src={yad} alt="logo" className="header_logo" />
         <img src={userLogo} alt="userLogo" className="header_userLogo" />
       </div>
-      <SideManue open={sideMenueOpen} />
+      <SideManue open={sideMenueOpen} setOpen={setSideMenueOpen} />
     </>
   );
 };
