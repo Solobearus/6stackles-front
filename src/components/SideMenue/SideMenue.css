@@ -1,12 +1,11 @@
 .Menue_ul {
   height: 100%;
-  width: 40%;
+  width: 50%;
   position: absolute;
   padding: var(--main-padding-large);
   top: 70px;
   background-color: var(--main-dark-color);
   margin: 0 auto;
-  padding: var(--main-padding-medium);
   opacity: 0.8;
   z-index: 10;
   transition: 0.5s;
