@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { productsSlice, searchSlice } from "../../store/slices";
 import { useParams } from "react-router-dom";
-import { fetchCategories,fetchCreateProduct } from "../../api";
+import { fetchCategories, fetchCreateProduct, fetchProduct } from "../../api";
 
 export const useCreateProduct = () => {
   const history = useHistory();
@@ -11,19 +11,17 @@ export const useCreateProduct = () => {
   const { id: paramsId } = useParams();
 
   const { text } = useSelector((state) => state.language);
-  const { products } = useSelector((state) => state.products);
   const { categories, conditions, locations } = useSelector((state) => state.search);
   const { id: userId, productsPosted } = useSelector((state) => state.userDetails);
 
-  const product = products.find((product) => paramsId === product.id);
+  const [images, setImages] = useState([null, null, null, null]);
+  const [name, setName] = useState("test");
+  const [category, setCategory] = useState("Hat");
+  const [location, setLocation] = useState("Israel");
+  const [condition, setCondition] = useState("Good");
+  const [description, setDescription] = useState("testtesttesttest");
+  const [price, setPrice] = useState(0);
 
-  const [images, setImages] = useState(product ? product.images : [null, null, null, null]);
-  const [name, setName] = useState(product ? product.name : "test");
-  const [category, setCategory] = useState(product ? product.category : "Hat");
-  const [location, setLocation] = useState(product ? product.location : "Israel");
-  const [condition, setCondition] = useState(product ? product.condition : "Good");
-  const [description, setDescription] = useState(product ? product.desc : "testtesttesttest");
-  const [price, setPrice] = useState(product ? product.price : 0);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -31,6 +29,22 @@ export const useCreateProduct = () => {
       const categories = await fetchCategories();
       const categoriesArray = categories.map((category) => category.name);
       dispatch(searchSlice.actions.setCategories(categoriesArray));
+
+      if (paramsId) {
+        const product = await fetchProduct(paramsId);
+        if (!product.error) {
+          setImages(product.images);
+          setName(product.name);
+          setCategory(product.category);
+          setLocation(product.location);
+          setCondition(product.condition);
+          setDescription(product.description);
+          setPrice(product.price);
+        } else {
+          //TODO: change to text
+          setError("could not find a product with this id");
+        }
+      }
     };
     func();
   }, []);
@@ -81,21 +95,25 @@ export const useCreateProduct = () => {
         setError(text.default.error[2000]);
       }
     } else {
-      // const randomId = Math.random() * 99999 + "";
-      const createProductResult = await fetchCreateProduct({
-        // id: randomId,
-        authorId: userId,
-        name,
-        category,
-        condition,
-        description,
-        images,
-        price,
-        location,
-      });
+      const token = localStorage.getItem("token");
+      console.log("images")
+      console.log(images)
+
+      const createProductResult = await fetchCreateProduct(
+        {
+          authorId: userId,
+          name,
+          category,
+          condition,
+          description,
+          images,
+          price,
+          location,
+        },
+        token
+      );
       console.log("createProductResult");
       console.log(createProductResult);
-      // dispatch(productsSlice.actions.addProduct());
 
       history.push(`/product/${createProductResult._id}`);
     }
