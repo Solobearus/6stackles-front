@@ -22,10 +22,10 @@ export const userAuthSlice = createSlice({
 export const userDetailsSlice = createSlice({
   name: "userDetails",
   initialState: {
-    id: "5e32e3884041cf0d80a9b530",
-    email: "placeholder@gmail.com",
-    name: "Elon Musk",
-    phone: "050-420-DERP",
+    id: "",
+    email: "",
+    name: "",
+    phone: "",
     profilePicURL: "",
     productsPosted: [],
   },
@@ -41,6 +41,14 @@ export const userDetailsSlice = createSlice({
     },
     setProfilePicURL: (state, action) => {
       state.profilePicURL = action.payload;
+    },
+    setUser: (state, action) => {
+      // state = action.payload;
+      state.id = action.payload.id
+      state.email = action.payload.email
+      state.name = action.payload.name
+      state.phone = action.payload.phone
+      state.profilePicURL = action.payload.profilePicURL
     },
     findProductsPostedByUser: (state, action) => {
       state.productsPosted = action.payload.products
@@ -135,7 +143,7 @@ export const searchSlice = createSlice({
     priceSearchApplied: { min: 0, max: 999 },
     conditionSearchInput: "",
     conditionSearchApplied: "",
-    categories : [],
+    categories: [],
     conditions,
     locations,
   },

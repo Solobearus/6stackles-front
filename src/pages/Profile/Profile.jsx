@@ -5,25 +5,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { userDetailsSlice } from "../../store/slices";
 import Button from "../../components/Button/Button";
-import { verify, getProductByAuthorId } from "../../api";
+import { verify, getProductByAuthorId, getUser } from "../../api";
 
 const Profile = () => {
-  const { name, email, phone, productsPosted } = useSelector((state) => state.userDetails);
+  const { name, email, phone, productsPosted, profilePicURL } = useSelector((state) => state.userDetails);
 
   const dispatch = useCallback(useDispatch(), []);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const func = async () => {
-      const userDetails = await verify(localStorage.getItem("token"));
-      console.log(userDetails)
-      const userProducts = await getProductByAuthorId(userDetails._id);
-      console.log(userProducts);
-      if(userProducts.error){
-        setError(userProducts.error)
-      }else{
-        dispatch(userDetailsSlice.actions.setProductsPostedByUser(userProducts));
-      }
+      const userVerification = await verify(localStorage.getItem("token"));
+
+      const userDetails = await getUser(userVerification._id);
+      console.log(userDetails);
+      userDetails && (userDetails.error ? setError(userDetails.error) : dispatch(userDetailsSlice.actions.setUser(userDetails)));
+
+      const userProducts = await getProductByAuthorId(userVerification._id);
+      userProducts && (userProducts.error ? setError(userProducts.error) : dispatch(userDetailsSlice.actions.setProductsPostedByUser(userProducts)));
     };
     func();
   }, []);
@@ -31,7 +30,8 @@ const Profile = () => {
   return (
     <div className="profile" data-testid="profile">
       <div className="profile__pic">
-        <img src={userLogo} alt="userLogo" className="profile__pic_userLogo" />
+        {console.log(profilePicURL)}
+        <img src={profilePicURL ? profilePicURL : userLogo} alt="userLogo" className="profile__pic_userLogo" />
       </div>
 
       <div className="profile__details">name : {name}</div>

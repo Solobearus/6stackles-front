@@ -129,7 +129,7 @@ export const fetchUpdateProduct = (
         images,
         location,
     },
-    token ,
+    token,
 ) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/${_id}`,
         {
@@ -177,6 +177,16 @@ export const fetchCategory = (_id) =>
 
 
 
+
+export const getUser = (userId) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/users/${userId}`,
+        {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        }
+    )
+        .then(res => res.json())
+        .catch(err => console.error(err))
 
 
 
