@@ -97,7 +97,7 @@ export const fetchCreateProduct = (
         images,
         location,
     },
-    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTQyOTE4ZTdkZGUwZDUxNjQ5YjhjNDIiLCJpYXQiOjE1OTQ4OTI1NjUsImV4cCI6MTU5NDg5NjE2NX0.8WT3Cs7muJfoe-yKsHqh-zjdvwZvHD_tnYGv1CW73aQ",
+    token,
 ) =>
     fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products`,
         {
@@ -118,7 +118,37 @@ export const fetchCreateProduct = (
         .then((res) => res)
         .catch(err => console.error(err))
 
-
+export const fetchUpdateProduct = (
+    {
+        _id,
+        name,
+        description,
+        price,
+        condition,
+        category,
+        images,
+        location,
+    },
+    token ,
+) =>
+    fetch(`${process.env.REACT_APP_GATEWAY_ADRESS}/products/${_id}`,
+        {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                description,
+                price,
+                condition,
+                category,
+                images,
+                location,
+                token
+            }),
+        })
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch(err => console.error(err))
 
 
 

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { productsSlice, searchSlice } from "../../store/slices";
 import { useParams } from "react-router-dom";
-import { fetchCategories, fetchCreateProduct, fetchProduct } from "../../api";
+import { fetchCategories, fetchCreateProduct, fetchUpdateProduct, fetchProduct } from "../../api";
 
 export const useCreateProduct = () => {
   const history = useHistory();
@@ -22,6 +22,7 @@ export const useCreateProduct = () => {
   const [description, setDescription] = useState("testtesttesttest");
   const [price, setPrice] = useState(0);
 
+  const [editing, setEditing] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export const useCreateProduct = () => {
 
       if (paramsId) {
         const product = await fetchProduct(paramsId);
-        if (!product.error) {
+        if (product && !product.error) {
           setImages(product.images);
           setName(product.name);
           setCategory(product.category);
@@ -40,9 +41,9 @@ export const useCreateProduct = () => {
           setCondition(product.condition);
           setDescription(product.description);
           setPrice(product.price);
+          setEditing(true);
         } else {
-          //TODO: change to text
-          setError("could not find a product with this id");
+          setError(product.error);
         }
       }
     };
@@ -74,49 +75,42 @@ export const useCreateProduct = () => {
       setError(text.default.error[1005]);
       return;
     }
-    if (paramsId) {
-      if (productsPosted.find((product) => product.authorId === userId)) {
-        dispatch(
-          productsSlice.actions.editProduct({
-            id: paramsId,
+    const token = localStorage.getItem("token");
+
+    const fetchResult = editing
+      ? await fetchUpdateProduct(
+          {
+            _id: paramsId,
             authorId: userId,
             name,
             category,
             condition,
-            desc: description,
+            description,
             images,
             price,
             location,
-          })
+          },
+          token
+        )
+      : await fetchCreateProduct(
+          {
+            authorId: userId,
+            name,
+            category,
+            condition,
+            description,
+            images,
+            price,
+            location,
+          },
+          token
         );
-        history.push(`/product/${paramsId}`);
-      } else {
-        console.log(`error at submit`);
-        setError(text.default.error[2000]);
-      }
-    } else {
-      const token = localStorage.getItem("token");
-      console.log("images")
-      console.log(images)
 
-      const createProductResult = await fetchCreateProduct(
-        {
-          authorId: userId,
-          name,
-          category,
-          condition,
-          description,
-          images,
-          price,
-          location,
-        },
-        token
-      );
-      console.log("createProductResult");
-      console.log(createProductResult);
-
-      history.push(`/product/${createProductResult._id}`);
+    if (fetchResult.error) {
+      setError(fetchResult.error);
+      return;
     }
+    history.push(`/product/${editing ? paramsId : fetchResult._id}`);
   };
 
   const onImageChange = (image, index) => {
