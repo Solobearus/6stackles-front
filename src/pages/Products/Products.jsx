@@ -82,7 +82,7 @@ const Products = () => {
                   id={item._id || 1}
                   desc={item.description}
                   price={item.price}
-                  imgUrl={item.images[1]}
+                  imgUrl={item.images[0]}
                 />
               ))}
           </ul>
