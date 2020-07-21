@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import "./Profile.css";
 import userLogo from "../../img/userLogo.png";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { userDetailsSlice } from "../../store/slices";
 import Button from "../../components/Button/Button";
 import { verify, getProductByAuthorId, getUser } from "../../api";
@@ -12,13 +12,17 @@ const Profile = () => {
 
   const dispatch = useCallback(useDispatch(), []);
   const [error, setError] = useState("");
+  let history = useHistory();
 
   useEffect(() => {
     const func = async () => {
       const userVerification = await verify(localStorage.getItem("token"));
 
+      if (userVerification.err) {
+        history.push('./signIn');
+      }
+
       const userDetails = await getUser(userVerification._id);
-      console.log(userDetails);
       userDetails && (userDetails.error ? setError(userDetails.error) : dispatch(userDetailsSlice.actions.setUser(userDetails)));
 
       const userProducts = await getProductByAuthorId(userVerification._id);
