@@ -27,6 +27,7 @@ const CreateProduct = () => {
     setDescription,
     error,
     handleOnSubmitClick,
+    newImageURLs
   } = useCreateProduct();
 
   return (
@@ -35,8 +36,8 @@ const CreateProduct = () => {
         🔙
       </Link>
       <ItemGallery>
-        {images &&
-          images.map((image, index) =>
+        {newImageURLs &&
+          newImageURLs.map((image, index) =>
             image === null ? (
               <div className="create_product__input_pic" key={`${index}`}>
                 <label
@@ -58,7 +59,7 @@ const CreateProduct = () => {
               <img
                 key={`${index}`}
                 className="itemInGallery__img"
-                src={`${image}`}
+                src={`${process.env.REACT_APP_S3_BUCKET_ADRESS}${image}`}
                 alt={`${name}_${index}`}
               ></img>
             )

@@ -40,7 +40,7 @@ const Product = ({ images }) => {
                 <img
                   key={`${index}`}
                   className="itemInGallery__img"
-                  src={`${image ? image : imagePlaceholder}`}
+                  src={`${image ? process.env.REACT_APP_S3_BUCKET_ADRESS + image : imagePlaceholder}`}
                   alt={`${product.name}_${index}`}
                 ></img>
               ))}
@@ -53,10 +53,7 @@ const Product = ({ images }) => {
             <p>{product.description}</p>
             <div className="product__footer">
               <div className="product__footer_item">{product.location}</div>
-              <Button
-                value={text.product.submit}
-                onClick={() => handleOnSubmitClick()}
-              />
+              <Button value={text.product.submit} onClick={() => handleOnSubmitClick()} />
               <div className="product__footer_item">{product.price}</div>
             </div>
           </div>

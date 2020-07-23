@@ -15,6 +15,7 @@ export const useCreateProduct = () => {
   const { id: userId, productsPosted } = useSelector((state) => state.userDetails);
 
   const [images, setImages] = useState([null, null, null, null]);
+  const [imagesURL, setImagesURL] = useState([null, null, null, null]);
   const [name, setName] = useState("test");
   const [category, setCategory] = useState("Hat");
   const [location, setLocation] = useState("Israel");
@@ -114,9 +115,13 @@ export const useCreateProduct = () => {
   };
 
   const onImageChange = (image, index) => {
-    const newImageURLs = [...images];
+    const newImages = [...images];
+    newImages[index] = image.files[0];
+    setImages(newImages);
+
+    const newImageURLs = [...imagesURL];
     newImageURLs[index] = URL.createObjectURL(image.files[0]);
-    setImages(newImageURLs);
+    setImagesURL(newImageURLs);
   };
 
   return {
@@ -140,5 +145,6 @@ export const useCreateProduct = () => {
     setDescription,
     error,
     handleOnSubmitClick,
+    imagesURL
   };
 };
