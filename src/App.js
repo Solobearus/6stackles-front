@@ -11,13 +11,12 @@ import Profile from "./pages/Profile/Profile";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
 import { useSelector } from "react-redux";
 import { verify } from "./api";
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-  Link,
+  useHistory
 } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
