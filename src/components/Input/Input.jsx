@@ -1,30 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./Input.css";
-import { Children } from "react";
 
-const Input = ({
-  type = "text",
-  className,
-  placeholder,
-  value,
-  onChange = () => {},
-  id,
-  name,
-  pattern = "",
-  focus = false,
-  onFocus,
-  onBlur,
-  options,
-}) => {
+const Input = ({ type = "text", className, placeholder, value, onChange = () => {}, id, name, pattern = "", focus = false, onFocus, onBlur, options }) => {
   const [focused, setFocused] = useState(false);
 
   const handleFocus = () => (onFocus ? onFocus() : setFocused(true));
-  const handleBlur = () =>
-    onBlur
-      ? onBlur()
-      : setTimeout(() => {
-          setFocused(false);
-        }, 0);
+  const handleBlur = () => (onBlur ? onBlur() : setFocused(false));
 
   const inputRef = useRef();
 
@@ -58,8 +39,7 @@ const Input = ({
                 <div
                   className={`input__options__option`}
                   key={option}
-                  //TODO: fix workaround that satisfies both on click and onChange
-                  onClick={(e) => {
+                  onMouseDown={(e) => {
                     e.target.value = option;
                     onChange(e);
                   }}

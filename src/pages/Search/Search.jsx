@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./Search.css";
 import { useState, useEffect } from "react";
 import Input from "../../components/Input/Input";
@@ -33,11 +33,11 @@ const Search = () => {
   } = searchSlice.actions;
 
   const history = useHistory();
-  const dispatch = useDispatch();
+  const dispatch = useCallback(useDispatch(), []);
 
   useEffect(() => {
     dispatch(searchSlice.actions.resetSearchInput());
-  }, []);
+  }, [dispatch]);
 
   const handleSearchSubmit = () => {
     dispatch(searchSlice.actions.submitSearch());
@@ -74,7 +74,9 @@ const Search = () => {
             className="search_input_wrapper_display"
             onClick={() => setIsInputSelected(true)}
           >
-            {textSearchInput.trim() == "" ? "Write what you need" : textSearchInput}
+            {textSearchInput.trim() === ""
+              ? "Write what you need"
+              : textSearchInput}
           </div>
         )}
       </div>

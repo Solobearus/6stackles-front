@@ -4,45 +4,58 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 import ProductItem from "../../components/ProductItem/ProductItem";
+import { productsSlice } from "../../store/slices";
+import { fetchProducts } from "../../api";
 
 const ITEMS_TO_GENERATE_PER_PAGE = 10;
 
 const Products = () => {
   const { productsFiltered } = useSelector((state) => state.products);
 
-  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(ITEMS_TO_GENERATE_PER_PAGE);
+  const [currentPaginationIndex, setCurrentPaginationIndex] = useState(
+    ITEMS_TO_GENERATE_PER_PAGE
+  );
   const [hasMore, setHasMore] = useState(true);
 
   const [productsFilteredToDisplay, setProductsFilteredToDisplay] = useState(
     productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
   );
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const func = async () => {
+      const products = await fetchProducts();
+      dispatch(productsSlice.actions.setProducts(products));
+    };
+    func();
+  }, []);
+
   useEffect(() => {
     if (currentPaginationIndex <= productsFiltered.length) {
-      setProductsFilteredToDisplay(
-        [
-          ...productsFilteredToDisplay,
-          ...productsFiltered.slice(
-            currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
-            currentPaginationIndex
-          )
-        ]
-      );
+      setProductsFilteredToDisplay((productsFilteredToDisplay) => [
+        ...productsFilteredToDisplay,
+        ...productsFiltered.slice(
+          currentPaginationIndex - ITEMS_TO_GENERATE_PER_PAGE,
+          currentPaginationIndex
+        ),
+      ]);
     } else {
       setHasMore(false);
     }
-  }, [currentPaginationIndex]);
+  }, [currentPaginationIndex, productsFiltered]);
 
   useEffect(() => {
     setCurrentPaginationIndex(ITEMS_TO_GENERATE_PER_PAGE);
     setProductsFilteredToDisplay(
       productsFiltered.slice(0, ITEMS_TO_GENERATE_PER_PAGE)
-      // Array.from({ length: currentPaginationIndex }, (_, index) => productsFiltered[index])
     );
   }, [productsFiltered]);
 
   const fetchData = () => {
-    setCurrentPaginationIndex(currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE);
+    setCurrentPaginationIndex(
+      currentPaginationIndex + ITEMS_TO_GENERATE_PER_PAGE
+    );
   };
 
   return (
@@ -64,12 +77,12 @@ const Products = () => {
             {productsFilteredToDisplay &&
               productsFilteredToDisplay.map((item) => (
                 <ProductItem
-                  key={item.id}
+                  key={item._id}
                   name={item.name}
-                  id={item.id || 1}
-                  desc={item.desc}
+                  id={item._id || 1}
+                  desc={item.description}
                   price={item.price}
-                  imgUrl={item.imgUrls[1]}
+                  imgUrl={item.images[0]}
                 />
               ))}
           </ul>

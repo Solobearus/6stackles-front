@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./FilterWithSearch.css";
-import { searchSlice } from "../../store/slices";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Input from "../../components/Input/Input";
 
 const FilterWithSearch = ({
@@ -44,7 +43,7 @@ const FilterWithSearch = ({
         </>
       ) : (
         <>
-            <div className="filterWithSearch__label">
+          <div className="filterWithSearch__label">
             {searchInput ? nameOfFilter : ""}
           </div>
           <div className="filterWithSearch__choise">

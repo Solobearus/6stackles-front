@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./FilterWithRange.css";
-import { searchSlice } from "../../store/slices";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Input from "../../components/Input/Input";
 
 const FilterWithRange = ({
@@ -26,7 +25,7 @@ const FilterWithRange = ({
               Min :
               <Input
                 id={"min"}
-                focus={opened}
+                focus={true}
                 type="text"
                 value={searchInput.min}
                 onChange={(e) =>
@@ -41,7 +40,7 @@ const FilterWithRange = ({
               Max :
               <Input
                 id={"max"}
-                focus={opened}
+                focus={false}
                 type="text"
                 value={searchInput.max}
                 onChange={(e) =>

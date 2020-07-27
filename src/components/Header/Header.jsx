@@ -23,6 +23,15 @@ const Header = () => {
       </div>
       <SideManue open={sideMenueOpen} setOpen={setSideMenueOpen} />
     </>
+    <div className="header" data-testid="header">
+      <FontAwesomeIcon icon={faBars} className="header_ham" />
+      <Link className="header_wrapper" to={`/products`}>
+        <img src={yad} alt="logo" className="header_logo" />
+      </Link>
+      <Link className="header_wrapper" to={`/profile`}>
+        <img src={userLogo} alt="userLogo" className="header_userLogo" />{" "}
+      </Link>
+    </div>
   );
 };
 

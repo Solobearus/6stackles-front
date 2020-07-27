@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./root.css";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -10,6 +10,7 @@ import Search from "./pages/Search/Search";
 import Profile from "./pages/Profile/Profile";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
 import { useSelector } from "react-redux";
+import { verify } from "./api";
 
 import {
   BrowserRouter as Router,
@@ -39,16 +40,28 @@ library.add(
 );
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
+  let history = useHistory();
   const { token } = useSelector((state) => state.userAuth);
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        token ? <Component {...props} /> : <Redirect to="/signIn" />
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const func = async () => {
+      const verifyResult = await verify(token);
+
+      console.log(verifyResult)
+
+      if (verifyResult.err) {
+        history.push("/signIn");
+      } else {
+        setLoading(false);
       }
-    />
-  );
+    };
+    func();
+  }, []);
+
+  //TODO: find a way to make more readable
+  return <Route {...rest} render={(props) => (loading ? <div>loading...</div> : token ? <Component {...props} /> : <Redirect to="/signIn" />)} />;
 };
 
 const App = () => {
@@ -64,10 +77,14 @@ const App = () => {
             <SignUp />
           </Route>
           <Route exact path="/products" component={Products} />
-          <Route exact path="/products/create" component={CreateProduct} />
+          <PrivateRoute exact path="/products/create" component={CreateProduct} />
+          <PrivateRoute path="/products/edit/:id" component={CreateProduct} />
           <Route path="/product/:id" component={Product} />
           <Route path="/search" component={Search} />
-          <Route path="/profile" component={Profile} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/">
+            <Redirect to="/products" />
+          </Route>
         </Switch>
       </Router>
     </div>

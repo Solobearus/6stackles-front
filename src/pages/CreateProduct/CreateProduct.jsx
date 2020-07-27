@@ -1,87 +1,34 @@
 import React, { useState } from "react";
 import "./CreateProduct.css";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import ItemGallery from "../../components/ItemGallery/ItemGallery";
 import Button from "../../components/Button/Button";
-import text from "../../locales/en";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input/Input";
-import { productsSlice } from "../../store/slices";
-
+import { useCreateProduct } from "./useCreateProduct";
 const CreateProduct = () => {
-  const { categories, conditions, locations } = useSelector(
-    (state) => state.search
-  );
-  const { text } = useSelector((state) => state.language);
-  const { id } = useSelector((state) => state.userDetails);
-
-  const history = useHistory();
-  const dispatch = useDispatch();
-
-  const [imageURLs, setImageURLs] = useState([null, null, null, null]);
-
-  const [name, setName] = useState("test");
-  const [category, setCategory] = useState("Hat");
-  const [location, setLocation] = useState("Israel");
-  const [condition, setCondition] = useState("Good");
-  const [description, setDescription] = useState("testtesttesttest");
-  const [price, setPrice] = useState(0);
-
-  const [error, setError] = useState("");
-
-  const handleOnSubmitClick = () => {
-    if (name.trim() === "") {
-      setError(text.default.error[1000]);
-      return;
-    }
-    if (category.trim() === "" || !categories.includes(category.trim())) {
-      setError(text.default.error[1001]);
-      return;
-    }
-    if (location.trim() === "" || !locations.includes(location.trim())) {
-      setError(text.default.error[1002]);
-      return;
-    }
-    if (condition.trim() === "" || !conditions.includes(condition.trim())) {
-      setError(text.default.error[1003]);
-      return;
-    }
-    if (price < 0) {
-      setError(text.default.error[1004]);
-      return;
-    }
-    if (
-      description.trim().length < 10 ||
-      description.trim().length > 500
-    ) {
-      setError(text.default.error[1005]);
-      return;
-    }
-
-    const randomId = Math.random() * 99999 + "";
-    dispatch(
-      productsSlice.actions.addProduct({
-        id: randomId,
-        authorId: id,
-        name,
-        category,
-        condition,
-        desc:description,
-        imgUrls: imageURLs,
-        price,
-        location,
-      })
-    );
-    history.push(`/product/${randomId}`);
-  };
-
-  const onImageChange = (image, index) => {
-    console.log(image.files[0]);
-    const newImageURLs = [...imageURLs];
-    newImageURLs[index] = URL.createObjectURL(image.files[0]);
-    setImageURLs(newImageURLs);
-  };
+  const {
+    images,
+    onImageChange,
+    name,
+    text,
+    setName,
+    category,
+    setCategory,
+    categories,
+    location,
+    setLocation,
+    locations,
+    condition,
+    setCondition,
+    conditions,
+    price,
+    setPrice,
+    description,
+    setDescription,
+    error,
+    handleOnSubmitClick,
+    newImageURLs
+  } = useCreateProduct();
 
   return (
     <div className="create_product" data-testid="create_product">
@@ -89,11 +36,14 @@ const CreateProduct = () => {
         🔙
       </Link>
       <ItemGallery>
-        {imageURLs &&
-          imageURLs.map((image, index) =>
+        {newImageURLs &&
+          newImageURLs.map((image, index) =>
             image === null ? (
-              <div className="create_product__input_pic">
-                <label for={`files_${index}`} class="btn">
+              <div className="create_product__input_pic" key={`${index}`}>
+                <label
+                  htmlFor={`files_${index}`}
+                  className="create_product__input_pic__label"
+                >
                   ➕
                 </label>
                 <input
@@ -109,7 +59,7 @@ const CreateProduct = () => {
               <img
                 key={`${index}`}
                 className="itemInGallery__img"
-                src={`${image}`}
+                src={`${process.env.REACT_APP_S3_BUCKET_ADRESS}${image}`}
                 alt={`${name}_${index}`}
               ></img>
             )
