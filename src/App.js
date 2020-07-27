@@ -11,9 +11,33 @@ import Profile from "./pages/Profile/Profile";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
 import { useSelector } from "react-redux";
 import { verify } from "./api";
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
 
-// !!! will be used once connection to backend is implemented !!!
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  Link,
+} from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCheckSquare,
+  faBars,
+  faPlusCircle,
+  faShoppingCart,
+  faHome,
+  faAddressCard,
+} from "@fortawesome/free-solid-svg-icons";
+import { fab, faCottonBureau } from "@fortawesome/free-brands-svg-icons";
+library.add(
+  fab,
+  faCheckSquare,
+  faBars,
+  faPlusCircle,
+  faShoppingCart,
+  faHome,
+  faAddressCard
+);
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   let history = useHistory();

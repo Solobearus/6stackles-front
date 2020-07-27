@@ -7,9 +7,10 @@
     justify-content: stretch;
 }
 
-.error{
+.error {
     color: red;
 }
+
 /* scroll bar */
 
 .scroll::-webkit-scrollbar-track {
@@ -34,7 +35,7 @@
 }
 
 .scroll_dark::-webkit-scrollbar-thumb {
-    background-color: var( --main-dark-color);
+    background-color: var(--main-dark-color);
 }
 
 .scroll_light::-webkit-scrollbar-track {
@@ -46,5 +47,5 @@
 }
 
 .scroll_light::-webkit-scrollbar-thumb {
-    background-color: var( --main-dark-color);
+    background-color: var(--main-dark-color);
 }
